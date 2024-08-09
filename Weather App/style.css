@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  width: 100%;
+  max-width: 450px;
+  background: #333;
+  color: #fff;
+  border-radius: 20px;
+  padding: 25px 20px;
+  text-align: center;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  margin-top: 80px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.search input {
+  border: 0;
+  outline: 0;
+  background: #444;
+  color: #fff;
+  padding: 12px 20px;
+  height: 50px;
+  border-radius: 25px;
+  flex: 1;
+  margin-right: 12px;
+  font-size: 16px;
+}
+
+.search button {
+  border: 0;
+  outline: 0;
+  background: #007bff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.search button img {
+  width: 20px;
+  height: 20px;
+}
+
+.search button:hover {
+  background: #0056b3;
+}
+
+.weather {
+  display: none;
+  margin-top: 20px;
+}
+
+.weather-icon {
+  width: 120px;
+  margin-bottom: 10px;
+}
+
+.temp {
+  font-size: 64px;
+  font-weight: 600;
+}
+
+.city {
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.feels-like {
+  font-size: 16px;
+  font-weight: 300;
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+.details {
+  padding: 0 10px;
+  margin-top: 20px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.row .col {
+  flex: 1;
+  text-align: left;
+}
+
+.row .col img {
+  width: 30px;
+  margin-right: 8px;
+}
+
+.row .col p {
+  margin: 0;
+  font-size: 14px;
+  color: #ddd;
+}
+
+.row .col p:first-child {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.error {
+  text-align: left;
+  color: #ff6b6b;
+  font-size: 16px;
+  margin-top: 10px;
+  display: none;
+}
+
+
+
+
+.air-quality {
+  margin-top: 30px;
+}
+
+.air-quality h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.air-quality .aqi-value {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.air-quality .aqi-description {
+  font-size: 16px;
+  color: #888;
+}
+
