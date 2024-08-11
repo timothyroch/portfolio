@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Particle Animation Background</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      background-color: #021027;
+    }
+
+    .container {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .background {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      mask-image: radial-gradient(
+        white 0%,
+        white 30%,
+        transparent 80%,
+        transparent
+      );
+    }
+
+    .circle-container {
+      position: absolute;
+      transform: translateY(-10vh);
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      width: 100%;
+      height: 100%;
+    }
+
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      mix-blend-mode: screen;
+      background-image: radial-gradient(
+        hsl(180, 100%, 80%),
+        hsl(180, 100%, 80%) 10%,
+        hsla(180, 100%, 80%, 0) 56%
+      );
+      animation: fadein-frames 200ms infinite, scale-frames 2s infinite;
+    }
+
+    @keyframes fadein-frames {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.7;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes scale-frames {
+      0% {
+        transform: scale3d(0.4, 0.4, 1);
+      }
+      50% {
+        transform: scale3d(2.2, 2.2, 1);
+      }
+      100% {
+        transform: scale3d(0.4, 0.4, 1);
+      }
+    }
+
+    .message {
+      position: absolute;
+      right: 20px;
+      bottom: 10px;
+      color: white;
+      font-family: "Josefin Slab", serif;
+      line-height: 27px;
+      font-size: 18px;
+      text-align: right;
+      pointer-events: none;
+      animation: message-frames 1.5s ease 5s forwards;
+      opacity: 90;
+    }
+
+    @keyframes message-frames {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/221808/sky.jpg" class="background" alt="Background Image">
+    <div class="circle-container" id="circle-container">
+      <!-- Circle elements will be generated dynamically -->
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const circleContainer = document.getElementById('circle-container');
+      const particleNum = 200;
+
+      for (let i = 0; i < particleNum; i++) {
+        const circle = document.createElement('div');
+        circle.className = 'circle';
+
+        const size = Math.random() * 8 + 4; // Random size between 4 and 12
+        const startPositionY = Math.random() * 100 + 100; // Random start position Y
+        const moveDuration = 45000 + Math.random() * 20000; // Random move duration
+        const delay = Math.random() * 37000; // Random delay
+
+        circle.style.width = `${size}px`;
+        circle.style.height = `${size}px`;
+        circle.style.animationDelay = `${Math.random() * 4000}ms`;
+
+        const framesName = `move-frames-${i}`;
+        const keyframes = `
+          @keyframes ${framesName} {
+            from {
+              transform: translate3d(${Math.random() * 100}vw, ${startPositionY}vh, 0);
+            }
+            to {
+              transform: translate3d(${Math.random() * 100}vw, ${-startPositionY - Math.random() * 30}vh, 0);
+            }
+          }
+        `;
+        
+        const styleSheet = document.createElement("style");
+        styleSheet.type = "text/css";
+        styleSheet.innerText = keyframes;
+        document.head.appendChild(styleSheet);
+
+        circle.style.animationName = framesName;
+        circle.style.animationDuration = `${moveDuration}ms`;
+        circle.style.animationDelay = `${delay}ms`;
+
+        circleContainer.appendChild(circle);
+      }
+    });
+  </script>
+</body>
+</html>
