@@ -80,6 +80,11 @@ window.addEventListener('DOMContentLoaded', () => {
   function changePlayer() {
     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
     playerDisplay.innerText = currentPlayer;
+
+    // If it's Player O's turn, let the AI make a move
+    if (currentPlayer === 'O' && isGameActive) {
+      setTimeout(aiMove, 500);  // Delay to simulate thinking time
+    }
   }
 
   function userAction(tile, index) {
@@ -90,6 +95,83 @@ window.addEventListener('DOMContentLoaded', () => {
       handleResultValidation();
       changePlayer();
     }
+  }
+
+  function aiMove() {
+    const bestMove = getBestMove();
+    if (bestMove !== null) {
+      const tile = tiles[bestMove];
+      tile.innerText = currentPlayer;
+      tile.classList.add(`player${currentPlayer}`);
+      updateBoard(bestMove);
+      handleResultValidation();
+      changePlayer();
+    }
+  }
+
+  function getBestMove() {
+    let bestScore = -Infinity;
+    let move = null;
+
+    for (let i = 0; i < board.length; i++) {
+      if (board[i] === '') {
+        board[i] = 'O';  // AI's move
+        const score = minimax(board, 0, false);
+        board[i] = '';  // Undo the move
+
+        if (score > bestScore) {
+          bestScore = score;
+          move = i;
+        }
+      }
+    }
+    return move;
+  }
+
+  function minimax(board, depth, isMaximizing) {
+    const result = checkWinner();
+    if (result !== null) {
+      return result === 'O' ? 10 - depth : (result === 'X' ? depth - 10 : 0);
+    }
+
+    if (isMaximizing) {
+      let bestScore = -Infinity;
+      for (let i = 0; i < board.length; i++) {
+        if (board[i] === '') {
+          board[i] = 'O';
+          const score = minimax(board, depth + 1, false);
+          board[i] = '';
+          bestScore = Math.max(score, bestScore);
+        }
+      }
+      return bestScore;
+    } else {
+      let bestScore = Infinity;
+      for (let i = 0; i < board.length; i++) {
+        if (board[i] === '') {
+          board[i] = 'X';
+          const score = minimax(board, depth + 1, true);
+          board[i] = '';
+          bestScore = Math.min(score, bestScore);
+        }
+      }
+      return bestScore;
+    }
+  }
+
+  function checkWinner() {
+    for (let i = 0; i < winningConditions.length; i++) {
+      const [a, b, c] = winningConditions[i];
+      if (board[a] !== '' && board[a] === board[b] && board[a] === board[c]) {
+        return board[a];
+      }
+    }
+
+    if (!board.includes('')) {
+      return 'TIE';
+    }
+
+    return null;
   }
 
   function resetBoard() {
