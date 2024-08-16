@@ -1,0 +1,112 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f0f0;
+}
+
+.calculatrice {
+    background-color: #212121;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+    margin: 20px;
+}
+
+.ecran {
+    width: 100%;
+    height: 80px;
+    background-color: #333;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+    font-size: 30px;
+    color: #fff;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.touches {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+}
+
+.button {
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    background-color: #444;
+    box-shadow: 0 4px #222;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+}
+
+.button:active {
+    box-shadow: 0 2px #222;
+    transform: translateY(4px);
+}
+
+button[data-key="8"] {
+    background-color: #ff3b30;
+    font-weight: bold;
+    color: white;
+}
+
+button[data-key="53"], button[data-key="219"] {
+    background-color: #ffcc00;
+}
+
+button[data-key="107"], button[data-key="109"], button[data-key="106"], button[data-key="111"] {
+    background-color: #007aff;
+}
+
+button[data-key="13"] {
+    grid-column: span 2;
+    background-color: #4cd964;
+    font-weight: bold;
+    color: white;
+    font-size: 35px;
+}
+
+.button:hover {
+    background-color: #555;
+}
+
+@media (max-width: 768px) {
+    .calculatrice {
+        width: 90%;
+        max-width: none;
+    }
+
+    .button {
+        font-size: 18px;
+        height: 50px;
+    }
+
+    .ecran {
+        height: 60px;
+        font-size: 24px;
+    }
+}
