@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #282c34;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden; /* Prevent scrollbars */
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        #gameContainer {
+            position: relative;
+            margin-top: 60px; /* Space for the legend */
+        }
+
+        canvas {
+            border: 1px solid #fff;
+            background-color: #333;
+            display: block; /* Ensure the canvas is block-level for better responsiveness */
+        }
+
+        #scoreBoard {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 18px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        #gameOverScreen {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #fff;
+        }
+
+        #gameOverScreen button {
+            background-color: #61dafb;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        #gameOverScreen button:hover {
+            background-color: #21a1f1;
+        }
+
+        #legend {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        #legend h3 {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+        }
+
+        #legend div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        #legend div span {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            canvas {
+                width: 100%;
+                height: auto;
+            }
+
+            #legend {
+                font-size: 12px;
+                padding: 5px;
+            }
+
+            #legend h3 {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            #gameContainer {
+                margin-top: 80px; /* More space for the legend on very small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Snake Game</h1>
+    <div id="legend">
+        <h3>Legend:</h3>
+        <div><span style="background-color: red;"></span> Food</div>
+        <div><span style="background-color: lime;"></span> Snake</div>
+        <div><span style="background-color: grey;"></span> Static Obstacles</div>
+        <div><span style="background-color: blue;"></span> Moving Obstacles</div>
+        <div><span style="background-color: yellow;"></span> Power-Ups</div>
+    </div>
+    <div id="gameContainer">
+        <canvas id="gameCanvas" width="400" height="400"></canvas>
+        <div id="scoreBoard">Score: 0</div>
+        <div id="gameOverScreen">
+            <h2>Game Over</h2>
+            <p>Your score: <span id="finalScore">0</span></p>
+            <button onclick="startGame()">Play Again</button>
+        </div>
+    </div>
+    <script src="snake.js"></script>
+</body>
+</html>
