@@ -1,0 +1,178 @@
+/* General Reset */
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Itim', cursive;
+  box-sizing: border-box;
+}
+
+/* Background and Main Styling */
+.background {
+  background: linear-gradient(135deg, #28313B, #485461);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Prevents page overflow */
+}
+
+/* Title Section */
+.title h1 {
+  color: #FFDC80;
+  font-size: 60px;
+  text-align: center;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Display for Player Turn */
+.display {
+  color: #FFDC80;
+  font-size: 28px;
+  text-align: center;
+  margin: 1em 0;
+}
+
+.player-turn {
+  color: #34E89E;
+}
+
+/* Announcer Styling */
+.announcer {
+  color: #FFDC80;
+  font-size: 32px;
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 400px;
+  z-index: 1000; /* Ensure it's on top of other elements */
+}
+
+/* Hide class */
+.hide {
+  display: none;
+}
+
+
+/* Keyframes for Announcer Pop-Up */
+@keyframes popUp {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Game Board Container */
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 350px;
+  width: 90%;
+}
+
+/* Individual Tile Styling */
+.tile {
+  background: #1E2023;
+  border: 2px solid #FFDC80;
+  min-width: 100px;
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Tile Hover and Active States */
+.tile:hover {
+  background: #49535B;
+  transform: scale(1.05);
+}
+
+.tile:active {
+  background: #28313B;
+  transform: scale(0.98);
+}
+
+/* Player X and O Styling */
+.playerX {
+  color: #34E89E;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.playerO {
+  color: #F7797D;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Controls Section */
+.controls {
+  margin-top: 2em;
+}
+
+#reset {
+  background: #FF3860;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Reset Button Hover and Active States */
+#reset:hover {
+  background: #FF5470;
+}
+
+#reset:active {
+  transform: scale(0.95);
+}
+
+/* Confetti Canvas */
+#confetti {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Media Query for Responsiveness */
+@media (max-width: 768px) {
+  .title h1 {
+    font-size: 50px;
+  }
+
+  .display {
+    font-size: 24px;
+  }
+
+  .tile {
+    min-width: 80px;
+    min-height: 80px;
+    font-size: 50px;
+  }
+
+  #reset {
+    font-size: 20px;
+  }
+}
