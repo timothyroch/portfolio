@@ -20,24 +20,21 @@ let gameRunning = false;
 let level = 1;
 let paused = false;
 
-// Load sound effects and background music
 const eatSound = new Audio('eat.mp3');
 const gameOverSound = new Audio('gameover.mp3');
 const backgroundMusic = new Audio('background.mp3');
 
-// Configure background music
 backgroundMusic.loop = true;
-backgroundMusic.volume = 0.2; // Adjust volume as needed
+backgroundMusic.volume = 0.2;
 
 function generateObstacles() {
     obstacles = [];
-    const obstacleCount = level * 2; // Increase obstacle count as the level increases
+    const obstacleCount = level * 2;
     for (let i = 0; i < obstacleCount; i++) {
         let obstacle = {
             x: Math.floor(Math.random() * tileCount),
             y: Math.floor(Math.random() * tileCount)
         };
-        // Ensure obstacle is not placed on snake or food
         while (snake.some(segment => segment.x === obstacle.x && segment.y === obstacle.y) ||
                (food.x === obstacle.x && food.y === obstacle.y)) {
             obstacle.x = Math.floor(Math.random() * tileCount);
@@ -50,7 +47,7 @@ function generateObstacles() {
 function generatePowerUps() {
     powerUps = [];
     const powerUpTypes = ['speed', 'length', 'score'];
-    const powerUpCount = Math.max(1, level); // Increase power-up count as the level increases
+    const powerUpCount = Math.max(1, level);
 
     for (let i = 0; i < powerUpCount; i++) {
         let powerUp = {
@@ -58,7 +55,6 @@ function generatePowerUps() {
             y: Math.floor(Math.random() * tileCount),
             type: powerUpTypes[Math.floor(Math.random() * powerUpTypes.length)]
         };
-        // Ensure power-up is not placed on snake, food, or obstacles
         while (snake.some(segment => segment.x === powerUp.x && segment.y === powerUp.y) ||
                (food.x === powerUp.x && food.y === powerUp.y) ||
                obstacles.some(obstacle => obstacle.x === powerUp.x && obstacle.y === powerUp.y)) {
@@ -71,19 +67,18 @@ function generatePowerUps() {
 
 function generateMovingObstacles() {
     movingObstacles = [];
-    const movingObstacleCount = Math.max(1, level); // Increase moving obstacle count as the level increases
+    const movingObstacleCount = Math.max(1, level);
 
     for (let i = 0; i < movingObstacleCount; i++) {
         let movingObstacle = {
             x: Math.floor(Math.random() * tileCount),
             y: Math.floor(Math.random() * tileCount),
-            direction: Math.floor(Math.random() * 4), // Random direction (0: up, 1: right, 2: down, 3: left)
+            direction: Math.floor(Math.random() * 4),
             speed: 1
         };
-        // Ensure moving obstacle is not placed on snake, food, or static obstacles
         while (snake.some(segment => segment.x === movingObstacle.x && segment.y === movingObstacle.y) ||
                (food.x === movingObstacle.x && food.y === movingObstacle.y) ||
-               obstacles.some(obstacle => obstacle.x === movingObstacle.x && obstacle.y === movingObstacle.y)) {
+               obstacles.some(obstacle => obstacle.x === movingObstacle.x && movingObstacle.y === obstacle.y)) {
             movingObstacle.x = Math.floor(Math.random() * tileCount);
             movingObstacle.y = Math.floor(Math.random() * tileCount);
         }
@@ -92,7 +87,6 @@ function generateMovingObstacles() {
 }
 
 function draw() {
-    // Draw grid background
     ctx.fillStyle = '#333';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.strokeStyle = '#444';
@@ -105,45 +99,37 @@ function draw() {
         ctx.stroke();
     }
 
-    // Draw food
     ctx.fillStyle = 'red';
     ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize, gridSize);
 
-    // Draw obstacles
     ctx.fillStyle = 'grey';
     for (let obstacle of obstacles) {
         ctx.fillRect(obstacle.x * gridSize, obstacle.y * gridSize, gridSize, gridSize);
     }
 
-    // Draw moving obstacles
     ctx.fillStyle = 'blue';
     for (let movingObstacle of movingObstacles) {
         ctx.fillRect(movingObstacle.x * gridSize, movingObstacle.y * gridSize, gridSize, gridSize);
     }
 
-    // Draw power-ups
     ctx.fillStyle = 'yellow';
     for (let powerUp of powerUps) {
         ctx.fillRect(powerUp.x * gridSize, powerUp.y * gridSize, gridSize, gridSize);
     }
 
-    // Draw snake
     ctx.fillStyle = 'lime';
     for (let segment of snake) {
         ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize, gridSize);
     }
 
-    // Move snake
     const newHead = { x: snake[0].x + direction.x, y: snake[0].y + direction.y };
 
-    // Check if the snake eats the food
     if (newHead.x === food.x && newHead.y === food.y) {
         score++;
         eatSound.play();
-        speed = Math.max(50, speed - 5); // Increase speed, minimum delay is 50ms
+        speed = Math.max(50, speed - 5);
         food = { x: Math.floor(Math.random() * tileCount), y: Math.floor(Math.random() * tileCount) };
-        
-        // Advance level every 5 points
+
         if (score % 5 === 0) {
             level++;
             generateObstacles();
@@ -151,13 +137,12 @@ function draw() {
             generateMovingObstacles();
         }
     } else {
-        snake.pop(); // Remove last segment if no food is eaten
+        snake.pop();
     }
 
-    // Check for collisions with walls, itself, obstacles, or moving obstacles
     if (
-        newHead.x < 0 || newHead.x >= tileCount || 
-        newHead.y < 0 || newHead.y >= tileCount || 
+        newHead.x < 0 || newHead.x >= tileCount ||
+        newHead.y < 0 || newHead.y >= tileCount ||
         snake.some(segment => segment.x === newHead.x && segment.y === newHead.y) ||
         obstacles.some(obstacle => obstacle.x === newHead.x && obstacle.y === newHead.y) ||
         movingObstacles.some(movingObstacle => movingObstacle.x === newHead.x && movingObstacle.y === newHead.y)
@@ -167,9 +152,8 @@ function draw() {
         return;
     }
 
-    snake.unshift(newHead); // Add new head to the front of the snake
+    snake.unshift(newHead);
 
-    // Update score display
     scoreBoard.innerText = `Score: ${score} | Level: ${level}`;
 }
 
@@ -182,7 +166,6 @@ function moveMovingObstacles() {
             case 3: movingObstacle.x -= movingObstacle.speed; break; // Left
         }
 
-        // Wrap around if out of bounds
         if (movingObstacle.x < 0) movingObstacle.x = tileCount - 1;
         if (movingObstacle.x >= tileCount) movingObstacle.x = 0;
         if (movingObstacle.y < 0) movingObstacle.y = tileCount - 1;
@@ -195,11 +178,11 @@ function handlePowerUps() {
         if (snake[0].x === powerUps[i].x && snake[0].y === powerUps[i].y) {
             const powerUp = powerUps.splice(i, 1)[0];
             if (powerUp.type === 'speed') {
-                speed = Math.max(30, speed - 10); // Increase speed
+                speed = Math.max(30, speed - 10);
             } else if (powerUp.type === 'length') {
-                snake.push(snake[snake.length - 1]); // Add segment
+                snake.push(snake[snake.length - 1]);
             } else if (powerUp.type === 'score') {
-                score += 10; // Increase score
+                score += 10;
             }
         }
     }
@@ -207,14 +190,14 @@ function handlePowerUps() {
 
 function gameOver() {
     gameRunning = false;
-    backgroundMusic.pause(); // Stop background music
+    backgroundMusic.pause();
     finalScore.innerText = score;
     gameOverScreen.style.display = 'block';
 }
 
 function resetGame() {
     snake = [{ x: Math.floor(tileCount / 2), y: Math.floor(tileCount / 2) }];
-    direction = { x: 0, y: 0 }; // Reset direction to stop movement
+    direction = { x: 0, y: 0 };
     food = { x: Math.floor(Math.random() * tileCount), y: Math.floor(Math.random() * tileCount) };
     powerUps = [];
     obstacles = [];
@@ -228,26 +211,25 @@ function resetGame() {
     gameOverScreen.style.display = 'none';
     scoreBoard.innerText = `Score: ${score} | Level: ${level}`;
     gameRunning = true;
-    backgroundMusic.play(); // Start background music
+    backgroundMusic.play();
 }
 
 function changeDirection(event) {
-    if (!gameRunning) return; // Ignore direction change if game is not running
-    if (paused && event.key !== "p") return; // Ignore other keys when paused
+    if (!gameRunning) return;
+    if (paused && event.key !== "p") return;
 
     const keyMap = {
         ArrowUp: { x: 0, y: -1 },
         ArrowDown: { x: 0, y: 1 },
         ArrowLeft: { x: -1, y: 0 },
         ArrowRight: { x: 1, y: 0 },
-        p: 'pause' // Pause/resume key
+        p: 'pause'
     };
 
     const newDirection = keyMap[event.key];
     if (newDirection === 'pause') {
         togglePause();
     } else if (newDirection) {
-        // Prevent the snake from reversing
         if ((newDirection.x !== -direction.x || snake.length === 1) &&
             (newDirection.y !== -direction.y || snake.length === 1)) {
             direction = newDirection;
@@ -262,11 +244,33 @@ function togglePause() {
         ctx.fillStyle = 'white';
         ctx.fillText('Paused', canvas.width / 2 - 50, canvas.height / 2);
     } else {
-        gameLoop(); // Resume game loop
+        gameLoop();
+    }
+}
+
+function handleTouchStart(event) {
+    if (!gameRunning || paused) return;
+
+    const touch = event.touches[0];
+    const touchX = touch.clientX - canvas.offsetLeft;
+    const touchY = touch.clientY - canvas.offsetTop;
+
+    const tileX = Math.floor(touchX / gridSize);
+    const tileY = Math.floor(touchY / gridSize);
+
+    const snakeHead = snake[0];
+    const dx = tileX - snakeHead.x;
+    const dy = tileY - snakeHead.y;
+
+    if (Math.abs(dx) > Math.abs(dy)) {
+        direction = { x: Math.sign(dx), y: 0 };
+    } else {
+        direction = { x: 0, y: Math.sign(dy) };
     }
 }
 
 document.addEventListener('keydown', changeDirection);
+canvas.addEventListener('touchstart', handleTouchStart);
 
 function gameLoop() {
     if (gameRunning && !paused) {
@@ -282,5 +286,4 @@ function startGame() {
     gameLoop();
 }
 
-// Start the game on page load
 startGame();
