@@ -1,0 +1,185 @@
+/* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f0f0f0; /* Light mode background */
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: flex-start; /* Align content to the top */
+  align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background-color: #333; /* Dark mode background */
+  color: #f0f0f0; /* Dark mode text color */
+}
+
+/* Header Styling */
+header {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+header h1 {
+  margin: 0;
+}
+
+/* Toolbar Styling */
+#toolbar {
+  background-color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap; /* Wrap toolbar buttons to new rows if needed */
+  gap: 15px;
+  margin: 20px 0;
+  max-width: 80%;
+}
+
+body.dark-mode #toolbar {
+  background-color: #444; /* Dark mode toolbar */
+}
+
+#toolbar button, 
+#toolbar select {
+  background-color: #007BFF;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 14px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+body.dark-mode #toolbar button, 
+body.dark-mode #toolbar select {
+  background-color: #0056b3; /* Dark mode button color */
+}
+
+#toolbar button:hover, 
+#toolbar select:hover {
+  background-color: #0056b3; /* Button hover effect */
+}
+
+#toolbar button:active {
+  background-color: #004494; /* Active button color */
+}
+
+#toolbar select {
+  appearance: none;
+  padding-right: 30px;
+  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+}
+
+/* Editor Styling */
+#editor {
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  width: 80%;
+  max-width: 900px;
+  min-height: 300px;
+  max-height: 60vh;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark-mode #editor {
+  background-color: #555; /* Dark mode editor background */
+  color: #f0f0f0; /* Dark mode editor text color */
+  border: 1px solid #666; /* Dark mode border */
+}
+
+#editor:focus {
+  border-color: #007BFF;
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.2);
+}
+
+/* Scrollbar customization */
+#editor::-webkit-scrollbar {
+  width: 8px;
+}
+
+#editor::-webkit-scrollbar-thumb {
+  background-color: #007BFF;
+  border-radius: 10px;
+}
+
+#editor::-webkit-scrollbar-track {
+  background-color: #e0e0e0;
+}
+
+body.dark-mode #editor::-webkit-scrollbar-thumb {
+  background-color: #0056b3; /* Dark mode scrollbar color */
+}
+
+body.dark-mode #editor::-webkit-scrollbar-track {
+  background-color: #777; /* Dark mode scrollbar track color */
+}
+
+/* Button styles for color inputs */
+#toolbar input[type="color"] {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border 0.3s ease; /* Smooth transition */
+}
+
+body.dark-mode #toolbar input[type="color"] {
+  border: 1px solid #666; /* Dark mode border for color inputs */
+}
+
+/* Hidden file input styles */
+#toolbar input[type="file"] {
+  display: none; /* Hidden, triggered via button */
+}
+
+/* Label styling for file input trigger */
+#toolbar label {
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #007BFF;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+#toolbar label:hover {
+  background-color: #0056b3;
+}
+
+/* Footer Styling */
+footer {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  margin-top: auto; /* Push footer to bottom */
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Word Editor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Mini Word Editor</h1>
+        <button id="toggleDarkMode">Toggle Dark Mode</button>
+    </header>
+
+    <div id="toolbar">
+        <!-- Basic Formatting Buttons -->
+        <button onclick="formatText('bold')"><b>B</b></button>
+        <button onclick="formatText('italic')"><i>I</i></button>
+        <button onclick="formatText('underline')"><u>U</u></button>
+
+        <!-- Font Size and Family -->
+        <select onchange="formatText('fontSize', this.value)">
+            <option value="1">Small</option>
+            <option value="3" selected>Normal</option>
+            <option value="5">Large</option>
+        </select>
+
+        <select onchange="formatText('fontName', this.value)">
+            <option value="Arial">Arial</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Verdana">Verdana</option>
+        </select>
+
+        <!-- Text Alignment -->
+        <button onclick="formatText('justifyLeft')">Left</button>
+        <button onclick="formatText('justifyCenter')">Center</button>
+        <button onclick="formatText('justifyRight')">Right</button>
+        <button onclick="formatText('justifyFull')">Justify</button>
+
+        <!-- Text and Background Color -->
+        <input type="color" id="textColor" onchange="formatText('foreColor', this.value)">
+        <input type="color" id="bgColor" onchange="formatText('hiliteColor', this.value)" title="Highlight">
+
+        <!-- Undo and Redo -->
+        <button onclick="formatText('undo')">Undo</button>
+        <button onclick="formatText('redo')">Redo</button>
+
+        <!-- Clear Formatting -->
+        <button onclick="clearFormatting()">Clear</button>
+
+        <!-- Links -->
+        <button onclick="insertLink()">Insert Link</button>
+
+        <!-- Insert Image -->
+        <input type="file" id="imageInput" onchange="insertImage()" accept="image/*">
+
+        <!-- Save/Load -->
+        <button onclick="saveContent()">Save</button>
+        <button onclick="loadContent()">Load</button>
+
+        <!-- Export/Import -->
+        <button onclick="exportContent()">Export</button>
+        <input type="file" id="importInput" onchange="importContent()" accept=".txt" title="Import content">
+
+    </div>
+
+    <div id="editor" contenteditable="true">
+        Start editing your text here...
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Mini Word Editor. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
