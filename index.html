@@ -521,22 +521,9 @@
       Read More
     </a>
   </div>
-  <div id="rocket-container"></div>
+
 </section>
-<script>
-  fetch('./rocket.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('rocket-container').innerHTML = data;
-      const style = document.createElement('link');
-      style.rel = 'stylesheet';
-      style.href = './rocket.css';
-      document.head.appendChild(style);
-      const script = document.createElement('script');
-      script.src = './rocket.js';
-      document.body.appendChild(script);
-    });
-</script>
+
   
 
 <!--contact-->
