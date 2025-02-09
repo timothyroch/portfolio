@@ -1,432 +1,647 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Luminex: Adaptive Multi-Layer Cryptocurrency utilizing sharding, Layer-2 rollups, and zero-knowledge proofs for scalability and security." />
-  <title>Luminex Project Overview</title>
-  <style>
-    /* CSS Variables for light and dark themes */
-    :root {
-      --bg-color: #f4f4f4;
-      --container-bg: #fff;
-      --text-color: #333;
-      --header-bg: #333;
-      --header-text: #fff;
-      --dropdown-header-bg: #f9f9f9;
-      --dropdown-border: #ccc;
-      --highlight-bg: #e2e2e2;
-      --highlight-border: #333;
-      --nav-link-color: #fff;
-      --nav-link-hover: #ccc;
-    }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Timothy Roch</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./tailwind.config.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&display=swap" rel="stylesheet">
+<style>
 
-    .dark-mode {
-      --bg-color: #121212;
-      --container-bg: #1e1e1e;
-      --text-color: #e0e0e0;
-      --header-bg: #000;
-      --header-text: #e0e0e0;
-      --dropdown-header-bg: #333;
-      --dropdown-border: #555;
-      --highlight-bg: #333;
-      --highlight-border: #e0e0e0;
-      --nav-link-color: #e0e0e0;
-      --nav-link-hover: #aaa;
-    }
+.extra_project {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
 
-    /* Global Styles */
-    * {
-      box-sizing: border-box;
-    }
+.extra_project.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
 
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-    }
 
-    .container {
-      width: 80%;
-      margin: 20px auto;
-      background: var(--container-bg);
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    header,
-    footer {
-      background: var(--header-bg);
-      color: var(--header-text);
-      padding: 10px 0;
-      text-align: center;
-      position: relative;
-    }
-
-    header .home-link {
-      position: absolute;
-      top: 10px;
-      left: 20px;
-      color: var(--header-text);
-      text-decoration: none;
-      font-size: 1.5em;
-    }
-
-    /* Dark/Light Mode Toggle Button */
-    header #theme-toggle {
-      position: absolute;
-      top: 10px;
-      right: 20px;
-      background: none;
-      border: 1px solid var(--header-text);
-      color: var(--header-text);
-      padding: 5px 10px;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    header #theme-toggle:hover {
-      background: var(--header-text);
-      color: var(--header-bg);
-    }
-
-    h1,
-    h2,
-    h3 {
-      color: var(--text-color);
-      margin-top: 0;
-    }
-
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 10px 0;
-    }
-
-    nav ul li {
-      display: inline;
-      margin-right: 20px;
-    }
-
-    nav ul li a {
-      color: var(--nav-link-color);
-      text-decoration: none;
-    }
-
-    nav ul li a:hover {
-      color: var(--nav-link-hover);
-    }
-
-    section {
-      margin-bottom: 20px;
-    }
-
-    .highlight {
-      background: var(--highlight-bg);
-      padding: 10px;
-      border-left: 4px solid var(--highlight-border);
-    }
-
-    .footer-text {
-      font-size: 0.9em;
-    }
-
-    /* Dropdown Styles */
-    .dropdown {
-      margin: 10px 0;
-      border: 1px solid var(--dropdown-border);
-      border-radius: 4px;
-    }
-
-    .dropdown-header {
-      background: var(--dropdown-header-bg);
-      padding: 10px;
-      cursor: pointer;
-      border-bottom: 1px solid var(--dropdown-border);
-      position: relative;
-    }
-
-    /* Arrow icon for dropdown header */
-    .dropdown-header::after {
-      content: "\25BC";
-      position: absolute;
-      right: 10px;
-      transition: transform 0.3s ease;
-    }
-
-    .dropdown-header.active::after {
-      transform: rotate(180deg);
-    }
-
-    .dropdown-content {
-      max-height: 0;
-      opacity: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease, opacity 0.4s ease;
-      padding: 0 10px;
-    }
-
-    .dropdown-content.active {
-      max-height: 500px; /* Adjust this value if necessary */
-      opacity: 1;
-      padding: 10px;
-    }
-
-    /* Table Styling */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-
-    table,
-    th,
-    td {
-      border: 1px solid var(--dropdown-border);
-    }
-
-    th,
-    td {
-      padding: 10px;
-      text-align: left;
-    }
-
-    /* Responsive Adjustments */
-    @media (max-width: 768px) {
-      .container {
-        width: 95%;
-      }
-      nav ul li {
-        display: block;
-        margin: 5px 0;
-      }
-      header .home-link,
-      header #theme-toggle {
-        position: static;
-        margin: 5px;
-      }
-    }
-  </style>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      // Enhance dropdown headers for accessibility
-      document.querySelectorAll(".dropdown-header").forEach(function (header) {
-        header.setAttribute("role", "button");
-        header.setAttribute("tabindex", "0");
-        header.setAttribute("aria-expanded", "false");
-
-        header.addEventListener("click", function () {
-          const content = this.nextElementSibling;
-          content.classList.toggle("active");
-          this.classList.toggle("active");
-
-          // Update aria-expanded attribute
-          const expanded = this.getAttribute("aria-expanded") === "true";
-          this.setAttribute("aria-expanded", !expanded);
-        });
-
-        // Allow toggling with Enter or Space keys
-        header.addEventListener("keypress", function (e) {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            this.click();
-          }
-        });
-      });
-
-      // Dark/Light Mode Toggle
-      const themeToggle = document.getElementById("theme-toggle");
-      themeToggle.addEventListener("click", function () {
-        document.body.classList.toggle("dark-mode");
-        if (document.body.classList.contains("dark-mode")) {
-          themeToggle.textContent = "Light Mode";
-        } else {
-          themeToggle.textContent = "Dark Mode";
-        }
-      });
-    });
-  </script>
+</style>
 </head>
-<body class="dark-mode">
+<body class="overflow-x-hidden font-Outfit leading-8 dark:bg-darkTheme dark:text-white">
 
-    
-  <header>
-    <a href="index.html" class="home-link">&#8592;</a>
-    <img src="Luminex_Logo.png" alt="">
-    <h1>Luminex: Adaptive Multi-Layer Cryptocurrency</h1>
-    <button id="theme-toggle">Light Mode</button>
-    <nav>
-      <ul>
-        <li><a href="#overview">Overview</a></li>
-        <li><a href="#architecture">Architecture</a></li>
-        <li><a href="#features">Key Features</a></li>
-        <li><a href="#roadmap">Roadmap</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div class="fixed top-0 right-0 width-11/12 -z-10 translate-y-[-80%] dark:hidden">
+    <img src="./images/header-bg-color.png" class="w-full" alt="">
+  </div>
+<nav class="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50">
+  <a href="#top">
+  <img src="./images/tim_logo.png" alt="Logo"
+  class="w-28 cursor-pointer mr-14 dark:hidden">
+  
 
-  <div class="container">
-    <section id="overview">
-      <h2>Project Overview</h2>
-      <p>
-        Luminex is a next-generation blockchain protocol designed for high scalability and security.
-        By integrating <strong>sharding</strong>, <strong>Layer-2 rollups</strong>, and
-        <strong>zero-knowledge proofs (ZKPs)</strong>, Luminex achieves superior transaction throughput,
-        reduced fees, and robust decentralization.
-      </p>
-      <p>
-        Our Adaptive Multi-Layer (AML) architecture ensures that the blockchain can handle diverse applications,
-        ranging from decentralized finance (DeFi) to enterprise solutions and gaming.
-      </p>
-    </section>
+  <img src="./images/tim_logo_dark.png" alt="Logo"
+  class="w-28 cursor-pointer mr-14 hidden dark:block">
+</a>
+  <ul class="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50 font-Ovo dark:border dark:border-white/50 dark:bg-transparent">
+    <li><a href="#top">Home</a></li>
+    <li><a href="#about">About me</a></li>
+    <!-- <li><a href="#services">My Top 3</a></li> -->
+    <li><a href="#work">My Work</a></li>
+    <li><a href="#contact">Contact me</a></li>
+  </ul>
+<div class="flex items-center gap-4">
+  <button onclick="toggleTheme()">
+    <img src="./images/moon_icon.png" class="w-6 dark:hidden" alt="">
+    <img src="./images/sun_icon.png" class="w-6 hidden dark:block" alt="">
 
-    <section id="architecture">
-      <h2>Architecture</h2>
-      <div class="dropdown">
-        <div class="dropdown-header">Adaptive Multi-Layer (AML) Approach</div>
-        <div class="dropdown-content">
-          <p>
-            The AML architecture dynamically routes transactions to the most suitable layer based on their urgency
-            and computational requirements.
-          </p>
-          <ul>
-            <li><strong>Layer-1 (L1):</strong> Secure, sharded blockchain for critical operations.</li>
-            <li><strong>Layer-2 (L2):</strong> Off-chain solutions like zk-rollups and sidechains for high throughput.</li>
-            <li><strong>Aggregator Module:</strong> Ensures seamless coordination between L1 and L2.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="dropdown">
-        <div class="dropdown-header">Consensus Mechanisms</div>
-        <div class="dropdown-content">
-          <p>
-            Luminex employs a hybrid consensus model, primarily using <strong>Proof of Stake (PoS)</strong>
-            for energy efficiency and security, with potential integration of PoW and PoA for specific use cases.
-          </p>
-        </div>
-      </div>
-      <div class="dropdown">
-        <div class="dropdown-header">Layer-2 Solutions</div>
-        <div class="dropdown-content">
-          <ul>
-            <li><strong>ZK Rollups:</strong> Bundling transactions off-chain with ZKP validation.</li>
-            <li><strong>Sidechains:</strong> Customizable chains for specific applications like gaming or supply chain.</li>
-            <li><strong>State Channels:</strong> Enable microtransactions with periodic on-chain settlements.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  </button>
+  <a href="#contact"
+  class="hidden lg:flex items-center gap-3 px-10 py-2.5 border
+  border-gray-500 rounded-full ml-4 font_Ovo dark:border-white/50">
+    Contact 
+    <img src="./images/arrow-icon.png" alt="" class="w-3 dark:hidden">
+    <img src="./images/arrow-icon-dark.png" alt="" class="w-3 hidden dark:block">
 
-    <section id="features">
-      <h2>Key Features</h2>
-      <div class="dropdown">
-        <div class="dropdown-header">Scalability</div>
-        <div class="dropdown-content">
-          <p>
-            Sharding and Layer-2 integrations ensure the system can handle high transaction volumes.
-          </p>
-        </div>
-      </div>
-      <div class="dropdown">
-        <div class="dropdown-header">Security</div>
-        <div class="dropdown-content">
-          <p>
-            Zero-Knowledge Proofs and dynamic validator assignment protect against fraud and ensure data integrity.
-          </p>
-        </div>
-      </div>
-      <div class="dropdown">
-        <div class="dropdown-header">Decentralization</div>
-        <div class="dropdown-content">
-          <p>
-            Community-driven governance with on-chain proposals and voting mechanisms.
-          </p>
-        </div>
-      </div>
-      <div class="dropdown">
-        <div class="dropdown-header">Privacy</div>
-        <div class="dropdown-content">
-          <p>
-            ZKPs enable confidential transactions without compromising transparency.
-          </p>
-        </div>
-      </div>
-      <div class="dropdown">
-        <div class="dropdown-header">Robust Monitoring</div>
-        <div class="dropdown-content">
-          <p>
-            Real-time dashboards and alerts via Prometheus/Grafana integration.
-          </p>
-        </div>
-      </div>
-    </section>
+  </a>
 
-    <section id="roadmap">
-      <h2>Project Roadmap</h2>
-      <table>
-        <tr>
-          <th>Phase</th>
-          <th>Milestone</th>
-          <th>Details</th>
-        </tr>
-        <tr>
-          <td>Q1</td>
-          <td>Testnet Launch</td>
-          <td>Deploy public testnet with basic sharding and Layer-2 integration.</td>
-        </tr>
-        <tr>
-          <td>Q2</td>
-          <td>ZK Rollup Integration</td>
-          <td>Implement ZK rollups and optimize aggregator performance.</td>
-        </tr>
-        <tr>
-          <td>Q3</td>
-          <td>Mainnet Release</td>
-          <td>Official launch with staking, governance, and AML features.</td>
-        </tr>
-        <tr>
-          <td>Q4</td>
-          <td>Sidechain Framework</td>
-          <td>Toolkits for developers to create and customize sidechains.</td>
-        </tr>
-        <tr>
-          <td>Q5+</td>
-          <td>Ecosystem Growth</td>
-          <td>Expand DeFi, NFT, and enterprise partnerships.</td>
-        </tr>
-      </table>
-      <section id="whitepaper">
-        <h2>White Paper</h2>
-        <iframe src="wp.pdf" width="100%" height="1100px" style="border: none;"></iframe>
-        <p><a href="wp.pdf" download>Download White Paper</a></p>
-    </section>
-    </section>
+  <button class="block md:hidden ml-3" onclick="openMenu()">
+    <img src="./images/menu-black.png" alt="" class="w-6 dark:hidden">
+    <img src="./images/menu-white.png" alt="" class="w-6 hidden dark:block">
 
-    <section id="contact">
-      <h2>Contact &amp; Community</h2>
-      <p>
-        Join our community to stay updated and contribute to the growth of Luminex:
-      </p>
-      <ul>
-        <li><a href="#">GitHub Repository</a></li>
-        <li><a href="#">Community Forum</a></li>
-        <li><a href="#">Developer Documentation</a></li>
-        <li><a href="#">Contact Us</a></li>
-      </ul>
-    </section>
+  </button>
+</div>
+
+<!----- mobile menu ----->
+<ul id="sideMenu" class="flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500 font-Ovo dark:bg-darkHover dark:text-white">
+
+<div class="absolute right-6 top-6" onclick="closeMenu()">
+  <img src="./images/close-black.png" alt="" class="w-5 cursor-pointer dark:hidden">
+  <img src="./images/close-white.png" alt="" class="w-5 cursor-pointer hidden dark:block">
+
+</div>
+
+  <li><a href="#top" onclick="closeMenu()">Home</a></li>
+  <li><a href="#about"onclick="closeMenu()">About me</a></li>
+  <!-- <li><a href="#services" onclick="closeMenu()">My Top 3</a></li> -->
+  <li><a href="#work" onclick="closeMenu()">My Work</a></li>
+  <li><a href="#contact" onclick="closeMenu()">Contact me</a></li>
+</ul>
+
+</nav>
+
+<!-- header-->
+<div class="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center -gap-4">
+  <img src="./images/PortfolioPictureFaceOnly.JPG" alt="" class="rounded-full w-32">
+  <h3 class="flex items-center gap-2 text-xl md:text-2x; mb-3 font-Ovo">Hi! I'm Timothy Roch <img src="./images/hand-icon.png" alt="" class="w-6"></h3>
+  <h1 class="text-3xl sm:text-6xl lg:text-[66px] font-Ovo">Software engineer.</h1>
+  <p class="max-w-2xl mx-auto font-Ovo">I am a student in software engineering from Montreal, Canada with 3 years of experience in freelance.</p>
+
+  <div class="flex flex-col sm:flex-row items-center gap-4 mt-4">
+    <a href="#contact"
+    class="px-10 py-3 border rounded-full bg-gradient-to-r from-[#1E3A8A] to-[#3B82F6]
+    text-white flex items-center gap-2 dark:border-transparent">Contact me <img src="./images/right-arrow-white.png" class="w-4" alt=""></a>
+
+    <a href="./images/tim_logo.png" download
+    class="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white dark:text-black">My resume <img src="./images/download-icon.png" class="w-4" alt=""></a>
+  </div>
+</div>
+
+<!-- about me -->
+ <div id="about" class="w-full px-[12%] py-10 scroll-mt-20">
+  <h4 class="text-center mb-2 text-lg font-Ovo">Introduction</h4>
+  <h2 class="text-center text-5xl font-Ovo">About me</h2>
+
+  <div class="flex w-full flex-col lg:flex-row items-center gap-20 my-20">
+    <div class="max-w-max mx-auto relative">
+      <img src="./images/PortfolioPicture.JPG" alt="" class="w-64 sm:w-80 rounded-3xl max-w-none">
+     <!-- <div class="bg-white w-1/2 aspect-square absolute right-0 bottom-0 rounded-full translate-x-1/4 translate-y-/1/3 shadow-[0_4px_55px_rgba(149,0,162,0.15)] flex items-center justify-center">
+<img src="./images/circular-text.png" alt="" class="w-full animate-spin_slow">
+<img src="./images/dev-icon.png" alt="" class="w-1/4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      </div>-->
+    </div>
+    <div class="flex-1 ">
+<p class="mb-10 max-w-2xl font-Ovo">I do Frontend and Backend Developement with 3 years of freelance experience in the field. Throughout my journey, I have created numerous projects from various fields, including AI machine learning, SaaS, and blockchain development.</p>
+
+<ul class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl">
+  <li class="border-[0.5px] border-gray-400 rounded-xl p-6 cursos-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-black dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50">
+    <img src="./images/code-icon.png" alt="" class="w-7 mt-3 dark:hidden">
+    <img src="./images/code-icon-dark.png" alt="" class="w-7 mt-3 hidden dark:block">
+
+    <h3 class="my-4 font-semibold text-gray-700 dark:text-white">Languages</h3>
+    <p class="text-gray-600 text-sm dark:text-white/50">Python, Java, C++, C, Javascript, react, PHP, Ruby, R, Kotlin, Swift HTML, css, MySQL.</p>
+  </li>
+  <li class="border-[0.5px] border-gray-400 rounded-xl p-6 cursos-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-black dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50">
+    <img src="./images/edu-icon.png" alt="" class="w-7 mt-3 dark:hidden">
+    <img src="./images/edu-icon-dark.png" alt="" class="w-7 mt-3 hidden dark:block">
+
+    <h3 class="my-4 font-semibold text-gray-700 dark:text-white">Education</h3>
+    <p class="text-gray-600 text-sm dark:text-white/50">Student in Software Engineering at Concordia university</p>
+  </li>
+  <li class="border-[0.5px] border-gray-400 rounded-xl p-6 cursos-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-black dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50">
+    <img src="./images/project-icon.png" alt="" class="w-7 mt-3 dark:hidden">
+    <img src="./images/project-icon-dark.png" alt="" class="w-7 mt-3 hidden dark:block">
+
+    <h3 class="my-4 font-semibold text-gray-700 dark:text-white">Projects</h3>
+    <p class="text-gray-600 text-sm dark:text-white/50">Built more than 15 projects</p>
+  </li>
+</ul>
+<!--<h4 class="my-6 text-gray-700 font-Ovo dark:text-white/80">Tools I use</h4>
+
+<ul class="flex items-center gap-3 sm:gap-5">
+  <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+    <img src="./images/vscode.png" alt="" class="w-5 sm:w-7">
+  </li>
+  <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+    <img src="./images/firebase.png" alt="" class="w-5 sm:w-7">
+  </li>
+  <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+    <img src="./images/mongodb.png" alt="" class="w-5 sm:w-7">
+  </li>
+  <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+    <img src="./images/figma.png" alt="" class="w-5 sm:w-7">
+  </li>
+  <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+    <img src="./images/git.png" alt="" class="w-5 sm:w-7">
+  </li>
+</ul> -->
+    </div>
+  </div>
+ </div>
+
+ <!--services -->
+
+ <div id="work" class="w-full px-[12%] py-10 scroll-mt-20">
+
+  <h4 class="text-center mb-2 text-lg font-Ovo">What I'm Proud Of</h4>
+  <h2 class="text-center text-5xl font-Ovo">My Top Projects</h2>
+  <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo"></p>
+
+
+  <div class="grid grid-cols-auto gap-6 my-10">
+<div class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white">
+  <img src="./images/web-icon.png" alt="" class="w-10">
+  <h3 class="text-lg my-4 text-gray-700 dark:text-white">Luminex Cryptocurrency</h3>
+  <p class="text-sm text-gray-600 leading-5 dark:text-white/80">Luminex is a next-gen cryptocurrency built on a scalable and secure blockchain. Leveraging sharding, Layer-2 rollups, and zero-knowledge proofs, it ensures high throughput, low fees, and robust security for dApps and financial systems.</p>
+  <a href="" class="flex items-center gap-2 text-sm mt-5">Read more <img src="./images/right-arrow.png" alt="" class="w-4"></a>
+</div>
+<div class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white">
+  <img src="./images/mobile-icon.png" alt="" class="w-10">
+  <h3 class="text-lg my-4 text-gray-700 dark:text-white">AI Sign Language Interpreter</h3>
+  <p class="text-sm text-gray-600 leading-5 dark:text-white/80">An AI-powered tool that recognizes and translates sign language gestures in real time, breaking down communication barriers and enhancing accessibility.</p>
+  <a href="" class="flex items-center gap-2 text-sm mt-5">Read more <img src="./images/right-arrow.png" alt="" class="w-4"></a>
+</div>
+<div class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white">
+  <img src="./images/ui-icon.png" alt="" class="w-10">
+  <h3 class="text-lg my-4 text-gray-700 dark:text-white">Decentralized Medical Records</h3>
+  <p class="text-sm text-gray-600 leading-5 dark:text-white/80">A blockchain-based dApp designed to securely store, manage, and share patient medical records. It ensures data privacy, enhances accessibility, and empowers patients with control over their healthcare data.</p>
+  <a href="" class="flex items-center gap-2 text-sm mt-5">Read more <img src="./images/right-arrow.png" alt="" class="w-4"></a>
+</div>
+
+<!--<div class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white">
+  <img src="./images/graphics-icon.png" alt="" class="w-10">
+  <h3 class="text-lg my-4 text-gray-700 dark:text-white">Graphic design</h3>
+  <p class="text-sm text-gray-600 leading-5 dark:text-white/80">Web development is the process of building, programming...</p>
+  <a href="" class="flex items-center gap-2 text-sm mt-5">Read more <img src="./images/right-arrow.png" alt="" class="w-4"></a>
+</div> -->
+  </div>
+ </div> 
+
+<!--my work-->
+
+<div id="" class="w-full px-[12%] py-10 scroll-mt-20">
+
+  <h4 class="text-center mb-2 text-lg font-Ovo">My portfolio</h4>
+  <h2 class="text-center text-5xl font-Ovo">My latest work</h2>
+  <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">Welcome to my web development portfolio! Explore a collection of projects showcasing my expertise in frontend and backend development.</p>
+
+  <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 my-10 gap-5 dark:text-black">
+
+
+    <!--Yoom-->
+
+<div class="aspect-square bg-[url('./images/yoom.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group">
+
+  <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
+
+<div>
+  <a href="https://zoom-clone-pink-kappa.vercel.app" target="_blank">
+  <h2 class="font-semibold">Facetime App</h2>
+  <p class="text-sm text-gray-700">Clone of zoom meeting app</p>
+    </a>
+</div>
+
+<div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+  <img src="./images/send-icon.png" alt="" class="w-5">
+</div>
   </div>
 
-  <footer>
-    <p class="footer-text">&copy; 2024 Luminex Project. All rights reserved.</p>
-  </footer>
+</div>
+
+    <!--Numerical Leitner System-->
+<div class="aspect-square bg-[url('./images/nls_home.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group">
+
+  <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
+
+<div>
+  <a href="https://numericalleitnersystem.wuaze.com/login.php">
+  <h2 class="font-semibold">Study Plateform</h2>
+  <p class="text-sm text-gray-700">Create flash cards, study them, upgrade their levels, and communicate with your friends</p>
+  </a>
+</div>
+
+<div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+  <img src="./images/send-icon.png" alt="" class="w-5">
+</div>
+  </div>
+
+</div>
+
+
+<!--MateNet-->
+
+<div class="aspect-square bg-[url('./images/matenet.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group bg-opacity-10">
+
+  <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
+
+<div>
+  <a href="https://matenet.wuaze.com">
+  <h2 class="font-semibold">Social Network</h2>
+  <p class="text-sm text-gray-700">Make your account, create posts, share pictures, follow your friends and comment their posts.</p>
+  </a>
+</div>
+
+<div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+  <img src="./images/send-icon.png" alt="" class="w-5">
+</div>
+  </div>
+
+</div>
+
+    <!--finance tracker-->
+
+<div class="aspect-square bg-[url('./images/equinova.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group bg-opacity-10">
+
+  <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
+
+<div>
+  <a href="https://equinovafinance-ao8ude7qu-timothyrochs-projects.vercel.app/">
+  <h2 class="font-semibold">Finance Tracker</h2>
+  <p class="text-sm text-gray-700">Create budgets, track expenses, and visualize your finances with intuitive chart.</p>
+  </a>
+</div>
+
+<div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+  <img src="./images/send-icon.png" alt="" class="w-5">
+</div>
+  </div>
+
+</div>
+
+      <!--carapp-->
+
+<div class="aspect-square bg-[url('./images/carapp.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group hidden extra_project" id="">
+
+  <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
+
+<div>
+  <a href="https://car-showcase-eight-murex.vercel.app/">
+  <h2 class="font-semibold">Car Showcase</h2>
+  <p class="text-sm text-gray-700">Search cars and get informations about their performances</p>
+  </a>
+</div>
+
+<div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+  <img src="./images/send-icon.png" alt="" class="w-5">
+</div>
+  </div>
+
+</div>
+
+     <!--chess game-->
+
+<div class="aspect-square bg-[url('./images/chess.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group hidden extra_project" id="">
+
+  <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
+
+<div>
+  <a href="/Catch the starts/index.html">
+  <h2 class="font-semibold">Chess Game</h2>
+  <p class="text-sm text-gray-700">Play the traditional chess game with your friend!</p>
+  </a>
+</div>
+
+<div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+  <img src="./images/send-icon.png" alt="" class="w-5">
+</div>
+  </div>
+
+</div>
+
+
+  <!--snake game-->
+
+<div class="aspect-square bg-[url('./images/snake.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group hidden extra_project" id="">
+
+  <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
+
+<div>
+  <a href="/snake game/index.html">
+  <h2 class="font-semibold">Snake Game</h2>
+  <p class="text-sm text-gray-700">Navigate a growing snake to eat food and avoid crashing into obstacles, itself or the walls.</p>
+  </a>
+</div>
+
+<div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+  <img src="./images/send-icon.png" alt="" class="w-5">
+</div>
+  </div>
+
+</div>
+
+
+
+  <!--Weather app-->
+
+<div class="aspect-square bg-[url('./images/weather_earth.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group hidden extra_project" id="">
+
+  <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
+
+<div>
+  <a href="/Weather App/index.html">
+  <h2 class="font-semibold">Weather App</h2>
+  <p class="text-sm text-gray-700">Search weather and more from cities all around the world</p>
+  </a>
+</div>
+
+<div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+  <img src="./images/send-icon.png" alt="" class="w-5">
+</div>
+  </div>
+
+</div>
+      <!--Tic Tac Toe-->
+
+<div class="aspect-square bg-[url('./images/tictactoe.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group hidden extra_project" id="">
+
+  <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
+
+<div>
+  <a href="/tic_tac_toe/index.html">
+  <h2 class="font-semibold">Tic Tac Toe</h2>
+  <p class="text-sm text-gray-700">Try to beat my algorithm at the classic Tic-Tac-Toe game</p>
+  </a>
+</div>
+
+<div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+  <img src="./images/send-icon.png" alt="" class="w-5">
+</div>
+  </div>
+
+</div>
+    <!--Text to speech-->
+
+<div class="aspect-square bg-[url('./images/texttospeech.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group hidden extra_project" id="">
+
+  <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
+
+<div>
+  <a href="TextToVoice/index.html">
+  <h2 class="font-semibold">Text To Voice Converter</h2>
+  <p class="text-sm text-gray-700">Turn your text to speech, adjust the tone, the debit, and more.</p>
+  </a>
+</div>
+
+<div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+  <img src="./images/send-icon.png" alt="" class="w-5">
+</div>
+  </div>
+
+</div>
+
+    <!--chatbot-->
+
+<div class="aspect-square bg-[url('../images/terraguide.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group hidden extra_project" id="">
+
+  <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
+
+<div>
+  <a href="/chatbot test/index.html">
+  <h2 class="font-semibold">Chatbot App</h2>
+  <p class="text-sm text-gray-700">Ask him to give you informations about any country in the world, he will reply!</p>
+  </a>
+</div>
+
+<div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+  <img src="./images/send-icon.png" alt="" class="w-5">
+</div>
+  </div>
+
+</div>
+
+        <!--Daily AI-Powered Mental Health Journal-->
+
+<div class="aspect-square bg-[url('../images/aijournal.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group hidden extra_project" id="">
+
+  <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
+
+<div>
+  <a href="https://cleversoul-git-main-timothyrochs-projects.vercel.app/">
+  <h2 class="font-semibold">Daily AI-Powered Mental Health Journal</h2>
+  <p class="text-sm text-gray-700"></p>
+  </a>
+</div>
+
+<div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+  <img src="./images/send-icon.png" alt="" class="w-5">
+</div>
+  </div>
+
+</div>
+
+        <!--Text Editor-->
+
+<div class="aspect-square bg-[url('../images/TextEditor.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group hidden extra_project" id="">
+
+  <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
+
+<div>
+  <a href="/Text Editor/index.html">
+  <h2 class="font-semibold">Text Editor</h2>
+  <p class="text-sm text-gray-700">Edit your text and save it like Microsoft word!</p>
+  </a>
+</div>
+
+<div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+  <img src="./images/send-icon.png" alt="" class="w-5">
+</div>
+  </div>
+
+</div>
+
+            <!--ptable-->
+
+<div class="aspect-square bg-[url('../images/ptable.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group hidden extra_project" id="">
+
+ <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
+
+<div>
+   <a href="/Periodic Table/index.html">
+  <h2 class="font-semibold">Intreractive Periocid Table</h2>
+  <p class="text-sm text-gray-700"></p>
+  </a>
+</div>
+
+<div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+  <img src="./images/send-icon.png" alt="" class="w-5">
+</div>
+  </div>
+
+</div>
+            <!--T-Rex endless runner-style game-->
+
+<div class="aspect-square bg-[url('../images/SquidRunnerGame.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group hidden extra_project" id="">
+
+  <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
+
+<div>
+  <a href="/T-Rex endless runner-style game/index.html">
+  <h2 class="font-semibold">Squid endless runner game</h2>
+  <p class="text-sm text-gray-700">Run and jump over obstacles to reach the highest score!</p>
+  </a>
+</div>
+
+<div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+  <img src="./images/send-icon.png" alt="" class="w-5">
+</div>
+  </div>
+
+</div>
+
+    <!--Meditation Hub-->
+
+<div class="aspect-square bg-[url('../images/meditationhub.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group hidden extra_project" id="">
+
+  <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
+
+<div>
+  <a href="https://meditation-hub.vercel.app/">
+  <h2 class="font-semibold">Meditation Hub</h2>
+  <p class="text-sm text-gray-700">Learn and practice different types of meditations.</p>
+  </a>
+</div>
+
+<div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+  <img src="./images/send-icon.png" alt="" class="w-5">
+</div>
+  </div>
+
+</div>
+    
+
+      <!--calculator-->
+
+<div class="aspect-square bg-[url('./images/calculator.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group hidden extra_project" id="">
+
+  <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
+
+<div>
+  <a href="calculator/calculatrice.html">
+  <h2 class="font-semibold">Calculator</h2>
+  <p class="text-sm text-gray-700">Make math equations with this online calculator</p>
+  </a>
+</div>
+
+<div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+  <img src="./images/send-icon.png" alt="" class="w-5">
+</div>
+  </div>
+
+</div>
+</div>
+
+  <button id="toggleButton" onclick="toggleProjects()" class="w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-lightHover duration-500 dark:text-white dark:border-white dark:hover:bg-darkHover">Show more 
+    <img src="./images/right-arrow-bold.png" alt="" class="w-4 dark:hidden">
+    <img src="./images/right-arrow-bold-dark.png" alt="" class="w-4 hidden dark:block">
+
+  </button>
+
+
+</div>
+
+
+
+  <!--Space Concordia -->
+
+<section class="w-full px-[12%] py-10 scroll-mt-20" id="space-concordia">
+  <h4 class="text-center mb-2 text-lg font-Ovo">Collaborative Experience</h4>
+  <h2 class="text-center text-5xl font-Ovo">My Work with Space Concordia</h2>
+  <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">
+    As part of Space Concordia's SC-FREYR project, I contributed to the development of a cutting-edge CubeSat selected by the Canadian Space Agency for the CUBICS program. This mission focuses on AI-powered image processing and the study of yeast growth in microgravity, paving the way for advancements in space exploration and sustainability.
+  </p>
+  <div class="text-center">
+    <a href="#read-more-space-concordia" class="inline-block px-6 py-3 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition duration-300">
+      Read More
+    </a>
+  </div>
+<iframe src="./rocket.html" class="w-80 h-80" style="border: none; background: transparent; overflow: hidden;" scrolling="no"></iframe>
+
+
+
+
+</section>
+
+  
+
+<!--contact-->
+
+<div id="contact" class="w-full px-[12%] py-10 scroll-mt-20 bg-[url('./images/footer-bg-color.png')] bg-no-repeat bg-[length:90%_auto] bg-center dark:bg-none">
+
+  <h4 class="text-center mb-2 text-lg font-Ovo">Connect with me</h4>
+  <h2 class="text-center text-5xl font-Ovo">Get in touch</h2>
+  <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">I'd love to hear form you! If you have any questions, comments or feedback, please use the form below.</p>
+
+  <form action="https://api.web3forms.com/submit" method="POST" class="max-w-2xl mx-auto">
+    <input type="hidden" name="access_key" value="c42e1e7b-2eba-4017-a674-4e5b99155445">
+<div class="grid grid-cols-auto gap-6 mt-10 mb-8">
+  <input type="text" placeholder="Enter your name" class="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white dark:bg-darkHover/30 dark:border-white/90" required name="name">
+  <input type="email" placeholder="Enter your email" class="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white dark:bg-darkHover/30 dark:border-white/90" required name="email">
+
+</div>
+<textarea rows="6" placeholder="Enter your message" class="w-full p-4 outline-none border-[0.5px] border-gray-400 rounded-md bg-white mb-6 dark:bg-darkHover/30 dark:border-white/90" required name="message"></textarea>
+
+<button class="py-3 px-8 w=max flex items-center justify-between gap-2 bg-black/80 text-white rounded-full mx-auto hover:bg-black duration-500 dark:bg-transparent dark:border-[0.5px] dark:hover:bg-darkHover">Submit now <img src="./images/right-arrow-white.png" alt="" class="w-4"></button>
+  </form>
+  
+
+</div>
+
+<!--footer-->
+
+<div class="mt-20">
+  <div class="text-center">
+    <img src="./images/tim_logo.png" alt="" class="w-36 mx-auto mb-2 dark:hidden">
+    <img src="./images/tim_logo_dark.png" alt="" class="w-36 mx-auto mb-2 hidden dark:block">
+
+    <div class="w-max flex items-center gap-2 mx-auto">
+      <img src="./images/mail_icon.png" alt="" class="w-6 dark:hidden">
+      <img src="./images/mail_icon_dark.png" alt="" class="w-6 hidden dark:block">
+
+      timothyroch@gmail.com
+    </div>
+  </div>
+  <div class="text-center sm:flex items-center justify-between border-t border-gray-400 mx-[10%] mt-12 py-6">
+    <p>© 2025 Timothy Roch. All rights reserved.</p>
+    <ul class="flex items-center gap-10 justify-center mt-4 sm:mt-0">
+      <li><a href="https://instagram.com/rochtimothy">Instagram</a></li>
+      <li><a href="https://github.com/timothyroch">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/timothy-roch-204023300/">LinkedIn</a></li>
+      <li><a href="https://www.facebook.com/timothy.roch">Facebook</a></li>
+    </ul>
+  </div>
+</div>
+
+
+
+
+
+<script src="./script.js"></script>
 </body>
 </html>
