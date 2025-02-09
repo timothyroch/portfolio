@@ -1,0 +1,250 @@
+/* Reset defaults */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base Styles for Light Mode */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, #74ebd5, #acb6e5);
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Main container */
+.container {
+  width: 95%;
+  max-width: 1400px;
+  text-align: center;
+}
+
+/* Title styling */
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+/* Subheading */
+.container p {
+  margin-bottom: 20px;
+  font-size: 1.2em;
+}
+
+/* Toggle Button styling */
+#toggleMode {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #fff;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Periodic table grid container */
+/* 9 rows: 7 main periods, 1 for lanthanides, 1 for actinides */
+.periodic-table {
+  display: grid;
+  grid-template-columns: repeat(18, 1fr);
+  grid-template-rows: repeat(9, 40px);
+  gap: 2px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Each element "card" */
+.element {
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Hover effect */
+.element:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Top left atomic number */
+.element-number {
+  font-size: 0.6em;
+  position: absolute;
+  top: 4px;
+  left: 6px;
+}
+
+/* Center element symbol */
+.element-symbol {
+  font-size: 1em;
+  font-weight: 700;
+}
+
+/* Element name below the symbol */
+.element-name {
+  font-size: 0.6em;
+  margin-top: 2px;
+}
+
+/* Category-based colors (darker versions) */
+.element.alkali-metal          { background: #E05555; }   /* Darker red */
+.element.alkaline-earth        { background: #E09A59; }   /* Darker orange */
+.element.transition-metal      { background: #E6E600; }   /* Darker yellow */
+.element.post-transition-metal { background: #A6E05A; }   /* Darker light green */
+.element.metalloid             { background: #5AE0A1; }   /* Darker turquoise */
+.element.nonmetal              { background: #55B8E6; }   /* Darker blue */
+.element.halogen               { background: #9A55E0; }   /* Darker purple */
+.element.noble-gas             { background: #E055E0; }   /* Darker pink */
+.element.lanthanide            { background: #B2B2B2; }   /* Darker grey */
+.element.actinide              { background: #B28A55; }   /* Darker brown */
+
+/* Modal overlay styling */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Modal content box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 10px;
+  position: relative;
+  animation: modalFade 0.3s ease-out;
+}
+
+/* Close button for modal */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close:hover,
+.close:focus {
+  color: #000;
+}
+
+/* Element info inside modal */
+.element-info {
+  text-align: left;
+}
+.element-info h2 {
+  margin-bottom: 10px;
+  color: #1e3c72;
+}
+.element-info p {
+  margin-bottom: 8px;
+}
+
+/* Fade in animation for modal */
+@keyframes modalFade {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Legend styling */
+.legend {
+  margin-top: 20px;
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.legend h2 {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin: 5px 10px;
+}
+.legend-color {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  border-radius: 3px;
+}
+
+/* Legend color swatches (matching the darker element colors) */
+.legend-color.alkali-metal          { background: #E05555; }
+.legend-color.alkaline-earth        { background: #E09A59; }
+.legend-color.transition-metal      { background: #E6E600; }
+.legend-color.post-transition-metal { background: #A6E05A; }
+.legend-color.metalloid             { background: #5AE0A1; }
+.legend-color.nonmetal              { background: #55B8E6; }
+.legend-color.halogen               { background: #9A55E0; }
+.legend-color.noble-gas             { background: #E055E0; }
+.legend-color.lanthanide            { background: #B2B2B2; }
+.legend-color.actinide              { background: #B28A55; }
+
+/* --- Dark Mode Styles --- */
+.dark-mode {
+  background: linear-gradient(135deg, #333, #555);
+  color: #ddd;
+}
+
+.dark-mode .container {
+  /* Ensure container text stays light */
+  color: #ddd;
+}
+
+.dark-mode #toggleMode {
+  background: #444;
+  color: #ddd;
+}
+
+.dark-mode .periodic-table {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.dark-mode .modal-content {
+  background-color: #333;
+  color: #ddd;
+  border-color: #444;
+}
+
+.dark-mode .legend h2,
+.dark-mode .legend-item {
+  color: #ddd;
+}

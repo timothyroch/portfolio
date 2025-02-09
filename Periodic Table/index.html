@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Improved Interactive Periodic Table</title>
+  <!-- Import a modern Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Interactive Periodic Table</h1>
+    <p>Click on an element to see more information:</p>
+    <!-- Toggle Button for Dark/Light Mode -->
+    <button id="toggleMode">Toggle Dark/Light Mode</button>
+    
+    <div id="table-container">
+      <div class="periodic-table" id="periodicTable"></div>
+    </div>
+
+    <!-- Legend for color codes -->
+    <div class="legend" id="legend">
+      <h2>Legend</h2>
+      <div class="legend-item">
+        <span class="legend-color alkali-metal"></span> Alkali Metals
+      </div>
+      <div class="legend-item">
+        <span class="legend-color alkaline-earth"></span> Alkaline Earth Metals
+      </div>
+      <div class="legend-item">
+        <span class="legend-color transition-metal"></span> Transition Metals
+      </div>
+      <div class="legend-item">
+        <span class="legend-color post-transition-metal"></span> Post-Transition Metals
+      </div>
+      <div class="legend-item">
+        <span class="legend-color metalloid"></span> Metalloids
+      </div>
+      <div class="legend-item">
+        <span class="legend-color nonmetal"></span> Nonmetals
+      </div>
+      <div class="legend-item">
+        <span class="legend-color halogen"></span> Halogens
+      </div>
+      <div class="legend-item">
+        <span class="legend-color noble-gas"></span> Noble Gases
+      </div>
+      <div class="legend-item">
+        <span class="legend-color lanthanide"></span> Lanthanides
+      </div>
+      <div class="legend-item">
+        <span class="legend-color actinide"></span> Actinides
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for displaying element details -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <div id="element-info" class="element-info"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
