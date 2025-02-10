@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Sign Language Detector</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: #4CAF50;
+      color: #fff;
+      padding: 20px 10px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    header p {
+      font-size: 1.2em;
+    }
+    .github-link {
+      display: inline-block;
+      margin-top: 10px;
+      background: #333;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+    }
+    .github-link:hover {
+      background: #555;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    section h2 {
+      color: #4CAF50;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 5px;
+    }
+    video {
+      display: block;
+      width: 100%;
+      max-height: 500px;
+      margin: 0 auto 20px;
+      border: 2px solid #ddd;
+    }
+    pre {
+      background: #f1f1f1;
+      padding: 10px;
+      overflow-x: auto;
+      border-radius: 4px;
+    }
+    code {
+      background: #e8e8e8;
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+    ul, ol {
+      margin-left: 20px;
+    }
+    a {
+      color: #4CAF50;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #f4f4f4;
+      margin-top: 20px;
+      font-size: 0.9em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AI Sign Language Detector</h1>
+    <p>An AI-powered application for detecting and recognizing sign language gestures in real-time.</p>
+    <a class="github-link" href="https://github.com/timothyroch/ai_sign_detector" target="_blank">
+      View Source on GitHub
+    </a>
+  </header>
+
+  <div class="container">
+    <!-- Video Section -->
+    <section id="video">
+      <video src="aisign.mp4" autoplay loop muted playsinline>
+        Your browser does not support the video tag.
+      </video>
+    </section>
+
+    <!-- Project Overview -->
+    <section id="overview">
+      <h2>Project Overview</h2>
+      <p>
+        This project leverages computer vision and deep learning to assist with sign language communication by identifying hand gestures through a webcam.
+        The AI system is capable of real-time detection and classification of various sign language gestures,
+        making it a breakthrough tool for bridging communication gaps.
+      </p>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+      <h2>Features</h2>
+      <ul>
+        <li>Collect and preprocess sign language gesture images.</li>
+        <li>Train a deep learning model for gesture recognition.</li>
+        <li>Evaluate model performance using classification reports and confusion matrices.</li>
+        <li>Real-time gesture detection and classification using a webcam.</li>
+        <li>Visualize training progress and analyze dataset properties.</li>
+      </ul>
+    </section>
+
+    <!-- Project Structure -->
+    <section id="structure">
+      <h2>Project Structure</h2>
+      <pre>
+ai_sign_detector/
+│
+├── data/                   # Dataset folder
+│   ├── raw/                # Raw collected images or datasets
+│   ├── processed/          # Preprocessed images (resized, normalized)
+│   ├── landmarks/          # Extracted hand landmarks (optional)
+│   ├── train/              # Training set
+│   ├── val/                # Validation set
+│   └── test/               # Test set
+│
+├── models/                 # Saved models and checkpoints
+│   ├── sign_model.h5       # Final trained model
+│   └── checkpoints/        # Intermediate checkpoints during training
+│
+├── scripts/                # Python scripts for the project
+│   ├── collect_data.py     # Script to collect and save images
+│   ├── preprocess_data.py  # Preprocessing pipeline (resize, normalize)
+│   ├── train_model.py      # Model training script
+│   ├── evaluate_model.py   # Script for testing and evaluation
+│   ├── real_time_detect.py # Real-time sign recognition
+│   └── utils.py            # Utility functions (e.g., data loading, visualization)
+│
+├── notebooks/              # Jupyter notebooks for prototyping
+│   ├── data_exploration.ipynb
+│   ├── model_training.ipynb
+│   └── evaluation.ipynb
+│
+├── logs/                   # Training logs for debugging and monitoring
+│   ├── tensorboard/        # TensorBoard logs
+│   └── training_logs.txt   # Custom log files
+│
+├── outputs/                # Outputs generated by the model
+│   ├── predictions/        # Predicted results (e.g., images with overlays)
+│   └── charts/             # Performance charts (loss, accuracy)
+│
+├── requirements.txt        # List of required Python libraries
+├── README.md               # Overview and instructions for the project
+└── .gitignore              # Files and folders to ignore in version control
+      </pre>
+    </section>
+
+    <!-- Installation Section -->
+    <section id="installation">
+      <h2>Installation</h2>
+      <h3>Prerequisites</h3>
+      <ul>
+        <li>Python 3.8 or later</li>
+        <li>A webcam (for real-time detection)</li>
+        <li>GPU (optional but recommended for training)</li>
+      </ul>
+      <h3>Setup Instructions</h3>
+      <ol>
+        <li>
+          <strong>Clone the repository:</strong>
+          <pre>git clone https://github.com/timothyroch/ai_sign_detector.git
+cd ai_sign_detector</pre>
+        </li>
+        <li>
+          <strong>Install dependencies:</strong>
+          <pre>pip install -r requirements.txt</pre>
+        </li>
+        <li>
+          <strong>Create necessary directories:</strong>
+          <pre>mkdir -p data/raw data/processed data/train data/val data/test models/checkpoints logs/tensorboard outputs/predictions outputs/charts</pre>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Usage Section -->
+    <section id="usage">
+      <h2>Usage</h2>
+      <ol>
+        <li>
+          <strong>Collect Data</strong>
+          <pre>python scripts/collect_data.py</pre>
+        </li>
+        <li>
+          <strong>Preprocess Data</strong>
+          <pre>python scripts/preprocess_data.py</pre>
+        </li>
+        <li>
+          <strong>Train the Model</strong>
+          <pre>python scripts/data_split.py
+python scripts/train_model.py</pre>
+        </li>
+        <li>
+          <strong>Evaluate the Model</strong>
+          <pre>python scripts/evaluate_model.py</pre>
+        </li>
+        <li>
+          <strong>Real-Time Detection</strong>
+          <pre>python scripts/real_time_detect.py</pre>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Examples Section -->
+    <section id="examples">
+      <h2>Examples</h2>
+      <p>
+        <strong>Class Distribution:</strong> A bar chart showing the number of images per class.
+      </p>
+      <p>
+        <img src="imgperclass.png" alt="Class Distribution Chart" style="max-width:100%; height:auto;">
+      </p>
+      <p>
+        <strong>Training Accuracy and Loss:</strong> Graphs displaying model performance over epochs.
+      </p>
+      <p>
+        <img src="perfchart.png" alt="Training Performance Chart" style="max-width:100%; height:auto;">
+      </p>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results">
+      <h2>Results</h2>
+      <p><strong>Final Accuracy:</strong> 90% on validation data.</p>
+      <p><strong>Supported Gestures:</strong> 'A', 'B', 'C', 'D' (expandable to more gestures).</p>
+    </section>
+
+    <!-- Contributing Section -->
+    <section id="contributing">
+      <h2>Contributing</h2>
+      <p>Contributions are welcome! Follow these steps:</p>
+      <ol>
+        <li>Fork the repository.</li>
+        <li>Create a new branch (<code>git checkout -b feature-branch</code>).</li>
+        <li>Commit your changes (<code>git commit -m "Add feature"</code>).</li>
+        <li>Push the branch (<code>git push origin feature-branch</code>).</li>
+        <li>Submit a pull request.</li>
+      </ol>
+    </section>
+
+    <!-- License Section -->
+    <section id="license">
+      <h2>License</h2>
+      <p>
+        This project is licensed under the MIT License.
+        See the <a href="LICENSE" target="_blank">LICENSE</a> file for more details.
+      </p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>For questions or feedback:</p>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:timothyroch@gmail.com">timothyroch@gmail.com</a></li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/timothyroch" target="_blank">timothyroch</a></li>
+      </ul>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 AI Sign Language Detector. All rights reserved.</p>
+  </footer>
+</body>
+</html>
