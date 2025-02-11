@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ball Balancing on an Inverted Bowl: Technical Portfolio Project</title>
+  <style>
+    /* Base Styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    header, footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #34495e;
+      color: #ffffff;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.4em;
+    }
+    header p {
+      font-size: 1.2em;
+      margin: 5px 0 10px;
+    }
+    nav {
+      margin-bottom: 10px;
+    }
+    nav a {
+      color: #ecf0f1;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      background: #ffffff;
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 900px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+    h2, h3 {
+      color: #34495e;
+    }
+    .center {
+      text-align: center;
+    }
+    .image {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin: 10px 0;
+    }
+    .video {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin: 10px 0;
+    }
+    pre {
+      background: #ecf0f1;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-size: 0.95em;
+      margin: 10px 0;
+    }
+    code {
+      font-family: Consolas, "Courier New", monospace;
+    }
+    ul, ol {
+      margin-left: 20px;
+    }
+    footer p {
+      font-size: 0.9em;
+      margin: 0;
+    }
+    /* Back to Top Button */
+    .back-to-top {
+      display: inline-block;
+      margin: 20px 0;
+      padding: 10px 20px;
+      background-color: #34495e;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    .back-to-top:hover {
+      background-color: #2c3e50;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Anchor for top -->
+  <header id="top">
+    <h1>Ball Balancing on an Inverted Bowl</h1>
+    <p>Advanced Control System &amp; 3D Simulation Project</p>
+    <nav>
+      <a href="#introduction">Introduction</a> |
+      <a href="#problem-description">Problem Description</a> |
+      <a href="#technical-solution">Technical Solution</a> |
+      <a href="#simulation-demo">Simulation</a> |
+      <a href="#system-details">System Details</a> |
+      <a href="#further-readings">Further Readings</a>
+    </nav>
+  </header>
+
+  <section id="introduction">
+    <h2>Introduction</h2>
+    <p>
+      This project demonstrates an advanced control system that balances a ball at the top of an inverted hemispherical bowl. 
+      The system integrates dual-axis PID control with a dynamic 3D simulation, implemented in MATLAB. The solution highlights 
+      my proficiency in control theory, numerical methods, and software engineering.
+    </p>
+  </section>
+
+  <section id="problem-description">
+    <h2>Problem Description</h2>
+    <p>
+      The challenge is to maintain the ball at the apex of an inverted bowl, ensuring that it never rolls off. The system must:
+    </p>
+    <ul>
+      <li>Accurately sense the ball’s position in both the x and y axes.</li>
+      <li>Use a dual-axis PID controller to compute corrective tilt angles.</li>
+      <li>Apply these corrections in real time to keep the ball balanced.</li>
+    </ul>
+    <div class="center">
+      <img src="problem.png" alt="System Schematic: Inverted Bowl with Ball" class="image">
+      <p><em>Figure: problem.png</em> – A schematic representation of the system components and their interactions.</p>
+    </div>
+  </section>
+
+  <section id="technical-solution">
+    <h2>Technical Solution</h2>
+    <p>
+      The solution is implemented in MATLAB and is built around three main components:
+    </p>
+    <ul>
+      <li>Dual-axis PID control for calculating the necessary corrections.</li>
+      <li>3D transformations to simulate the bowl's tilt.</li>
+      <li>Dynamic simulation of the ball's motion using numerical integration.</li>
+    </ul>
+    
+    <h3>1. Dual-Axis PID Control Implementation</h3>
+    <p>
+      The dual-axis PID controllers compute the tilt angles <code>phi_x</code> and <code>phi_y</code> based on the ball’s deviation 
+      from the center (i.e., desired position 0). The following code snippet shows the PID control calculations:
+    </p>
+    <pre><code>
+// Calculate the error (difference from center)
+err_x = x;    // x-axis error (desired value is 0)
+err_y = y;    // y-axis error (desired value is 0)
+
+// Update the integral of the error over time
+err_int_x = err_int_x + err_x * dt;
+err_int_y = err_int_y + err_y * dt;
+
+// Calculate the derivative (rate of change) of the error
+err_dot_x = (err_x - prev_err_x) / dt;
+err_dot_y = (err_y - prev_err_y) / dt;
+
+// Compute the PID control signals for each axis
+phi_x = Kp * err_x + Ki * err_int_x + Kd * err_dot_x;
+phi_y = Kp * err_y + Ki * err_int_y + Kd * err_dot_y;
+    </code></pre>
+    <p>
+      <strong>Explanation:</strong>  
+      In this snippet, the error is computed as the difference between the current position and the desired (center) position.  
+      The integral term accumulates the error over time to correct for any steady-state bias, while the derivative term predicts future 
+      errors by measuring the rate of change. The resulting control signals, <code>phi_x</code> and <code>phi_y</code>, determine the 
+      corrective tilt of the bowl.
+    </p>
+
+    <h3>2. 3D Transformation for Bowl Tilt</h3>
+    <p>
+      The simulation models the bowl's tilt in 3D by applying rotation matrices. The following code snippet calculates the rotation matrices 
+      for tilting about the x-axis and y-axis, and then combines them:
+    </p>
+    <pre><code>
+// Rotation about the x-axis (tilting in the y-direction)
+R_x = [1,        0,           0;
+       0, cos(phi_y), -sin(phi_y);
+       0, sin(phi_y),  cos(phi_y)];
+
+// Rotation about the y-axis (tilting in the x-direction)
+R_y = [ cos(phi_x), 0, sin(phi_x);
+       0, 1, 0;
+       -sin(phi_x), 0, cos(phi_x)];
+
+// Combined rotation matrix to apply both tilts
+R_world = R_y * R_x;
+    </code></pre>
+    <p>
+      <strong>Explanation:</strong>  
+      Here, two separate rotation matrices are computed: <code>R_x</code> rotates the bowl about the x-axis, and <code>R_y</code> 
+      rotates it about the y-axis. Multiplying these matrices (<code>R_world = R_y * R_x</code>) combines the rotations, allowing the 
+      simulation to accurately reflect the bowl's orientation in world coordinates. This transformation is critical for rendering the bowl 
+      and the ball in a 3D space.
+    </p>
+
+    <h3>3. Simulation of Ball Dynamics</h3>
+    <p>
+      The ball's dynamics on the bowl's surface are modeled using a simplified second-order differential equation. The following snippet 
+      demonstrates how the ball's acceleration is computed and how its velocity and position are updated using Euler integration:
+    </p>
+    <pre><code>
+// Compute ball acceleration in the local coordinate system
+x_ddot = (g/R) * x - g * phi_x - damping * x_dot;
+y_ddot = (g/R) * y - g * phi_y - damping * y_dot;
+
+// Update velocity (first integration)
+x_dot = x_dot + x_ddot * dt;
+y_dot = y_dot + y_ddot * dt;
+
+// Update position (second integration)
+x = x + x_dot * dt;
+y = y + y_dot * dt;
+    </code></pre>
+    <p>
+      <strong>Explanation:</strong>  
+      The acceleration of the ball along each axis is a function of its current displacement (<code>x</code> and <code>y</code>), the 
+      gravitational constant (<code>g</code>), and the corrective tilt provided by the PID controllers (<code>phi_x</code> and <code>phi_y</code>).  
+      The damping term helps to mitigate oscillations. Euler integration is then used to update the ball's velocity and position over time, 
+      simulating its continuous motion on the bowl's surface.
+    </p>
+  </section>
+
+  <section id="simulation-demo">
+    <h2>3D Simulation Demonstration</h2>
+    <p>
+      The video below shows a continuous loop of the MATLAB simulation in action. It visualizes the inverted bowl, the ball, and the dynamic 
+      adjustments performed by the PID controllers to keep the ball balanced.
+    </p>
+    <div class="center">
+      <video class="video" controls autoplay loop muted>
+        <source src="solution.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p><em>solution.mp4</em> – Continuous loop of the 3D simulation.</p>
+    </div>
+  </section>
+
+  <section id="system-details">
+    <h2>System Operation & Detailed Explanations</h2>
+    <h3>How the System Works (in My Own Words)</h3>
+    <p>
+      The system is designed to keep a ball balanced at the apex of an inverted bowl using a continuous feedback loop:
+    </p>
+    <ol>
+      <li>
+        <strong>Sensing:</strong>  
+        High-speed sensors (such as an optical camera or an array of infrared sensors) continuously capture the ball’s position on the bowl’s surface.  
+        The acquired data is processed to extract precise x and y coordinates relative to the bowl’s center.
+      </li>
+      <li>
+        <strong>Control:</strong>  
+        A dual-axis PID controller computes the error between the ball’s current position and the center.  
+        The controller processes the proportional, integral, and derivative components of the error to generate two corrective tilt angles (<code>phi_x</code> and <code>phi_y</code>), which drive the error toward zero.
+      </li>
+      <li>
+        <strong>Actuation:</strong>  
+        The computed control signals are transmitted to high-precision servo motors, which adjust the tilt of the bowl in real time.  
+        This adjustment creates a restoring gravitational force that nudges the ball back to the center.
+      </li>
+    </ol>
+    
+    <h3>Sensors and Actuators</h3>
+    <p>
+      <strong>Sensors:</strong>  
+      The system employs high-speed optical sensors or infrared sensor arrays that offer high-resolution, real-time positional data with minimal latency.
+      <br><br>
+      <strong>Actuators:</strong>  
+      Precision servo motors are used to tilt the bowl. Their fast response times and precise positioning capabilities are essential for the rapid corrective actions required by the PID controller.
+    </p>
+    
+    <h3>Benefits and Drawbacks of the Design</h3>
+    <p>
+      <strong>Benefits:</strong>
+    </p>
+    <ul>
+      <li><em>Precision:</em> Dual-axis PID control allows for fine-tuned corrective actions, keeping the ball near the center.</li>
+      <li><em>Real-Time Response:</em> High-speed sensor feedback and rapid actuation enable swift correction of disturbances.</li>
+      <li><em>Scalability:</em> The modular design of sensors, controllers, and actuators makes it adaptable to different sizes or similar applications.</li>
+      <li><em>Coolness Factor:</em> The dynamic 3D simulation and elegant control solution provide a visually impressive demonstration of advanced control systems.</li>
+    </ul>
+    <p>
+      <strong>Drawbacks:</strong>
+    </p>
+    <ul>
+      <li><em>Power Usage:</em> Continuous actuation by servo motors may lead to higher power consumption, especially in larger-scale systems.</li>
+      <li><em>Sound Volume:</em> Mechanical components such as motors can produce noticeable noise during operation.</li>
+      <li><em>Assembly Complexity:</em> Integrating high-speed sensors and precision actuators requires careful calibration and mechanical design.</li>
+      <li><em>Sensitivity:</em> The system may be susceptible to external disturbances, necessitating robust filtering and error-handling mechanisms.</li>
+    </ul>
+    
+    <h3>Collaboration Approach (If Working in a Team)</h3>
+    <p>
+      Although this is a personal project, if I were to collaborate with others, I would divide the work as follows:
+    </p>
+    <ul>
+      <li><strong>Sensor Integration & Data Acquisition:</strong> A specialist would handle the selection, calibration, and integration of high-speed sensors to ensure accurate positional tracking.</li>
+      <li><strong>Control System Development:</strong> An expert in control theory would design, implement, and fine-tune the dual-axis PID controllers for optimal performance.</li>
+      <li><strong>Mechanical Design & Actuation:</strong> A mechanical engineer would develop the inverted bowl mechanism and integrate the servo motors for smooth, precise actuation.</li>
+      <li><strong>Software & Simulation:</strong> A software engineer would develop and maintain the MATLAB simulation, ensuring accurate 3D visualization and numerical integration.</li>
+    </ul>
+  </section>
+
+  <section id="further-readings">
+    <h2>Further Readings &amp; Related Projects</h2>
+    <p>
+      For those interested in exploring more about advanced control systems and the techniques used in this project, here are a few reputable resources:
+    </p>
+    <ul>
+      <li>
+        <strong><a href="https://en.wikipedia.org/wiki/PID_controller" target="_blank">PID Controller – Wikipedia</a></strong>
+        <p>A comprehensive overview of PID controllers, including historical context, theory, and practical implementation details.</p>
+      </li>
+      <li>
+        <strong><a href="https://www.mathworks.com/help/control/ug/pid-tuning.html" target="_blank">MATLAB PID Tuning and Control Systems – MathWorks</a></strong>
+        <p>Explore official documentation and tutorials on tuning PID controllers using MATLAB, along with examples and best practices.</p>
+      </li>
+      <li>
+        <strong><a href="https://www.control-systems.org/" target="_blank">IEEE Control Systems Society</a></strong>
+        <p>A professional resource offering journals, conferences, and publications on the latest advances in control system engineering.</p>
+      </li>
+    </ul>
+  </section>
+
+  <div class="center">
+    <a href="#top" class="back-to-top">Back to Top</a>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Timothy Roch - Ball Balancing Control System. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
