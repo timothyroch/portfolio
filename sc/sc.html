@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Software Engineering Portfolio - Space Concordia Contributions</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset and basic styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      /* Starry background - replace with your own image if desired */
+      background: url('https://www.transparenttextures.com/patterns/stardust.png'), #000;
+      color: #e0e0e0;
+      line-height: 1.6;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+    header {
+      background: #330000; /* dark red */
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.7);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header .logo {
+      display: flex;
+      align-items: center;
+    }
+    header .logo img {
+      width: 50px;
+      height: auto;
+      margin-right: 15px;
+    }
+    header h1 {
+      font-size: 1.8rem;
+      color: #b7410e; /* red-brownish */
+    }
+    nav ul { list-style: none; display: flex; }
+    nav ul li { margin: 0 10px; }
+    nav ul li a {
+      text-decoration: none;
+      color: #b7410e;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover { color: #a52a2a; }
+    
+    .hero {
+      background: linear-gradient(135deg, #000000, #1a0000);
+      text-align: center;
+      padding: 80px 20px;
+    }
+    .hero h2 { 
+      font-size: 2.8rem; 
+      margin-bottom: 10px; 
+      color: #b7410e;
+    }
+    .hero p { 
+      font-size: 1.2rem; 
+      color: #e0e0e0;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .section-title h2 {
+      font-size: 2.2rem;
+      color: #b7410e;
+      border-bottom: 3px solid #a52a2a;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #1a0000;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.7);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 12px rgba(0,0,0,0.9);
+    }
+    .card h3 { margin-bottom: 10px; color: #b7410e; }
+    .card p { color: #cccccc; }
+    
+    footer {
+      background: #330000;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.7);
+      margin-top: 40px;
+    }
+    footer p { color: #b7410e; }
+
+    /* Fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.8s forwards;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    a {
+      color: #a52a2a;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with Logo and Navigation -->
+  <header>
+    <div class="logo">
+      <!-- Replace 'sc.png' with your actual Space Concordia logo -->
+      <img src="sc.png" alt="Space Concordia Logo" />
+      <h1>Space Concordia</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#spacecraft">Spacecraft</a></li>
+        <li><a href="#rocketery">Rocketery</a></li>
+        <li><a href="#sc-frayer">SC-Frayer CubeSat</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero fade-in">
+    <h2>Crafting Software for the Stars</h2>
+    <p>
+      As a Software Engineer at Space Concordia, I integrate state-of-the-art software solutions with aerospace innovation. My work ensures that our spacecraft and rockets operate with precision in the harsh environment of space.
+    </p>
+  </section>
+
+  <div class="container">
+    <!-- Spacecraft Engineering Contributions -->
+    <section id="spacecraft" class="fade-in">
+      <div class="section-title">
+        <h2>Spacecraft Engineering</h2>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h3>Control Data Handling Systems</h3>
+          <p>
+            I engineered a real-time data acquisition and control system using C++ and Python. This robust system processes telemetry from onboard sensors with exceptional reliability and fault tolerance. By integrating Git for version control and Jenkins for continuous integration, I ensured top-quality software delivery.
+          </p>
+          <p><strong>Tech Stack:</strong> C++, Python, Git, Jenkins</p>
+        </div>
+        <div class="card">
+          <h3>Payload Integration Software</h3>
+          <p>
+            I developed advanced modules to interface with diverse payload instruments. This involved implementing high-frequency data parsing and logging systems, as well as integrating RESTful APIs for seamless communication with ground stations.
+          </p>
+          <p><strong>Tech Stack:</strong> Python, Node.js, RESTful APIs, SQL</p>
+        </div>
+        <div class="card">
+          <h3>ADCS Simulation &amp; Algorithm Development</h3>
+          <p>
+            To achieve precise spacecraft orientation, I designed and implemented sophisticated algorithms for Attitude Determination and Control Systems (ADCS). Leveraging sensor fusion techniques and Kalman filters, I developed simulation tools using MATLAB and Python to validate our approach.
+          </p>
+          <p><strong>Tech Stack:</strong> MATLAB, Python, Embedded C</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rocketery Engineering Contributions -->
+    <section id="rocketery" class="fade-in">
+      <div class="section-title">
+        <h2>Rocketery Engineering</h2>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h3>Flight Performance Analysis Tools</h3>
+          <p>
+            I created an end-to-end simulation and data analysis suite in Python for evaluating rocket flight trajectories. This tool processes telemetry data, performs in-depth statistical analysis, and generates performance reports. It even utilizes machine learning techniques to optimize flight parameters for future missions.
+          </p>
+          <p><strong>Tech Stack:</strong> Python, Pandas, SciPy, scikit-learn</p>
+        </div>
+        <div class="card">
+          <h3>Structural Health Monitoring</h3>
+          <p>
+            I developed software solutions to monitor rocket structural integrity during test flights. By integrating sensor data with Finite Element Analysis (FEA) simulations, I was able to identify stress points and potential failures, streamlining our prototyping and testing cycles.
+          </p>
+          <p><strong>Tech Stack:</strong> Python, MATLAB, FEA Software, SQL</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SC-Frayer CubeSat Section -->
+    <section id="sc-frayer" class="fade-in">
+      <div class="section-title">
+        <h2>SC-Frayer CubeSat</h2>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h3>About SC-Frayer</h3>
+          <p>
+            The SC-Frayer CubeSat is Space Concordia's flagship nanosatellite project, conceived to push the boundaries of space research and innovation. This ambitious project is not an isolated effort—it integrates the robust control systems, precise payload management, and cutting-edge ADCS algorithms I developed in the <a href="#spacecraft">Spacecraft Engineering</a> phase.
+          </p>
+          <p>
+            Moreover, the CubeSat’s mission is enhanced by advanced rocketery performance analysis and structural health monitoring techniques, as highlighted in our <a href="#rocketery">Rocketery Engineering</a> work. Together, these elements form a seamless and sophisticated software ecosystem that underpins SC-Frayer’s operations.
+          </p>
+          <p>
+            Explore more about the SC-Frayer CubeSat and Space Concordia’s innovative initiatives on the <a href="https://spaceconcordia.ca" target="_blank" rel="noopener">Space Concordia website</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Timothy Roch. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Fade-in Animation Trigger -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const faders = document.querySelectorAll('.fade-in');
+      const options = { threshold: 0.2 };
+      const appearOnScroll = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting) {
+            entry.target.style.animationDelay = '0.2s';
+            entry.target.classList.add('appear');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, options);
+      
+      faders.forEach(fader => appearOnScroll.observe(fader));
+    });
+  </script>
+</body>
+</html>
