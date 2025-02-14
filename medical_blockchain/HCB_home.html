@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Healthcare Blockchain Project | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset and Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      background-color: #f9f9f9;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(90deg, #1f497d, #15315b);
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #cfa00a;
+    }
+    section {
+      padding: 6rem 2rem 4rem;
+    }
+    .hero {
+      height: 100vh;
+      background: url('hero.webp') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      color: #fff;
+      margin-top: 80px;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.65);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 2rem;
+      backdrop-filter: blur(5px);
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.3);
+    }
+    .hero-content h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .hero-content p {
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      background: #cfa00a;
+      color: #fff;
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      text-decoration: none;
+      font-weight: 700;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #b38e08;
+    }
+    /* About Section */
+    .about {
+      background: #fff;
+      text-align: center;
+    }
+    .about h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #1f497d;
+    }
+    .about p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    /* Features Section */
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      background: #fff;
+      text-align: center;
+    }
+    .feature {
+      flex: 1 1 300px;
+      max-width: 320px;
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .feature:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    .feature h3 {
+      color: #1f497d;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    .feature p {
+      color: #555;
+      font-size: 1rem;
+    }
+    /* Technology Section */
+    .technology {
+      background: #fff;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .technology h2 {
+      font-size: 2.5rem;
+      color: #1f497d;
+      margin-bottom: 1rem;
+    }
+    .technology p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .tech-details {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .tech-item {
+      flex: 1 1 250px;
+      max-width: 300px;
+      background: #fdfdfd;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
+    }
+    .tech-item:hover {
+      transform: translateY(-5px);
+    }
+    .tech-item h4 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      color: #15315b;
+    }
+    .tech-item p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+    /* Use Cases Section */
+    .use-cases {
+      background: #fff;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .use-cases h2 {
+      font-size: 2.5rem;
+      color: #1f497d;
+      margin-bottom: 1rem;
+    }
+    .use-cases p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cases {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .case {
+      flex: 1 1 300px;
+      max-width: 320px;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .case:hover {
+      transform: translateY(-8px);
+    }
+    .case h3 {
+      font-size: 1.5rem;
+      color: #1f497d;
+      margin-bottom: 1rem;
+    }
+    .case p {
+      font-size: 1rem;
+      color: #555;
+    }
+    /* Testimonials Section */
+    .testimonials {
+      background: #fff;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .testimonials h2 {
+      font-size: 2.5rem;
+      color: #1f497d;
+      margin-bottom: 1rem;
+    }
+    .testimonial-items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .testimonial {
+      flex: 1 1 300px;
+      max-width: 350px;
+      background: #fdfdfd;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      position: relative;
+      font-style: italic;
+    }
+    .testimonial::before {
+      content: open-quote;
+      font-size: 2rem;
+      position: absolute;
+      top: -10px;
+      left: 10px;
+      color: #cfa00a;
+    }
+    .testimonial p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    .testimonial span {
+      font-weight: 600;
+      color: #1f497d;
+    }
+    /* Contact Section */
+    .contact {
+      background: #1f497d;
+      color: #fff;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .contact h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .contact p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 4px;
+    }
+    .contact-form input {
+      height: 45px;
+    }
+    .contact-form button {
+      background: #cfa00a;
+      color: #fff;
+      padding: 0.8rem 2rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .contact-form button:hover {
+      background: #b38e08;
+    }
+    /* Footer */
+    footer {
+      background: #15315b;
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.8rem;
+      }
+      .hero-content p {
+        font-size: 1.2rem;
+      }
+      .tech-details,
+      .cases,
+      .testimonial-items {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+    <header>
+
+        <div class="logo">Healthcare Blockchain Project</div>
+        <nav>
+          <a href="#about">About</a>
+          <a href="#features">Features</a>
+          <a href="#technology">Technology</a>
+          <a href="#use-cases">Use Cases</a>
+          <a href="#contact">Contact</a>
+          <a href="login.html">Sign In</a>
+        </nav>
+      </header>
+      
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Innovating Healthcare with Blockchain</h1>
+      <p>As pioneers in blockchain-based healthcare solutions, we strive to redefine how medical data is managed and shared—putting security, transparency, and patient empowerment at the forefront.</p>
+      <a href="#about" class="btn">Learn More</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>About Our Project</h2>
+    <p>This portfolio project demonstrates a revolutionary approach to managing healthcare data using blockchain technology. Our solution ensures data integrity, privacy, and transparency—empowering patients to control their own health records. Developed with state-of-the-art security protocols and a user-friendly design, our project lays the groundwork for a new era in digital healthcare.</p>
+    <a href="#technology" class="btn">Our Technology</a>
+  </section>
+
+  <!-- Features Section -->
+<section id="features" class="features">
+    <div class="feature">
+      <h3>Unrivaled Data Security</h3>
+      <p>Leveraging state-of-the-art encryption and decentralized storage, our solution guarantees that every patient record remains confidential and resilient against tampering.</p>
+    </div>
+    <div class="feature">
+      <h3>Patient-Centric Control</h3>
+      <p>Empower patients to manage their own health data—granting or revoking access effortlessly to ensure complete control over their medical information.</p>
+    </div>
+    <div class="feature">
+      <h3>End-to-End Transparency</h3>
+      <p>With every transaction immutably recorded on the blockchain, enjoy comprehensive audit trails and verifiable compliance across all healthcare interactions.</p>
+    </div>
+    <div class="feature">
+      <h3>Seamless Integration</h3>
+      <p>Easily connect with existing healthcare systems and third-party applications, ensuring smooth data exchange and interoperability in a dynamic digital ecosystem.</p>
+    </div>
+  </section>
+  
+
+  <!-- Technology Section -->
+<section id="technology" class="technology">
+    <h2>Our Technology</h2>
+    <p>
+      Our platform is powered by a state-of-the-art technology stack designed to deliver unmatched security, scalability, and efficiency in healthcare data management. By integrating blockchain, advanced off-chain storage, and a dynamic front-end, we ensure a seamless and secure user experience.
+    </p>
+    <div class="tech-details">
+      <div class="tech-item">
+        <h4>Blockchain</h4>
+        <p>
+          Smart contracts written in Solidity run on Ethereum, providing an immutable ledger that guarantees transparency and trust.
+        </p>
+      </div>
+      <div class="tech-item">
+        <h4>Off-Chain Storage</h4>
+        <p>
+          Leveraging IPFS and robust cloud services, our system efficiently handles large volumes of medical records while maintaining high performance and data integrity.
+        </p>
+      </div>
+      <div class="tech-item">
+        <h4>Frontend</h4>
+        <p>
+          Built with React, our intuitive interface ensures seamless connectivity between users and the blockchain, delivering a responsive and engaging experience.
+        </p>
+      </div>
+      <div class="tech-item">
+        <h4>Security</h4>
+        <p>
+          Employing advanced encryption and secure authentication protocols, we safeguard sensitive patient data at every layer of the system.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Use Cases Section -->
+  <section id="use-cases" class="use-cases">
+    <h2>Use Cases & Applications</h2>
+    <p>Our pioneering approach to healthcare blockchain technology opens the door to multiple innovative use cases. From secure patient record management to enabling cross-institutional data sharing, explore how our solution can transform the healthcare landscape.</p>
+    <div class="cases">
+      <div class="case">
+        <h3>Digital Health Records</h3>
+        <p>Empower patients with control over their digital records while ensuring seamless data sharing between providers.</p>
+      </div>
+      <div class="case">
+        <h3>Clinical Trials</h3>
+        <p>Maintain tamper-proof records of clinical trials, ensuring transparency and data integrity throughout the research process.</p>
+      </div>
+      <div class="case">
+        <h3>Telemedicine</h3>
+        <p>Enable secure, remote access to patient data, facilitating efficient telemedicine consultations and treatments.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials">
+    <h2>Industry Perspectives</h2>
+    <div class="testimonial-items">
+      <div class="testimonial">
+        <p>"Blockchain technology has the potential to revolutionize healthcare by enhancing data integrity, security, and interoperability."</p>
+        <span>- World Health Organization (WHO) Report on Digital Health</span>
+      </div>
+      <div class="testimonial">
+        <p>"The integration of blockchain into healthcare systems can improve patient trust, reduce costs, and streamline data access for providers."</p>
+        <span>- Deloitte Insights: Blockchain in Healthcare 2023</span>
+      </div>
+      <div class="testimonial">
+        <p>"Blockchain applications in healthcare provide immutable records and secure patient data sharing, addressing critical industry challenges."</p>
+        <span>- IBM Blockchain and Healthcare Report</span>
+      </div>
+    </div>
+  </section>
+  
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>
+      If you’re interested in learning more about our project or collaborating on innovative healthcare solutions, please reach out using the form below.
+    </p>
+    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+      <!-- Your Web3Forms Access Key -->
+      <input type="hidden" name="access_key" value="c42e1e7b-2eba-4017-a674-4e5b99155445">
+      
+      <!-- Form Inputs -->
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      
+      <!-- Honeypot Spam Protection -->
+      <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+      
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+  
+  <!-- Popup Notification (hidden by default) -->
+  <div id="popup" style="display:none; position: fixed; top: 20px; right: 20px; background: #4caf50; color: #fff; padding: 1rem; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); z-index: 1001;"></div>
+  
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Healthcare Blockchain Project. All rights reserved. | Designed for portfolio purposes.
+  </footer>
+  
+  <script>
+    // Function to show the popup message for a short duration
+    function showPopup(message, duration = 3000) {
+      const popup = document.getElementById('popup');
+      popup.innerText = message;
+      popup.style.display = 'block';
+      setTimeout(() => {
+        popup.style.display = 'none';
+      }, duration);
+    }
+  
+    // Intercept the form submission and send data via fetch
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent default form submission and redirect
+  
+      // Gather form data into FormData object
+      const formData = new FormData(this);
+  
+      // Debugging: Log form data values (optional)
+      console.log("Form data:", {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        message: formData.get('message')
+      });
+  
+      // Send form data to Web3Forms endpoint
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log("Response from Web3Forms:", data);
+        if (data.success) {
+          showPopup("Your message has been sent successfully!");
+          document.getElementById('contactForm').reset();
+        } else {
+          showPopup("There was an error sending your message. Please try again.", 5000);
+        }
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        showPopup("There was an error sending your message. Please try again.", 5000);
+      });
+    });
+  </script>
+  
+  
+  
+  

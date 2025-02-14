@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Healthcare Blockchain Project: Research Overview</title>
+  <!-- Google Fonts for a scholarly look -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #fdfdfd;
+      color: #333;
+      line-height: 1.7;
+      padding-top: 80px; /* for fixed header */
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Merriweather', serif;
+      color: #1f497d;
+    }
+    a {
+      text-decoration: none;
+      color: #1f497d;
+    }
+    pre {
+      background-color: #2d2d2d;
+      color: #f8f8f2;
+      padding: 1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+    code {
+      font-family: 'Courier New', monospace;
+    }
+    img {
+      max-width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin: 1rem 0;
+    }
+
+    /* Fixed Header / Navigation */
+    header {
+      background-color: #1f497d;
+      color: #fff;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      padding: 1rem 2rem;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navbar .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-link {
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .nav-link:hover {
+      color: #ffcc00;
+    }
+
+    /* Section Styling */
+    section {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    section h2 {
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #1f497d;
+      padding-bottom: 0.5rem;
+    }
+    section p {
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+    section code, section pre {
+      font-size: 0.9rem;
+    }
+    
+    /* Research-specific Sections */
+    .abstract, .introduction, .methodology, .results, .discussion, .conclusion, .appendix {
+      margin-bottom: 3rem;
+    }
+
+    /* Table of Contents */
+    .toc {
+      background-color: #f4f4f4;
+      padding: 1rem 2rem;
+      border-left: 4px solid #1f497d;
+      margin-bottom: 2rem;
+    }
+    .toc ul {
+      list-style: none;
+    }
+    .toc li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Repository Button */
+    .btn {
+      display: inline-block;
+      background-color: #1f497d;
+      color: #fff;
+      padding: 0.8rem 1.2rem;
+      margin-top: 1rem;
+      border-radius: 4px;
+      font-weight: bold;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #15315b;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      header {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">Research Overview</div>
+      <div class="nav-links">
+        <a href="#abstract" class="nav-link">Abstract</a>
+        <a href="#introduction" class="nav-link">Introduction</a>
+        <a href="#methodology" class="nav-link">Methodology</a>
+        <a href="#results" class="nav-link">Testing</a>
+        <a href="#discussion" class="nav-link">Discussion</a>
+        <a href="#appendix" class="nav-link">Project Structure</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Table of Contents -->
+  <section class="toc">
+    <h2>Table of Contents</h2>
+    <ul>
+      <li><a href="#abstract">Abstract</a></li>
+      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#methodology">Methodology</a></li>
+      <li><a href="#results">Testing & Verification</a></li>
+      <li><a href="#discussion">Discussion & Future Work</a></li>
+      <li><a href="#appendix">Project Structure</a></li>
+      <li><a href="#repository">Repository & Code</a></li>
+    </ul>
+  </section>
+
+<!-- Live Service Demonstration Section -->
+<section id="service-demo" class="service-demo" style="padding: 4rem 2rem; background: #f4f4f4; text-align: center;">
+    <h2 style="font-size: 2.5rem; color: #1f497d; margin-bottom: 1rem;">Service Page Preview</h2>
+    <p style="font-size: 1.1rem; margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+      Below is a preview of our Healthcare Blockchain Project's secure interface. For a fully interactive experience, please visit our live service page.
+    </p>
+    <iframe src="HCB_home.html" style="width: 100%; height: 600px; border: none; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"></iframe>
+    <p style="margin-top: 1rem; font-size: 1rem;">
+      <a href="HCB_home.html" target="_blank" style="color: #1f497d; text-decoration: underline; font-weight: 600;">
+        Visit the Live Service Page for Full Interaction
+      </a>
+    </p>
+  </section>
+  
+
+  <!-- Abstract -->
+  <section id="abstract" class="abstract">
+    <h2>Abstract</h2>
+    <p>
+      The <strong>Healthcare Blockchain Project</strong> presents a decentralized approach to managing medical records, ensuring data integrity and patient-controlled access. By leveraging Solidity-based smart contracts on Ethereum and integrating a Python-driven backend for off-chain processing, the system achieves secure, immutable record storage while facilitating role-based interactions. This document provides a comprehensive technical overview, detailing the architecture, implementation, testing strategies, and research insights that informed the project design.
+    </p>
+  </section>
+
+  <!-- Introduction -->
+  <section id="introduction" class="introduction">
+    <h2>Introduction</h2>
+    <p>
+      Modern healthcare demands secure and efficient management of patient data. Traditional centralized systems are prone to data breaches and lack transparency. In contrast, blockchain technology offers immutable record-keeping and decentralized control. This project was developed to explore how smart contracts and blockchain integrations can address these challenges, ensuring that patients maintain control over their records while healthcare providers gain access under controlled conditions.
+    </p>
+  </section>
+
+  <!-- Methodology -->
+  <section id="methodology" class="methodology">
+    <h2>Methodology</h2>
+    <h3>System Architecture</h3>
+    <p>
+      The system architecture combines on-chain and off-chain components:
+    </p>
+    <ul>
+      <li><strong>Smart Contracts:</strong> Written in Solidity, these contracts manage patient access and record metadata.</li>
+      <li><strong>Backend:</strong> A Python-based backend handles off-chain data processing and blockchain interactions.</li>
+      <li><strong>Frontend:</strong> A React application provides user-friendly dashboards for patients and healthcare providers.</li>
+    </ul>
+    <p>
+      The integration of these layers ensures a balance between security, scalability, and user accessibility.
+    </p>
+    <img src="architecture_overview.png" alt="System Architecture Diagram" />
+    
+    <h3>Implementation Details</h3>
+    <p>
+      The project is organized into several modules:
+    </p>
+    <ul>
+      <li><strong>Smart Contracts:</strong> Located in the <code>smart_contracts/</code> directory, they include <code>PatientAccess.sol</code> and <code>RecordStorage.sol</code>.</li>
+      <li><strong>Frontend:</strong> The React-based user interface is built in the <code>frontend/</code> folder, which includes components, pages, hooks, and context for blockchain interaction.</li>
+      <li><strong>Backend:</strong> The Node.js/Express backend (if used) resides in the <code>backend/</code> directory, providing APIs for off-chain logic and additional processing.</li>
+    </ul>
+    
+    <h4>Solidity Code Sample</h4>
+    <pre><code>
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract PatientAccess {
+    mapping(address => mapping(address => bool)) public accessControl;
+
+    // Grant access to a doctor
+    function grantAccess(address doctor) public {
+        accessControl[msg.sender][doctor] = true;
+    }
+
+    // Revoke access from a doctor
+    function revokeAccess(address doctor) public {
+        accessControl[msg.sender][doctor] = false;
+    }
+
+    // Verify access
+    function hasAccess(address patient, address doctor) public view returns (bool) {
+        return accessControl[patient][doctor];
+    }
+}
+    </code></pre>
+
+    <h4>Python Backend Interaction Sample</h4>
+    <pre><code>
+from web3 import Web3
+
+# Connect to the local Ethereum node (e.g., Ganache)
+w3 = Web3(Web3.HTTPProvider('http://127.0.0.1:8545'))
+
+contract_address = "0xYourContractAddressHere"
+abi = [
+    // Contract ABI details go here...
+]
+
+# Create the contract instance
+contract = w3.eth.contract(address=contract_address, abi=abi)
+
+def check_access(patient, doctor):
+    """Return the access status for a given patient and doctor."""
+    return contract.functions.hasAccess(patient, doctor).call()
+
+if __name__ == "__main__":
+    patient_address = "0xPatientAddress"
+    doctor_address = "0xDoctorAddress"
+    print("Doctor access:", check_access(patient_address, doctor_address))
+    </code></pre>
+  </section>
+
+  <!-- Testing & Verification -->
+  <section id="results" class="results">
+    <h2>Testing & Verification</h2>
+    <p>
+      Comprehensive testing was performed across the entire stack:
+    </p>
+    <ul>
+      <li><strong>Smart Contract Testing:</strong> Automated tests using frameworks like Truffle/Hardhat ensure that access control and record storage functionalities work as expected.</li>
+      <li><strong>Backend Verification:</strong> Python scripts interact with deployed contracts to validate transaction integrity and data retrieval.</li>
+      <li><strong>Frontend Testing:</strong> React component tests and end-to-end integration tests validate the user experience.</li>
+    </ul>
+    <p>
+      Log files and audit trails (located in the <code>logs/</code> directory) provide additional insights into system performance and security.
+    </p>
+  </section>
+
+  <!-- Discussion & Future Work -->
+  <section id="discussion" class="discussion">
+    <h2>Discussion & Future Work</h2>
+    <p>
+      The project demonstrates a robust approach to decentralized healthcare data management. Challenges such as ensuring data privacy, scalability of smart contracts, and seamless off-chain interactions were addressed through iterative testing and design improvements.
+    </p>
+    <p>
+      Future enhancements could include:
+    </p>
+    <ul>
+      <li>Expanding support to multiple blockchain networks (e.g., Polygon, Binance Smart Chain).</li>
+      <li>Integrating advanced authentication mechanisms.</li>
+      <li>Implementing machine learning algorithms for predictive healthcare analytics.</li>
+      <li>Enhancing the user interface for improved accessibility and interaction.</li>
+    </ul>
+  </section>
+
+  <!-- Appendix: Project Structure -->
+  <section id="appendix" class="appendix">
+    <h2>Project Structure</h2>
+    <pre><code>
+Healthcare_Blockchain_Project/
+├── smart_contracts/            
+│   ├── PatientAccess.sol       
+│   ├── RecordStorage.sol       
+│   ├── Migrations.sol          
+│   ├── migrations/             
+│   │   ├── 1_initial_migration.js
+│   │   ├── 2_deploy_patient_access.js
+│   │   └── 3_deploy_record_storage.js
+│   ├── tests/                  
+│   │   ├── test_patient_access.js
+│   │   └── test_record_storage.js
+│   └── README.md               
+│
+├── frontend/                   
+│   ├── src/                    
+│   │   ├── components/         
+│   │   ├── pages/              
+│   │   ├── hooks/              
+│   │   ├── contexts/           
+│   │   ├── services/           
+│   │   ├── utils/              
+│   │   ├── assets/             
+│   │   ├── App.js              
+│   │   ├── index.js            
+│   │   ├── config.js           
+│   │   └── styles.css          
+│   ├── public/                 
+│   ├── styles/                 
+│   └── README.md               
+│
+├── backend/                    
+│   ├── server.js               
+│   ├── routes/                 
+│   ├── controllers/            
+│   ├── models/                 
+│   ├── middleware/             
+│   └── README.md               
+│
+├── docs/                       
+│   ├── SystemArchitecture.pdf  
+│   ├── UserGuide.md            
+│   ├── DeveloperGuide.md       
+│   └── references/             
+│
+├── config/                     
+├── logs/                       
+├── scripts/                    
+├── README.md                   
+├── LICENSE                     
+├── .gitignore                  
+└── package.json                
+    </code></pre>
+  </section>
+
+  <!-- Repository & Code -->
+  <section id="repository" class="repository">
+    <h2>Repository & Code</h2>
+    <p>
+      For a complete view of the source code and detailed documentation, please visit the GitHub repository.
+    </p>
+    <a class="btn" href="https://github.com/yourusername/Healthcare_Blockchain_Project" target="_blank">View Code on GitHub</a>
+  </section>
+
+  <!-- Footer / Contact -->
+  <footer style="background-color:#1f497d; color:#fff; text-align:center; padding:1.5rem;">
+    <p>&copy; 2025 Healthcare Blockchain Project. All rights reserved.</p>
+    <p><a href="mailto:your_email@example.com" style="color:#ffcc00;">your_email@example.com</a></p>
+  </footer>
+</body>
+</html>
