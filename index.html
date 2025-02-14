@@ -590,7 +590,7 @@
 
   <!--Space Concordia -->
 
-<section class="w-full px-[12%] py-10 scroll-mt-20" id="space-concordia">
+<section class="w-full px-[12%] py-10 scroll-mt-20 relative" id="space-concordia" style="z-index: 1;">
   <h4 class="text-center mb-2 text-lg font-Ovo">Collaborative Experience</h4>
   <h2 class="text-center text-5xl font-Ovo">My Work with Space Concordia</h2>
   <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">
@@ -601,9 +601,13 @@
       Read More
     </a>
   </div>
-<div class="relative z-50">
-  <iframe src="./rocket.html" class="w-full h-[500px]" style="border: none; background: transparent; overflow: visible;" scrolling="no"></iframe>
-</div>
+
+  <!-- Rocket iframe with high z-index -->
+  <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2" style="z-index: 1000;">
+    <iframe src="./rocket.html" class="w-[400px] h-[600px]" style="border: none; background: transparent; overflow: visible;" scrolling="no"></iframe>
+  </div>
+</section>
+
 
 
 
