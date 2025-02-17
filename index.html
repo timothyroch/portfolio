@@ -21,33 +21,25 @@
   opacity: 1;
   transform: translateY(0);
 }
-@keyframes border-light {
+@keyframes neon-glow {
     0% {
-        clip-path: inset(0 0 98% 0);
-    }
-    25% {
-        clip-path: inset(0 98% 0 0);
+        box-shadow: 0 0 5px #3b82f6, 0 0 10px #3b82f6, 0 0 15px #3b82f6, 0 0 20px #3b82f6;
     }
     50% {
-        clip-path: inset(98% 0 0 0);
-    }
-    75% {
-        clip-path: inset(0 0 0 98%);
+        box-shadow: 0 0 10px #2563eb, 0 0 20px #2563eb, 0 0 30px #2563eb, 0 0 40px #2563eb;
     }
     100% {
-        clip-path: inset(0 0 98% 0);
+        box-shadow: 0 0 5px #3b82f6, 0 0 10px #3b82f6, 0 0 15px #3b82f6, 0 0 20px #3b82f6;
     }
 }
 
-.animate-border-light {
-    position: absolute;
+.neon-border {
+    position: relative;
     border: 2px solid #3b82f6;
-    width: 100%;
-    height: 100%;
     border-radius: 9999px;
-    animation: border-light 2s linear infinite;
-    opacity: 1;
+    animation: neon-glow 1.5s infinite alternate;
 }
+
 
 
 
@@ -127,11 +119,11 @@
     text-white flex items-center gap-2 dark:border-transparent">Contact me <img src="./images/right-arrow-white.png" class="w-4" alt=""></a>
 
 <a href="portfolio.pdf" target="_blank"
-   class="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white dark:text-black relative group">
+   class="px-10 py-3 border rounded-full border-blue-500 flex items-center gap-2 bg-white dark:text-black relative neon-border">
    My resume 
    <img src="./images/download-icon.png" class="w-4" alt="">
-   <span class="absolute inset-0 rounded-full border-2 border-blue-500 opacity-0 group-hover:opacity-100 animate-border-light"></span>
 </a>
+
 
   </div>
 </div>
