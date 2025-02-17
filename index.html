@@ -21,6 +21,33 @@
   opacity: 1;
   transform: translateY(0);
 }
+@keyframes border-light {
+    0% {
+        clip-path: inset(0 0 98% 0);
+    }
+    25% {
+        clip-path: inset(0 98% 0 0);
+    }
+    50% {
+        clip-path: inset(98% 0 0 0);
+    }
+    75% {
+        clip-path: inset(0 0 0 98%);
+    }
+    100% {
+        clip-path: inset(0 0 98% 0);
+    }
+}
+
+.animate-border-light {
+    position: absolute;
+    border: 2px solid #3b82f6;
+    width: 100%;
+    height: 100%;
+    border-radius: 9999px;
+    animation: border-light 2s linear infinite;
+    opacity: 1;
+}
 
 
 
