@@ -5,11 +5,11 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  /* A subtle marble-like background gradient for the table */
+
   background: radial-gradient(circle at top left, #fdfdfd, #e5e5e5);
 }
 
-/* Ensure all elements use border-box sizing */
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -32,7 +32,7 @@ body {
 }
 
 .turnhighlight {
-  /* A gentle accent color that still pops against the marble tone */
+
   background: #8c8c8c !important;
   color: #fff;
 }
@@ -44,7 +44,7 @@ body {
   height: 100%;
   position: relative;
   margin: 20px auto;
-  /* A clean white board with a subtle inner glow to simulate depth */
+
   background: #fff;
   border-radius: 8px;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05), 0 4px 10px rgba(0, 0, 0, 0.1);
