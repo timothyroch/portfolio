@@ -69,7 +69,7 @@
   border: 2px solid #fff;
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 999999;
   transform: translate(-50%, -50%);
   transition: transform 0.1s ease-out, border-color 0.2s;
 }
@@ -80,6 +80,12 @@
   border-color: #000;
 }
 
+.snap-container {
+  scroll-snap-type: y mandatory;
+}
+.snap-start {
+  scroll-snap-align: start;
+}
 
 
 </style>
@@ -260,215 +266,114 @@
  </div>-->
 
 <!-- Custom Styles for Animations -->
-<style>
-  /* Keyframe animations */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  @keyframes slideIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
 
-  /* Animation classes */
-  .animate-fadeIn {
-    animation: fadeIn 1s ease-out forwards;
-  }
-  .animate-slideIn {
-    animation: slideIn 1s ease-out forwards;
-  }
-</style>
-
-<!-- My Work Section -->
-<section id="work"
-  class="w-full px-6 md:px-[12%] py-20 scroll-mt-20
-         bg-white dark:bg-gray-900
-         text-gray-900 dark:text-white
-         transition-colors duration-300"
->
+<div id="work" class="w-full px-[12%] py-20 scroll-mt-20">
   <!-- Section Heading -->
-  <h2 class="text-4xl md:text-5xl font-bold mb-6 animate-fadeIn">
-    My Work
-  </h2>
+  <h4 class="text-center mb-2 text-lg font-Ovo">What I'm Proud Of</h4>
+  <h2 class="text-center text-5xl font-Ovo mb-8">My Top Projects</h2>
+  
+  <!-- Project 1: Luminex Cryptocurrency -->
+  <section class="min-h-screen flex flex-col md:flex-row items-center gap-10 py-10">
+    <!-- Left (Image / Logo) -->
+    <div class="flex-1 flex justify-center">
+      <div class="relative">
+        <!-- Light mode circle (hidden in dark mode) -->
+        <div class="absolute top-0 left-0 w-16 h-16 bg-blue-700/70 rounded-full light:flex dark:hidden"></div>
+        <img
+          src="Luminex_Logo.png"
+          alt="Luminex Logo"
+          class="relative z-10 w-48 h-48 object-contain"
+        />
+      </div>
+    </div>
 
-  <!-- Optional Subheading / Intro Text -->
-  <p
-    class="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mb-12 animate-fadeIn"
-    style="animation-delay: 0.2s;"
-  >
-    Deployed scalable travel, event, and telemedicine web and hybrid mobile apps using React SPA and PWA.
-    Collaborated in 140+ projects with 58+ clients worldwide. I’m also interested in data analytics and visualization.
-  </p>
-
-  <!-- Featured Project 1 -->
-  <div
-    class="flex flex-col md:flex-row items-center gap-8 mb-16 animate-slideIn"
-    style="animation-delay: 0.4s;"
-  >
-    <!-- Text Column -->
-    <div class="md:w-1/2">
-      <h3 class="text-3xl font-semibold mb-4">
-        Featured Project: Luminex Cryptocurrency
+    <!-- Right (Text Content) -->
+    <div class="flex-1">
+      <h3 class="text-3xl md:text-4xl font-bold text-gray-700 dark:text-white mb-4">
+        Luminex Cryptocurrency
       </h3>
-      <p class="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+      <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
         Luminex is a next-gen cryptocurrency built on a scalable and secure blockchain.
-        Leveraging sharding, Layer‑2 rollups, and zero‑knowledge proofs, it ensures high
+        Leveraging sharding, Layer-2 rollups, and zero-knowledge proofs, it ensures high
         throughput, low fees, and robust security for dApps and financial systems.
       </p>
       <a
         href="luminex.html"
-        class="inline-block px-6 py-3 bg-blue-600 text-white
-               rounded-md hover:bg-blue-700 transition shadow-md hover:shadow-lg"
+        class="inline-block px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
       >
         Read more
       </a>
     </div>
-    <!-- Image/Phone Mockup Column -->
-    <div class="md:w-1/2 flex justify-center relative">
-      <img
-        src="images/mockup-luminex.png"
-        alt="Luminex Mockup"
-        class="w-64 md:w-80 h-auto object-contain"
-      />
-      <!-- Decorative arrow or accent (optional) -->
-      <div class="absolute -left-12 top-1/2 transform -translate-y-1/2 hidden md:block">
-        <svg
-          class="w-8 h-8 text-blue-600 dark:text-blue-400"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M12 4v16m8-8H4"
-          ></path>
-        </svg>
-      </div>
-    </div>
-  </div>
+  </section>
 
-  <!-- Featured Project 2 -->
-  <div
-    class="flex flex-col md:flex-row items-center gap-8 mb-16 animate-slideIn"
-    style="animation-delay: 0.6s;"
-  >
-    <!-- Reverse the order on large screens to swap sides -->
-    <div class="md:w-1/2 order-2 md:order-1 flex justify-center relative">
-      <img
-        src="images/mockup-aisign.png"
-        alt="AI Sign Interpreter Mockup"
-        class="w-64 md:w-80 h-auto object-contain"
-      />
-      <div class="absolute -right-12 top-1/2 transform -translate-y-1/2 hidden md:block">
-        <svg
-          class="w-8 h-8 text-blue-600 dark:text-blue-400"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M12 4v16m8-8H4"
-          ></path>
-        </svg>
+  <!-- Project 2: AI Sign Language Interpreter -->
+  <section class="min-h-screen flex flex-col md:flex-row items-center gap-10 py-10">
+    <!-- Left (Image / Logo) -->
+    <div class="flex-1 flex justify-center">
+      <div class="relative">
+        <!-- Light mode circle (hidden in dark mode) -->
+        <div class="absolute top-0 left-0 w-16 h-16 bg-blue-700/70 rounded-full light:flex dark:hidden"></div>
+        <img
+          src="./images/aisign.png"
+          alt="AI Sign Logo"
+          class="relative z-10 w-48 h-48 object-contain"
+        />
       </div>
     </div>
-    <div class="md:w-1/2 order-1 md:order-2">
-      <h3 class="text-3xl font-semibold mb-4">
+
+    <!-- Right (Text Content) -->
+    <div class="flex-1">
+      <h3 class="text-3xl md:text-4xl font-bold text-gray-700 dark:text-white mb-4">
         AI Sign Language Interpreter
       </h3>
-      <p class="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-        An AI‑powered tool that recognizes and translates sign language gestures in real time,
+      <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
+        An AI-powered tool that recognizes and translates sign language gestures in real time,
         breaking down communication barriers and enhancing accessibility.
       </p>
       <a
         href="/aisign/aisign.html"
-        class="inline-block px-6 py-3 bg-blue-600 text-white
-               rounded-md hover:bg-blue-700 transition shadow-md hover:shadow-lg"
+        class="inline-block px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
       >
         Read more
       </a>
     </div>
-  </div>
+  </section>
 
-  <!-- Featured Project 3 -->
-  <div
-    class="flex flex-col md:flex-row items-center gap-8 animate-slideIn"
-    style="animation-delay: 0.8s;"
-  >
-    <div class="md:w-1/2">
-      <h3 class="text-3xl font-semibold mb-4">
+  <!-- Project 3: Decentralized Medical Records -->
+  <section class="min-h-screen flex flex-col md:flex-row items-center gap-10 py-10">
+    <!-- Left (Image / Logo) -->
+    <div class="flex-1 flex justify-center">
+      <div class="relative">
+        <!-- Light mode circle (hidden in dark mode) -->
+        <div class="absolute top-0 left-0 w-16 h-16 bg-blue-700/70 rounded-full light:flex dark:hidden"></div>
+        <img
+          src="./images/medblockchain.png"
+          alt="Medical Blockchain Logo"
+          class="relative z-10 w-48 h-48 object-contain"
+        />
+      </div>
+    </div>
+
+    <!-- Right (Text Content) -->
+    <div class="flex-1">
+      <h3 class="text-3xl md:text-4xl font-bold text-gray-700 dark:text-white mb-4">
         Decentralized Medical Records
       </h3>
-      <p class="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-        A blockchain‑based dApp designed to securely store, manage, and share patient medical records.
+      <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
+        A blockchain-based dApp designed to securely store, manage, and share patient medical records.
         It ensures data privacy, enhances accessibility, and empowers patients with control over
         their healthcare data.
       </p>
       <a
         href="/medical_blockchain/HCB.html"
-        class="inline-block px-6 py-3 bg-blue-600 text-white
-               rounded-md hover:bg-blue-700 transition shadow-md hover:shadow-lg"
+        class="inline-block px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
       >
         Read more
       </a>
     </div>
-    <div class="md:w-1/2 flex justify-center relative">
-      <img
-        src="images/mockup-medblockchain.png"
-        alt="Decentralized Medical Records Mockup"
-        class="w-64 md:w-80 h-auto object-contain"
-      />
-      <div class="absolute -left-12 top-1/2 transform -translate-y-1/2 hidden md:block">
-        <svg
-          class="w-8 h-8 text-blue-600 dark:text-blue-400"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M12 4v16m8-8H4"
-          ></path>
-        </svg>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
+</div>
 
-<!-- Intersection Observer for triggering animations on scroll -->
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.style.animationPlayState = "running";
-      }
-    });
-  }, { threshold: 0.1 });
-
-  // Pause animations initially; start them when the element is in view
-  document.querySelectorAll(".animate-slideIn, .animate-fadeIn").forEach((el) => {
-    el.style.animationPlayState = "paused";
-    observer.observe(el);
-  });
-</script>
 
 
 
