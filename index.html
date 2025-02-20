@@ -1030,10 +1030,7 @@
     `;
     curtain.style.setProperty("--leftX", leftX + "%");
     curtain.style.setProperty("--rightX", rightX + "%");
-    curtain::before = null; // We'll override with a dynamic approach below
-
-    // We can do a direct approach:
-    curtain.querySelectorAll("::before, ::after"); 
+ 
     // This won't work as-is in plain JS, we'd need to do it in actual CSS or a style sheet.
 
     // Instead, let's do it purely with inline style approach:
