@@ -446,175 +446,282 @@
 <div id="my-work" class="px-[12%] py-10 scroll-mt-20">
   <h2 class="text-center text-5xl font-Ovo mb-4 text-gray-800">My latest work</h2>
 
-  <!-- Cards Grid -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    
-    <!-- Card: Facetime App -->
-    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-      <img src="./images/yoom.png" alt="Facetime App" class="w-full h-48 object-cover" />
+  <!-- Grid: 3 columns, row-dense, with manual col/row spans for a "magazine" style -->
+  <div class="grid grid-cols-3 grid-flow-row-dense gap-6">
+
+    <!-- Row 1 (3 cards) -->
+    <!-- 1) Facetime App -->
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden col-span-1 row-span-1 hover:shadow-lg transition">
+      <img 
+        src="./images/yoom.png" 
+        alt="Facetime App" 
+        class="w-full h-48 object-cover" 
+      />
       <div class="p-4 flex flex-col space-y-2">
         <h3 class="text-xl font-semibold font-Ovo text-gray-800">Facetime App</h3>
-        <p class="text-sm text-gray-600">Clone of zoom meeting app</p>
-        <a href="https://zoom-clone-pink-kappa.vercel.app" target="_blank" class="mt-auto text-indigo-400 hover:underline">
+        <p class="text-sm text-gray-600">Clone of Zoom meeting app</p>
+        <a 
+          href="https://zoom-clone-pink-kappa.vercel.app" 
+          target="_blank" 
+          class="mt-auto text-indigo-400 hover:underline"
+        >
           Show project
         </a>
       </div>
     </div>
 
-    <!-- Card: Numerical Leitner System -->
-    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-      <img src="./images/nls_home.png" alt="Study Platform" class="w-full h-48 object-cover" />
+    <!-- 2) Study Platform -->
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden col-span-1 row-span-1 hover:shadow-lg transition">
+      <img 
+        src="./images/nls_home.png" 
+        alt="Study Platform" 
+        class="w-full h-48 object-cover" 
+      />
       <div class="p-4 flex flex-col space-y-2">
         <h3 class="text-xl font-semibold font-Ovo text-gray-800">Study Platform</h3>
         <p class="text-sm text-gray-600">
-          Create flash cards, study them, upgrade their levels, and communicate with your friends
+          Create flash cards, study them, upgrade their levels, and communicate with your friends.
         </p>
-        <a href="http://nls.ct.ws" target="_blank" class="mt-auto text-indigo-400 hover:underline">
+        <a 
+          href="http://nls.ct.ws" 
+          target="_blank" 
+          class="mt-auto text-indigo-400 hover:underline"
+        >
           Show project
         </a>
       </div>
     </div>
 
-    <!-- Card: MateNet -->
-    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-      <img src="./images/matenet.png" alt="Social Network" class="w-full h-48 object-cover" />
+    <!-- 3) Social Network -->
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden col-span-1 row-span-1 hover:shadow-lg transition">
+      <img 
+        src="./images/matenet.png" 
+        alt="Social Network" 
+        class="w-full h-48 object-cover" 
+      />
       <div class="p-4 flex flex-col space-y-2">
         <h3 class="text-xl font-semibold font-Ovo text-gray-800">Social Network</h3>
         <p class="text-sm text-gray-600">
-          Make your account, create posts, share pictures, follow your friends and comment on their posts.
+          Make your account, create posts, share pictures, follow your friends, and comment on their posts.
         </p>
-        <a href="http://matenet.ct.ws/" target="_blank" class="mt-auto text-indigo-400 hover:underline">
+        <a 
+          href="http://matenet.ct.ws/" 
+          target="_blank" 
+          class="mt-auto text-indigo-400 hover:underline"
+        >
           Show project
         </a>
       </div>
     </div>
 
-    <!-- Card: Daily AI-Powered Mental Health Journal -->
-    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-      <img src="../images/aijournal.png" alt="Daily AI-Powered Mental Health Journal" class="w-full h-48 object-cover" />
+    <!-- Row 2 & 3 (featured card + two smaller cards) -->
+    <!-- 4) Daily AI-Powered Mental Health Journal (featured) -->
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden col-span-2 row-span-2 hover:shadow-lg transition">
+      <!-- Taller image height for the featured card -->
+      <img 
+        src="../images/aijournal.png" 
+        alt="Daily AI-Powered Mental Health Journal" 
+        class="w-full h-64 object-cover" 
+      />
       <div class="p-4 flex flex-col space-y-2">
-        <h3 class="text-xl font-semibold font-Ovo text-gray-800">Daily AI-Powered Mental Health Journal</h3>
-        <p class="text-sm text-gray-600"></p>
-        <a href="https://cleversoul-git-main-timothyrochs-projects.vercel.app/" target="_blank" class="mt-auto text-indigo-400 hover:underline">
+        <h3 class="text-xl font-semibold font-Ovo text-gray-800">
+          Daily AI-Powered Mental Health Journal
+        </h3>
+        <p class="text-sm text-gray-600">
+          Leverage AI to track your daily mood and mental health.
+        </p>
+        <a 
+          href="https://cleversoul-git-main-timothyrochs-projects.vercel.app/" 
+          target="_blank" 
+          class="mt-auto text-indigo-400 hover:underline"
+        >
           Show project
         </a>
       </div>
     </div>
 
-    <!-- Card: Finance Tracker -->
-    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-      <img src="./images/equinova.png" alt="Finance Tracker" class="w-full h-48 object-cover" />
+    <!-- 5) Finance Tracker (next to featured, row 2 col 3) -->
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden col-span-1 row-span-1 hover:shadow-lg transition">
+      <img 
+        src="./images/equinova.png" 
+        alt="Finance Tracker" 
+        class="w-full h-48 object-cover" 
+      />
       <div class="p-4 flex flex-col space-y-2">
         <h3 class="text-xl font-semibold font-Ovo text-gray-800">Finance Tracker</h3>
         <p class="text-sm text-gray-600">
           Create budgets, track expenses, and visualize your finances with intuitive charts.
         </p>
-        <a href="https://equinovafinance-ao8ude7qu-timothyrochs-projects.vercel.app/" target="_blank" class="mt-auto text-indigo-400 hover:underline">
+        <a 
+          href="https://equinovafinance-ao8ude7qu-timothyrochs-projects.vercel.app/" 
+          target="_blank" 
+          class="mt-auto text-indigo-400 hover:underline"
+        >
           Show project
         </a>
       </div>
     </div>
 
-    <!-- Card: Car Showcase -->
-    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-      <img src="./images/carapp.png" alt="Car Showcase" class="w-full h-48 object-cover" />
+    <!-- 6) Car Showcase (row 3 col 3, under #5) -->
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden col-span-1 row-span-1 hover:shadow-lg transition">
+      <img 
+        src="./images/carapp.png" 
+        alt="Car Showcase" 
+        class="w-full h-48 object-cover" 
+      />
       <div class="p-4 flex flex-col space-y-2">
         <h3 class="text-xl font-semibold font-Ovo text-gray-800">Car Showcase</h3>
         <p class="text-sm text-gray-600">
           Search cars and get information about their performance.
         </p>
-        <a href="https://car-showcase-eight-murex.vercel.app/" target="_blank" class="mt-auto text-indigo-400 hover:underline">
+        <a 
+          href="https://car-showcase-eight-murex.vercel.app/" 
+          target="_blank" 
+          class="mt-auto text-indigo-400 hover:underline"
+        >
           Show project
         </a>
       </div>
     </div>
 
-    <!-- Card: Chess Game -->
-    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-      <img src="./images/chess.png" alt="Chess Game" class="w-full h-48 object-cover" />
+    <!-- Row 4 (3 standard cards) -->
+    <!-- 7) Chess Game -->
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden col-span-1 row-span-1 hover:shadow-lg transition">
+      <img 
+        src="./images/chess.png" 
+        alt="Chess Game" 
+        class="w-full h-48 object-cover" 
+      />
       <div class="p-4 flex flex-col space-y-2">
         <h3 class="text-xl font-semibold font-Ovo text-gray-800">Chess Game</h3>
         <p class="text-sm text-gray-600">
           Play the traditional chess game with your friend!
         </p>
-        <a href="/Catch the starts/index.html" target="_blank" class="mt-auto text-indigo-400 hover:underline">
+        <a 
+          href="/Catch the starts/index.html" 
+          target="_blank" 
+          class="mt-auto text-indigo-400 hover:underline"
+        >
           Show project
         </a>
       </div>
     </div>
 
-    <!-- Card: Tic Tac Toe -->
-    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-      <img src="./images/tictactoe.png" alt="AI Player" class="w-full h-48 object-cover" />
+    <!-- 8) Tic Tac Toe -->
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden col-span-1 row-span-1 hover:shadow-lg transition">
+      <img 
+        src="./images/tictactoe.png" 
+        alt="Tic Tac Toe" 
+        class="w-full h-48 object-cover" 
+      />
       <div class="p-4 flex flex-col space-y-2">
         <h3 class="text-xl font-semibold font-Ovo text-gray-800">AI Player</h3>
         <p class="text-sm text-gray-600">
-          Try to beat my AI at the classic Tic-Tac-Toe game
+          Try to beat my AI at the classic Tic-Tac-Toe game!
         </p>
-        <a href="/tic_tac_toe/index.html" target="_blank" class="mt-auto text-indigo-400 hover:underline">
+        <a 
+          href="/tic_tac_toe/index.html" 
+          target="_blank" 
+          class="mt-auto text-indigo-400 hover:underline"
+        >
           Show project
         </a>
       </div>
     </div>
 
-    <!-- Card: 3D PID-Controlled Ball Balancing System -->
-    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-      <img src="../images/tiltball.png" alt="3D PID-Controlled Ball Balancing System" class="w-full h-48 object-cover" />
+    <!-- 9) 3D PID-Controlled Ball Balancing System -->
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden col-span-1 row-span-1 hover:shadow-lg transition">
+      <img 
+        src="../images/tiltball.png" 
+        alt="3D PID-Controlled Ball Balancing System" 
+        class="w-full h-48 object-cover" 
+      />
       <div class="p-4 flex flex-col space-y-2">
-        <h3 class="text-xl font-semibold font-Ovo text-gray-800">3D PID-Controlled Ball Balancing System</h3>
+        <h3 class="text-xl font-semibold font-Ovo text-gray-800">
+          3D PID-Controlled Ball Balancing System
+        </h3>
         <p class="text-sm text-gray-600">
-          A dual-axis PID control system with real-time 3D simulation to stabilize a ball on an inverted bowl using MATLAB.
+          A dual-axis PID control system with real-time 3D simulation using MATLAB.
         </p>
-        <a href="/tiltball/adcs.html" target="_blank" class="mt-auto text-indigo-400 hover:underline">
+        <a 
+          href="/tiltball/adcs.html" 
+          target="_blank" 
+          class="mt-auto text-indigo-400 hover:underline"
+        >
           Show project
         </a>
       </div>
     </div>
 
-    <!-- Card: Chatbot App -->
-    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-      <img src="../images/terraguide.png" alt="Chatbot App" class="w-full h-48 object-cover" />
+    <!-- Row 5 & 6 (another featured card + two smaller cards) -->
+    <!-- 10) Chatbot App (featured) -->
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden col-span-2 row-span-2 hover:shadow-lg transition">
+      <img 
+        src="../images/terraguide.png" 
+        alt="Chatbot App" 
+        class="w-full h-64 object-cover" 
+      />
       <div class="p-4 flex flex-col space-y-2">
         <h3 class="text-xl font-semibold font-Ovo text-gray-800">Chatbot App</h3>
         <p class="text-sm text-gray-600">
           Ask for information about any country in the world, and get instant responses!
         </p>
-        <a href="/chatbot test/index.html" target="_blank" class="mt-auto text-indigo-400 hover:underline">
+        <a 
+          href="/chatbot test/index.html" 
+          target="_blank" 
+          class="mt-auto text-indigo-400 hover:underline"
+        >
           Show project
         </a>
       </div>
     </div>
 
-    <!-- Card: Text To Speech -->
-    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-      <img src="./images/texttospeech.png" alt="Text To Voice Converter" class="w-full h-48 object-cover" />
+    <!-- 11) Text To Speech (row 5 col 3) -->
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden col-span-1 row-span-1 hover:shadow-lg transition">
+      <img 
+        src="./images/texttospeech.png" 
+        alt="Text To Voice Converter" 
+        class="w-full h-48 object-cover" 
+      />
       <div class="p-4 flex flex-col space-y-2">
         <h3 class="text-xl font-semibold font-Ovo text-gray-800">Text To Voice Converter</h3>
         <p class="text-sm text-gray-600">
-          Turn your text to speech; adjust the tone, speed, and more.
+          Turn your text into speech; adjust the tone, speed, and more.
         </p>
-        <a href="TextToVoice/index.html" target="_blank" class="mt-auto text-indigo-400 hover:underline">
+        <a 
+          href="TextToVoice/index.html" 
+          target="_blank" 
+          class="mt-auto text-indigo-400 hover:underline"
+        >
           Show project
         </a>
       </div>
     </div>
 
-    <!-- Card: Meditation Hub -->
-    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-      <img src="../images/meditationhub.png" alt="Meditation Hub" class="w-full h-48 object-cover" />
+    <!-- 12) Meditation Hub (row 6 col 3) -->
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden col-span-1 row-span-1 hover:shadow-lg transition">
+      <img 
+        src="../images/meditationhub.png" 
+        alt="Meditation Hub" 
+        class="w-full h-48 object-cover" 
+      />
       <div class="p-4 flex flex-col space-y-2">
         <h3 class="text-xl font-semibold font-Ovo text-gray-800">Meditation Hub</h3>
         <p class="text-sm text-gray-600">
           Learn and practice different types of meditations.
         </p>
-        <a href="https://meditation-hub.vercel.app/" target="_blank" class="mt-auto text-indigo-400 hover:underline">
+        <a 
+          href="https://meditation-hub.vercel.app/" 
+          target="_blank" 
+          class="mt-auto text-indigo-400 hover:underline"
+        >
           Show project
         </a>
       </div>
     </div>
 
-  </div> <!-- End of Cards Grid -->
-</div>
+  </div> <!-- End of Grid -->
+</div> <!-- End of My Work Section -->
 
 
 
