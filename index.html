@@ -446,12 +446,13 @@
 <div id="my-work" class="px-[12%] py-10 scroll-mt-20">
   <h2 class="text-center text-5xl font-Ovo mb-4 text-gray-800">My latest work</h2>
 
-  <!-- Grid: 3 columns, row-dense, with manual col/row spans for a "magazine" style -->
-  <div class="grid grid-cols-3 grid-flow-row-dense gap-6">
+  <!-- Responsive grid: 1 col on small screens, 3 cols on md+; row-dense to fill spaces -->
+  <div class="grid grid-cols-1 md:grid-cols-3 md:grid-flow-row-dense gap-6">
 
-    <!-- Row 1 (3 cards) -->
+    <!-- Row 1: Three standard cards (on md+) -->
     <!-- 1) Facetime App -->
-    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden col-span-1 row-span-1 hover:shadow-lg transition">
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden 
+                col-span-1 row-span-1 md:col-span-1 md:row-span-1 hover:shadow-lg transition">
       <img 
         src="./images/yoom.png" 
         alt="Facetime App" 
@@ -471,7 +472,8 @@
     </div>
 
     <!-- 2) Study Platform -->
-    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden col-span-1 row-span-1 hover:shadow-lg transition">
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden
+                col-span-1 row-span-1 md:col-span-1 md:row-span-1 hover:shadow-lg transition">
       <img 
         src="./images/nls_home.png" 
         alt="Study Platform" 
@@ -493,7 +495,8 @@
     </div>
 
     <!-- 3) Social Network -->
-    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden col-span-1 row-span-1 hover:shadow-lg transition">
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden
+                col-span-1 row-span-1 md:col-span-1 md:row-span-1 hover:shadow-lg transition">
       <img 
         src="./images/matenet.png" 
         alt="Social Network" 
@@ -502,7 +505,7 @@
       <div class="p-4 flex flex-col space-y-2">
         <h3 class="text-xl font-semibold font-Ovo text-gray-800">Social Network</h3>
         <p class="text-sm text-gray-600">
-          Make your account, create posts, share pictures, follow your friends, and comment on their posts.
+          Make your account, create posts, share pictures, follow your friends and comment on their posts.
         </p>
         <a 
           href="http://matenet.ct.ws/" 
@@ -514,14 +517,14 @@
       </div>
     </div>
 
-    <!-- Row 2 & 3 (featured card + two smaller cards) -->
+    <!-- Row 2 & 3 (on md+): 1 Featured card spanning 2 cols & 2 rows, plus 2 standard cards -->
     <!-- 4) Daily AI-Powered Mental Health Journal (featured) -->
-    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden col-span-2 row-span-2 hover:shadow-lg transition">
-      <!-- Taller image height for the featured card -->
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden
+                col-span-1 row-span-1 md:col-span-2 md:row-span-2 hover:shadow-lg transition">
       <img 
         src="../images/aijournal.png" 
         alt="Daily AI-Powered Mental Health Journal" 
-        class="w-full h-64 object-cover" 
+        class="w-full md:h-64 h-48 object-cover" 
       />
       <div class="p-4 flex flex-col space-y-2">
         <h3 class="text-xl font-semibold font-Ovo text-gray-800">
@@ -540,8 +543,9 @@
       </div>
     </div>
 
-    <!-- 5) Finance Tracker (next to featured, row 2 col 3) -->
-    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden col-span-1 row-span-1 hover:shadow-lg transition">
+    <!-- 5) Finance Tracker -->
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden
+                col-span-1 row-span-1 md:col-span-1 md:row-span-1 hover:shadow-lg transition">
       <img 
         src="./images/equinova.png" 
         alt="Finance Tracker" 
@@ -562,8 +566,9 @@
       </div>
     </div>
 
-    <!-- 6) Car Showcase (row 3 col 3, under #5) -->
-    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden col-span-1 row-span-1 hover:shadow-lg transition">
+    <!-- 6) Car Showcase -->
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden
+                col-span-1 row-span-1 md:col-span-1 md:row-span-1 hover:shadow-lg transition">
       <img 
         src="./images/carapp.png" 
         alt="Car Showcase" 
@@ -584,9 +589,10 @@
       </div>
     </div>
 
-    <!-- Row 4 (3 standard cards) -->
+    <!-- Row 4 (on md+): 3 standard cards -->
     <!-- 7) Chess Game -->
-    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden col-span-1 row-span-1 hover:shadow-lg transition">
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden
+                col-span-1 row-span-1 md:col-span-1 md:row-span-1 hover:shadow-lg transition">
       <img 
         src="./images/chess.png" 
         alt="Chess Game" 
@@ -608,7 +614,8 @@
     </div>
 
     <!-- 8) Tic Tac Toe -->
-    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden col-span-1 row-span-1 hover:shadow-lg transition">
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden
+                col-span-1 row-span-1 md:col-span-1 md:row-span-1 hover:shadow-lg transition">
       <img 
         src="./images/tictactoe.png" 
         alt="Tic Tac Toe" 
@@ -630,7 +637,8 @@
     </div>
 
     <!-- 9) 3D PID-Controlled Ball Balancing System -->
-    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden col-span-1 row-span-1 hover:shadow-lg transition">
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden
+                col-span-1 row-span-1 md:col-span-1 md:row-span-1 hover:shadow-lg transition">
       <img 
         src="../images/tiltball.png" 
         alt="3D PID-Controlled Ball Balancing System" 
@@ -653,13 +661,14 @@
       </div>
     </div>
 
-    <!-- Row 5 & 6 (another featured card + two smaller cards) -->
+    <!-- Row 5 & 6 (on md+): another featured card + 2 standard cards -->
     <!-- 10) Chatbot App (featured) -->
-    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden col-span-2 row-span-2 hover:shadow-lg transition">
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden
+                col-span-1 row-span-1 md:col-span-2 md:row-span-2 hover:shadow-lg transition">
       <img 
         src="../images/terraguide.png" 
         alt="Chatbot App" 
-        class="w-full h-64 object-cover" 
+        class="w-full md:h-64 h-48 object-cover" 
       />
       <div class="p-4 flex flex-col space-y-2">
         <h3 class="text-xl font-semibold font-Ovo text-gray-800">Chatbot App</h3>
@@ -676,8 +685,9 @@
       </div>
     </div>
 
-    <!-- 11) Text To Speech (row 5 col 3) -->
-    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden col-span-1 row-span-1 hover:shadow-lg transition">
+    <!-- 11) Text To Speech -->
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden
+                col-span-1 row-span-1 md:col-span-1 md:row-span-1 hover:shadow-lg transition">
       <img 
         src="./images/texttospeech.png" 
         alt="Text To Voice Converter" 
@@ -686,7 +696,7 @@
       <div class="p-4 flex flex-col space-y-2">
         <h3 class="text-xl font-semibold font-Ovo text-gray-800">Text To Voice Converter</h3>
         <p class="text-sm text-gray-600">
-          Turn your text into speech; adjust the tone, speed, and more.
+          Turn your text to speech; adjust the tone, speed, and more.
         </p>
         <a 
           href="TextToVoice/index.html" 
@@ -698,8 +708,9 @@
       </div>
     </div>
 
-    <!-- 12) Meditation Hub (row 6 col 3) -->
-    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden col-span-1 row-span-1 hover:shadow-lg transition">
+    <!-- 12) Meditation Hub -->
+    <div class="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden
+                col-span-1 row-span-1 md:col-span-1 md:row-span-1 hover:shadow-lg transition">
       <img 
         src="../images/meditationhub.png" 
         alt="Meditation Hub" 
