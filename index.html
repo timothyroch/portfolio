@@ -60,25 +60,31 @@
   50% { border-color: orange; }
 }
 
-:root {
-  --cursor-border: #fff;
-}
-
-body.light-mode {
-  --cursor-border: #000;
-}
-
 .cursor-follower {
-  border: 2px solid var(--cursor-border);
-  /* other properties */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease-out, border-color 0.2s;
 }
 
+.cursor-follower.cursor-pointer {
+  /* Example modifications on hover over interactive elements */
+  transform: translate(-50%, -50%) scale(1.5);
+  border-color: #000;
 }
+
 
 
 </style>
 </head>
-<body class="overflow-x-hidden font-Outfit leading-8 dark:bg-darkTheme dark:text-white cursor: none;">
+<body class="overflow-x-hidden font-Outfit leading-8 dark:bg-darkTheme dark:text-white">
 
   <div class="fixed top-0 right-0 width-11/12 -z-10 translate-y-[-80%] dark:hidden">
     <img src="./images/header-bg-color.png" class="w-full" alt="">
@@ -253,39 +259,64 @@ body.light-mode {
   </div>
  </div>-->
 
-<div id="work" class="w-full px-[12%] py-20 scroll-mt-20">
+<!-- Custom Styles for Animations -->
+<style>
+  /* Gradient background for the section */
+  #work {
+    background: linear-gradient(135deg, #f7fafc, #e2e8f0);
+  }
+
+  /* Keyframe animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  /* Animation classes */
+  .animate-fadeIn {
+    animation: fadeIn 1s ease-out forwards;
+  }
+  .animate-slideIn {
+    animation: slideIn 1s ease-out forwards;
+  }
+</style>
+
+<!-- Portfolio Section -->
+<div id="work" class="w-full px-[12%] py-20 scroll-mt-20 dark:bg-gray-900">
   <!-- Section Heading -->
-  <h4 class="text-center mb-2 text-lg font-Ovo">What I'm Proud Of</h4>
-  <h2 class="text-center text-5xl font-Ovo mb-8">My Top Projects</h2>
+  <h4 class="text-center mb-2 text-lg font-Ovo animate-fadeIn">What I'm Proud Of</h4>
+  <h2 class="text-center text-5xl font-Ovo mb-8 animate-fadeIn" style="animation-delay: 0.2s;">My Top Projects</h2>
   
   <!-- Project 1: Luminex Cryptocurrency -->
-  <section class="min-h-screen flex flex-col md:flex-row items-center gap-10 py-10">
+  <section class="min-h-screen flex flex-col md:flex-row items-center gap-10 py-10 transform transition duration-500 hover:scale-105 hover:shadow-2xl animate-slideIn" style="animation-delay: 0.4s;">
     <!-- Left (Image / Logo) -->
     <div class="flex-1 flex justify-center">
-      <div class="relative">
-        <!-- Light mode circle (hidden in dark mode) -->
-        <div class="absolute top-0 left-0 w-16 h-16 bg-blue-700/70 rounded-full light:flex dark:hidden"></div>
+      <div class="relative group">
+        <!-- Decorative circle (rotates on hover) -->
+        <div class="absolute top-0 left-0 w-16 h-16 bg-blue-700/70 rounded-full transition-transform duration-500 group-hover:rotate-180 dark:hidden"></div>
         <img
           src="Luminex_Logo.png"
           alt="Luminex Logo"
-          class="relative z-10 w-48 h-48 object-contain"
+          class="relative z-10 w-48 h-48 object-contain transition-transform duration-500 group-hover:scale-110"
         />
       </div>
     </div>
-
     <!-- Right (Text Content) -->
     <div class="flex-1">
       <h3 class="text-3xl md:text-4xl font-bold text-gray-700 dark:text-white mb-4">
         Luminex Cryptocurrency
       </h3>
-      <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
+      <p class="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
         Luminex is a next-gen cryptocurrency built on a scalable and secure blockchain.
-        Leveraging sharding, Layer-2 rollups, and zero-knowledge proofs, it ensures high
+        Leveraging sharding, Layer‑2 rollups, and zero‑knowledge proofs, it ensures high
         throughput, low fees, and robust security for dApps and financial systems.
       </p>
       <a
         href="luminex.html"
-        class="inline-block px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+        class="inline-block px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition shadow-md hover:shadow-lg"
       >
         Read more
       </a>
@@ -293,32 +324,30 @@ body.light-mode {
   </section>
 
   <!-- Project 2: AI Sign Language Interpreter -->
-  <section class="min-h-screen flex flex-col md:flex-row items-center gap-10 py-10">
+  <section class="min-h-screen flex flex-col md:flex-row items-center gap-10 py-10 transform transition duration-500 hover:scale-105 hover:shadow-2xl animate-slideIn" style="animation-delay: 0.6s;">
     <!-- Left (Image / Logo) -->
     <div class="flex-1 flex justify-center">
-      <div class="relative">
-        <!-- Light mode circle (hidden in dark mode) -->
-        <div class="absolute top-0 left-0 w-16 h-16 bg-blue-700/70 rounded-full light:flex dark:hidden"></div>
+      <div class="relative group">
+        <div class="absolute top-0 left-0 w-16 h-16 bg-blue-700/70 rounded-full transition-transform duration-500 group-hover:rotate-180 dark:hidden"></div>
         <img
           src="./images/aisign.png"
           alt="AI Sign Logo"
-          class="relative z-10 w-48 h-48 object-contain"
+          class="relative z-10 w-48 h-48 object-contain transition-transform duration-500 group-hover:scale-110"
         />
       </div>
     </div>
-
     <!-- Right (Text Content) -->
     <div class="flex-1">
       <h3 class="text-3xl md:text-4xl font-bold text-gray-700 dark:text-white mb-4">
         AI Sign Language Interpreter
       </h3>
-      <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
-        An AI-powered tool that recognizes and translates sign language gestures in real time,
+      <p class="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+        An AI‑powered tool that recognizes and translates sign language gestures in real time,
         breaking down communication barriers and enhancing accessibility.
       </p>
       <a
         href="/aisign/aisign.html"
-        class="inline-block px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+        class="inline-block px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition shadow-md hover:shadow-lg"
       >
         Read more
       </a>
@@ -326,39 +355,54 @@ body.light-mode {
   </section>
 
   <!-- Project 3: Decentralized Medical Records -->
-  <section class="min-h-screen flex flex-col md:flex-row items-center gap-10 py-10">
+  <section class="min-h-screen flex flex-col md:flex-row items-center gap-10 py-10 transform transition duration-500 hover:scale-105 hover:shadow-2xl animate-slideIn" style="animation-delay: 0.8s;">
     <!-- Left (Image / Logo) -->
     <div class="flex-1 flex justify-center">
-      <div class="relative">
-        <!-- Light mode circle (hidden in dark mode) -->
-        <div class="absolute top-0 left-0 w-16 h-16 bg-blue-700/70 rounded-full light:flex dark:hidden"></div>
+      <div class="relative group">
+        <div class="absolute top-0 left-0 w-16 h-16 bg-blue-700/70 rounded-full transition-transform duration-500 group-hover:rotate-180 dark:hidden"></div>
         <img
           src="./images/medblockchain.png"
           alt="Medical Blockchain Logo"
-          class="relative z-10 w-48 h-48 object-contain"
+          class="relative z-10 w-48 h-48 object-contain transition-transform duration-500 group-hover:scale-110"
         />
       </div>
     </div>
-
     <!-- Right (Text Content) -->
     <div class="flex-1">
       <h3 class="text-3xl md:text-4xl font-bold text-gray-700 dark:text-white mb-4">
         Decentralized Medical Records
       </h3>
-      <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
-        A blockchain-based dApp designed to securely store, manage, and share patient medical records.
+      <p class="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+        A blockchain‑based dApp designed to securely store, manage, and share patient medical records.
         It ensures data privacy, enhances accessibility, and empowers patients with control over
         their healthcare data.
       </p>
       <a
         href="/medical_blockchain/HCB.html"
-        class="inline-block px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+        class="inline-block px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition shadow-md hover:shadow-lg"
       >
         Read more
       </a>
     </div>
   </section>
 </div>
+
+<!-- Optional: JavaScript to further trigger animations on scroll -->
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+      }
+    });
+  }, { threshold: 0.1 });
+  
+  document.querySelectorAll('.animate-slideIn').forEach(el => {
+    el.style.animationPlayState = 'paused';
+    observer.observe(el);
+  });
+</script>
+
 
 
 
