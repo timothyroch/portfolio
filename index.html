@@ -40,6 +40,25 @@
     animation: neon-glow 1.5s infinite alternate;
 }
 
+.typewriter {
+  overflow: hidden;             /* Ensures the content is hidden until revealed */
+  border-right: .15em solid orange; /* The caret */
+  white-space: nowrap;          /* Keeps the text on one line */
+  display: inline-block;        /* Necessary for the animation to work properly */
+  animation: typing 3.5s steps(30, end) forwards, blink-caret .75s step-end infinite;
+}
+
+/* Typing animation: adjusts the width from 0 to full content */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* Blinking caret animation */
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: orange; }
+}
 
 
 
@@ -109,24 +128,25 @@
 <!-- header-->
 <div class="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center -gap-4">
   <img src="./images/tim_dark_crossed_arm.JPG" alt="" class="rounded-full w-32">
-  <h3 class="flex items-center gap-2 text-xl md:text-2x; mb-3 font-Ovo">Hi! I'm Timothy Roch <img src="./images/hand-icon.png" alt="" class="w-6"></h3>
+  <h3 class="flex items-center gap-2 text-xl md:text-2xl mb-3 font-Ovo">
+    <span class="typewriter">Hi! I'm Timothy Roch</span>
+    <img src="./images/hand-icon.png" alt="" class="w-6">
+  </h3>
   <h1 class="text-3xl sm:text-6xl lg:text-[66px] font-Ovo">Software engineer.</h1>
-  <p class="max-w-2xl mx-auto font-Ovo">I am a student in software engineering from Montreal, Canada with 3 years of experience in freelance.</p>
-
+  <p class="max-w-2xl mx-auto font-Ovo">
+    I am a student in software engineering from Montreal, Canada with 3 years of experience in freelance.
+  </p>
   <div class="flex flex-col sm:flex-row items-center gap-4 mt-4">
-    <a href="#contact"
-    class="px-10 py-3 border rounded-full bg-gradient-to-r from-[#1E3A8A] to-[#3B82F6]
-    text-white flex items-center gap-2 dark:border-transparent">Contact me <img src="./images/right-arrow-white.png" class="w-4" alt=""></a>
-
-<a href="portfolio.pdf" target="_blank"
-   class="px-10 py-3 border rounded-full border-blue-500 flex items-center gap-2 bg-white dark:text-black relative neon-border">
-   My resume 
-   <img src="./images/download-icon.png" class="w-4" alt="">
-</a>
-
-
+    <a href="#contact" class="px-10 py-3 border rounded-full bg-gradient-to-r from-[#1E3A8A] to-[#3B82F6] text-white flex items-center gap-2 dark:border-transparent">
+      Contact me <img src="./images/right-arrow-white.png" class="w-4" alt="">
+    </a>
+    <a href="portfolio.pdf" target="_blank" class="px-10 py-3 border rounded-full border-blue-500 flex items-center gap-2 bg-white dark:text-black relative neon-border">
+      My resume 
+      <img src="./images/download-icon.png" class="w-4" alt="">
+    </a>
   </div>
 </div>
+
 
 <!-- about me -->
  <div id="about" class="w-full px-[12%] py-10 scroll-mt-20">
@@ -424,9 +444,9 @@
         style="background-image: url('./images/tictactoe.png')"
       ></div>
       <div class="p-4 flex flex-col space-y-2">
-        <h3 class="text-xl font-semibold font-Ovo">Tic Tac Toe</h3>
+        <h3 class="text-xl font-semibold font-Ovo">AI Player</h3>
         <p class="text-sm text-gray-400">
-          Try to beat my algorithm at the classic Tic-Tac-Toe game
+          Try to beat my AI at the classic Tic-Tac-Toe game
         </p>
         <a 
           href="/tic_tac_toe/index.html" 
