@@ -80,7 +80,7 @@
 </a>
   <ul class="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50 font-Ovo dark:border dark:border-white/50 dark:bg-transparent">
     <li><a href="#top">Home</a></li>
-    <li><a href="#work">My Work</a></li>
+    <li><a href="#work">Projects</a></li>
         <li><a href="#experience">Experience</a></li>
     <li><a href="#contact">Contact me</a></li>
   </ul>
@@ -124,42 +124,57 @@
 
 </nav>
 
-<section class="relative w-full py-16 px-4 bg-gray-900 text-white">
+<!-- Hero Section with Code Background -->
+<div class="relative min-h-screen flex flex-col-reverse md:flex-row items-center justify-center px-4 md:px-8 lg:px-16 overflow-hidden">
   <!-- Background Overlay / Code Image -->
   <div 
-    class="absolute inset-0 bg-no-repeat bg-cover bg-center opacity-20" 
-    style="background-image: url('/images/code-background.png');">
-  </div>
+    class="absolute inset-0 bg-no-repeat bg-cover bg-center opacity-20"
+    style="background-image: url('/images/code-background.jpg');"
+  ></div>
 
-  <!-- Actual Content (above the background) -->
-  <div class="relative max-w-6xl mx-auto z-10">
-    <h2 class="text-3xl mb-6 font-bold">My Expertise</h2>
+  <!-- Left Column: Text -->
+  <div class="relative z-10 mt-8 md:mt-0 md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
+    <h3 class="text-xl md:text-2xl mb-3 font-Ovo flex items-center gap-2">
+      <span class="typewriter">Hi! I'm Timothy Roch</span>
+      <img src="./images/hand-icon.png" alt="" class="w-6">
+    </h3>
+    <h1 class="text-3xl sm:text-6xl lg:text-[66px] font-Ovo">
+      Software engineer.
+    </h1>
+    <p class="max-w-md mt-4 font-Ovo">
+      I am a student in software engineering from Montreal, Canada with 3 years of experience in freelance.
+    </p>
 
-    <div class="grid gap-6 md:grid-cols-3">
-      <!-- Card 1 -->
-      <div class="p-6 border border-gray-700 rounded-lg bg-black/50">
-        <h3 class="text-xl font-semibold mb-2">Software Development</h3>
-        <p class="text-sm text-gray-200">
-          Experienced in both Backend and Frontend with Dart, Java, JavaScript, etc.
-        </p>
-      </div>
-      <!-- Card 2 -->
-      <div class="p-6 border border-gray-700 rounded-lg bg-black/50">
-        <h3 class="text-xl font-semibold mb-2">Frontend Dev React, NextJS</h3>
-        <p class="text-sm text-gray-200">
-          Passionate about UI/UX. Over 5 years of development experience in HTML, CSS, JS, React, and NextJS frameworks.
-        </p>
-      </div>
-      <!-- Card 3 -->
-      <div class="p-6 border border-gray-700 rounded-lg bg-black/50">
-        <h3 class="text-xl font-semibold mb-2">Flutter Android, iOS</h3>
-        <p class="text-sm text-gray-200">
-          Skilled in building hybrid mobile apps on cross-platform using the Flutter framework.
-        </p>
-      </div>
+    <div class="flex flex-col sm:flex-row items-center gap-4 mt-8">
+      <a 
+        href="#contact"
+        class="px-10 py-3 border rounded-full bg-gradient-to-r from-[#1E3A8A] to-[#3B82F6]
+               text-white flex items-center gap-2 dark:border-transparent"
+      >
+        Contact me 
+        <img src="./images/right-arrow-white.png" class="w-4" alt="">
+      </a>
+      <a
+        href="portfolio.pdf"
+        target="_blank"
+        class="px-10 py-3 border rounded-full border-blue-500 flex items-center gap-2 bg-white dark:text-black
+               relative neon-border"
+      >
+        My resume 
+        <img src="./images/download-icon.png" class="w-4" alt="">
+      </a>
     </div>
   </div>
-</section>
+
+  <!-- Right Column: Image -->
+  <div class="relative z-10 md:w-1/2 flex justify-center md:justify-end">
+    <img
+      src="./images/tim_dark_crossed_arm.JPG"
+      alt="Timothy Roch"
+      class="rounded-full w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 object-cover shadow-lg"
+    />
+  </div>
+</div>
 
 
 
