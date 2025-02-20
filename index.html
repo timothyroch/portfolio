@@ -125,27 +125,52 @@
 
 </nav>
 
-<!-- header-->
-<div class="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center -gap-4">
-  <img src="./images/tim_dark_crossed_arm.JPG" alt="" class="rounded-full w-32">
-  <h3 class="flex items-center gap-2 text-xl md:text-2xl mb-3 font-Ovo">
-    <span class="typewriter">Hi! I'm Timothy Roch</span>
-    <img src="./images/hand-icon.png" alt="" class="w-6">
-  </h3>
-  <h1 class="text-3xl sm:text-6xl lg:text-[66px] font-Ovo">Software engineer.</h1>
-  <p class="max-w-2xl mx-auto font-Ovo">
-    I am a student in software engineering from Montreal, Canada with 3 years of experience in freelance.
-  </p>
-  <div class="flex flex-col sm:flex-row items-center gap-4 mt-4">
-    <a href="#contact" class="px-10 py-3 border rounded-full bg-gradient-to-r from-[#1E3A8A] to-[#3B82F6] text-white flex items-center gap-2 dark:border-transparent">
-      Contact me <img src="./images/right-arrow-white.png" class="w-4" alt="">
-    </a>
-    <a href="portfolio.pdf" target="_blank" class="px-10 py-3 border rounded-full border-blue-500 flex items-center gap-2 bg-white dark:text-black relative neon-border">
-      My resume 
-      <img src="./images/download-icon.png" class="w-4" alt="">
-    </a>
+<!-- Hero Section -->
+<div class="min-h-screen flex flex-col-reverse md:flex-row items-center justify-center px-4 md:px-8 lg:px-16">
+  <!-- Left Column: Text -->
+  <div class="mt-8 md:mt-0 md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
+    <h3 class="text-xl md:text-2xl mb-3 font-Ovo flex items-center gap-2">
+      <span class="typewriter">Hi! I'm Timothy Roch</span>
+      <img src="./images/hand-icon.png" alt="" class="w-6">
+    </h3>
+    <h1 class="text-3xl sm:text-6xl lg:text-[66px] font-Ovo">
+      Software engineer.
+    </h1>
+    <p class="max-w-md mt-4 font-Ovo">
+      I am a student in software engineering from Montreal, Canada with 3 years of experience in freelance.
+    </p>
+
+    <div class="flex flex-col sm:flex-row items-center gap-4 mt-8">
+      <a 
+        href="#contact"
+        class="px-10 py-3 border rounded-full bg-gradient-to-r from-[#1E3A8A] to-[#3B82F6]
+               text-white flex items-center gap-2 dark:border-transparent"
+      >
+        Contact me 
+        <img src="./images/right-arrow-white.png" class="w-4" alt="">
+      </a>
+      <a
+        href="portfolio.pdf"
+        target="_blank"
+        class="px-10 py-3 border rounded-full border-blue-500 flex items-center gap-2 bg-white dark:text-black
+               relative neon-border"
+      >
+        My resume 
+        <img src="./images/download-icon.png" class="w-4" alt="">
+      </a>
+    </div>
+  </div>
+
+  <!-- Right Column: Image -->
+  <div class="md:w-1/2 flex justify-center md:justify-end">
+    <img
+      src="./images/tim_dark_crossed_arm.JPG"
+      alt="Timothy Roch"
+      class="rounded-full w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 object-cover shadow-lg"
+    />
   </div>
 </div>
+
 
 
 <!-- about me -->
