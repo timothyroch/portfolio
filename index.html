@@ -60,18 +60,19 @@
   50% { border-color: orange; }
 }
 
+:root {
+  --cursor-border: #fff;
+}
+
+body.light-mode {
+  --cursor-border: #000;
+}
+
 .cursor-follower {
-  position: fixed;           
-  top: 0;
-  left: 0;
-  width: 20px;               
-  height: 20px;
-  border: 2px solid #fff;    
-  border-radius: 50%;
-  pointer-events: none;      
-  z-index: 9999;             
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s ease-out;  
+  border: 2px solid var(--cursor-border);
+  /* other properties */
+}
+
 }
 
 
@@ -253,84 +254,120 @@
   </div>
  </div>-->
 
-<!-- services -->
-<div id="work" class="w-full px-[12%] py-10 scroll-mt-20">
+<div id="work" class="w-full px-[12%] py-20 scroll-mt-20">
+  <!-- Section Heading -->
   <h4 class="text-center mb-2 text-lg font-Ovo">What I'm Proud Of</h4>
-  <h2 class="text-center text-5xl font-Ovo">My Top Projects</h2>
-  <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo"></p>
-
-  <div class="grid grid-cols-auto gap-6 my-10">
-    <!-- Luminex Cryptocurrency -->
-    <a href="luminex.html" class="block h-full">
-      <div class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 flex flex-col justify-between h-full relative light:bg-gradient-to-br light:from-blue-100 light:to-white dark:bg-darkTheme dark:hover:shadow-white dark:hover:bg-darkHover/50">
-        <div class="relative">
-          <!-- Blue Circle for Light Mode -->
-          <div class="absolute top-0 left-0 w-16 h-16 bg-blue-700/70 rounded-full light:flex dark:hidden items-center justify-center"></div>
-          <!-- Logo visible in both modes -->
-          <div class="absolute top-0 left-0 w-16 h-16 flex items-center justify-center">
-            <img src="Luminex_Logo.png" alt="Luminex Logo" class="w-10 h-10 relative z-10">
-          </div>
-          <!-- More space below the logo -->
-          <h3 class="text-lg mt-20 mb-4 text-gray-700 dark:text-white">Luminex Cryptocurrency</h3>
-          <p class="text-sm text-gray-700 dark:text-gray-300">Luminex is a next-gen cryptocurrency built on a scalable and secure blockchain. Leveraging sharding, Layer-2 rollups, and zero-knowledge proofs, it ensures high throughput, low fees, and robust security for dApps and financial systems.</p>
-        </div>
-        <div class="flex justify-center mt-5">
-          <span class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">Read more <img src="./images/right-arrow.png" alt="" class="w-4"></span>
-        </div>
+  <h2 class="text-center text-5xl font-Ovo mb-8">My Top Projects</h2>
+  
+  <!-- Project 1: Luminex Cryptocurrency -->
+  <section class="min-h-screen flex flex-col md:flex-row items-center gap-10 py-10">
+    <!-- Left (Image / Logo) -->
+    <div class="flex-1 flex justify-center">
+      <div class="relative">
+        <!-- Light mode circle (hidden in dark mode) -->
+        <div class="absolute top-0 left-0 w-16 h-16 bg-blue-700/70 rounded-full light:flex dark:hidden"></div>
+        <img
+          src="Luminex_Logo.png"
+          alt="Luminex Logo"
+          class="relative z-10 w-48 h-48 object-contain"
+        />
       </div>
-    </a>
+    </div>
 
-    <!-- AI Sign Language Interpreter -->
-    <a href="/aisign/aisign.html" class="block h-full">
-      <div class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 flex flex-col justify-between h-full relative light:bg-gradient-to-br light:from-blue-100 light:to-white dark:bg-darkTheme dark:hover:shadow-white dark:hover:bg-darkHover/50">
-        <div class="relative">
-          <!-- Blue Circle for Light Mode -->
-          <div class="absolute top-0 left-0 w-16 h-16 bg-blue-700/70 rounded-full light:flex dark:hidden items-center justify-center"></div>
-          <!-- Logo visible in both modes -->
-          <div class="absolute top-0 left-0 w-16 h-16 flex items-center justify-center">
-            <img src="./images/aisign.png" alt="AI Sign Logo" class="w-10 h-10 relative z-10">
-          </div>
-          <!-- More space below the logo -->
-          <h3 class="text-lg mt-20 mb-4 text-gray-700 dark:text-white">AI Sign Language Interpreter</h3>
-          <p class="text-sm text-gray-700 dark:text-gray-300">An AI-powered tool that recognizes and translates sign language gestures in real time, breaking down communication barriers and enhancing accessibility.</p>
-        </div>
-        <div class="flex justify-center mt-5">
-          <span class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">Read more <img src="./images/right-arrow.png" alt="" class="w-4"></span>
-        </div>
-      </div>
-    </a>
+    <!-- Right (Text Content) -->
+    <div class="flex-1">
+      <h3 class="text-3xl md:text-4xl font-bold text-gray-700 dark:text-white mb-4">
+        Luminex Cryptocurrency
+      </h3>
+      <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
+        Luminex is a next-gen cryptocurrency built on a scalable and secure blockchain.
+        Leveraging sharding, Layer-2 rollups, and zero-knowledge proofs, it ensures high
+        throughput, low fees, and robust security for dApps and financial systems.
+      </p>
+      <a
+        href="luminex.html"
+        class="inline-block px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+      >
+        Read more
+      </a>
+    </div>
+  </section>
 
-    <!-- Decentralized Medical Records -->
-    <a href="/medical_blockchain/HCB.html" class="block h-full">
-      <div class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 flex flex-col justify-between h-full relative light:bg-gradient-to-br light:from-blue-100 light:to-white dark:bg-darkTheme dark:hover:shadow-white dark:hover:bg-darkHover/50">
-        <div class="relative">
-          <!-- Blue Circle for Light Mode -->
-          <div class="absolute top-0 left-0 w-16 h-16 bg-blue-700/70 rounded-full light:flex dark:hidden items-center justify-center"></div>
-          <!-- Logo visible in both modes -->
-          <div class="absolute top-0 left-0 w-16 h-16 flex items-center justify-center">
-            <img src="./images/medblockchain.png" alt="Medical Blockchain Logo" class="w-10 h-10 relative z-10">
-          </div>
-          <!-- More space below the logo -->
-          <h3 class="text-lg mt-20 mb-4 text-gray-700 dark:text-white">Decentralized Medical Records</h3>
-          <p class="text-sm text-gray-700 dark:text-gray-300">A blockchain-based dApp designed to securely store, manage, and share patient medical records. It ensures data privacy, enhances accessibility, and empowers patients with control over their healthcare data.</p>
-        </div>
-        <div class="flex justify-center mt-5">
-          <span class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">Read more <img src="./images/right-arrow.png" alt="" class="w-4"></span>
-        </div>
+  <!-- Project 2: AI Sign Language Interpreter -->
+  <section class="min-h-screen flex flex-col md:flex-row items-center gap-10 py-10">
+    <!-- Left (Image / Logo) -->
+    <div class="flex-1 flex justify-center">
+      <div class="relative">
+        <!-- Light mode circle (hidden in dark mode) -->
+        <div class="absolute top-0 left-0 w-16 h-16 bg-blue-700/70 rounded-full light:flex dark:hidden"></div>
+        <img
+          src="./images/aisign.png"
+          alt="AI Sign Logo"
+          class="relative z-10 w-48 h-48 object-contain"
+        />
       </div>
-    </a>
-  </div>
+    </div>
+
+    <!-- Right (Text Content) -->
+    <div class="flex-1">
+      <h3 class="text-3xl md:text-4xl font-bold text-gray-700 dark:text-white mb-4">
+        AI Sign Language Interpreter
+      </h3>
+      <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
+        An AI-powered tool that recognizes and translates sign language gestures in real time,
+        breaking down communication barriers and enhancing accessibility.
+      </p>
+      <a
+        href="/aisign/aisign.html"
+        class="inline-block px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+      >
+        Read more
+      </a>
+    </div>
+  </section>
+
+  <!-- Project 3: Decentralized Medical Records -->
+  <section class="min-h-screen flex flex-col md:flex-row items-center gap-10 py-10">
+    <!-- Left (Image / Logo) -->
+    <div class="flex-1 flex justify-center">
+      <div class="relative">
+        <!-- Light mode circle (hidden in dark mode) -->
+        <div class="absolute top-0 left-0 w-16 h-16 bg-blue-700/70 rounded-full light:flex dark:hidden"></div>
+        <img
+          src="./images/medblockchain.png"
+          alt="Medical Blockchain Logo"
+          class="relative z-10 w-48 h-48 object-contain"
+        />
+      </div>
+    </div>
+
+    <!-- Right (Text Content) -->
+    <div class="flex-1">
+      <h3 class="text-3xl md:text-4xl font-bold text-gray-700 dark:text-white mb-4">
+        Decentralized Medical Records
+      </h3>
+      <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
+        A blockchain-based dApp designed to securely store, manage, and share patient medical records.
+        It ensures data privacy, enhances accessibility, and empowers patients with control over
+        their healthcare data.
+      </p>
+      <a
+        href="/medical_blockchain/HCB.html"
+        class="inline-block px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+      >
+        Read more
+      </a>
+    </div>
+  </section>
 </div>
 
 
 
 <!-- My Work Section -->
 <div id="my-work" class="text-white px-[12%] py-10 scroll-mt-20">
-  <h4 class="text-center mb-2 text-lg font-Ovo text-gray-300">My portfolio</h4>
+
   <h2 class="text-center text-5xl font-Ovo mb-4">My latest work</h2>
-  <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo text-gray-400">
-    Welcome to my web development portfolio! Explore a collection of projects showcasing my expertise in frontend and backend development.
-  </p>
+
 
   <!-- Cards Grid -->
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
