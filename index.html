@@ -48,18 +48,31 @@
   animation: typing 3.5s steps(30, end) forwards, blink-caret .75s step-end infinite;
 }
 
-/* Typing animation: adjusts the width from 0 to full content */
+
 @keyframes typing {
   from { width: 0; }
   to { width: 100%; }
 }
 
-/* Blinking caret animation */
+
 @keyframes blink-caret {
   from, to { border-color: transparent; }
   50% { border-color: orange; }
 }
 
+.cursor-follower {
+  position: fixed;           
+  top: 0;
+  left: 0;
+  width: 20px;               
+  height: 20px;
+  border: 2px solid #fff;    
+  border-radius: 50%;
+  pointer-events: none;      
+  z-index: 9999;             
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease-out;  
+}
 
 
 </style>
@@ -129,7 +142,7 @@
   <!-- Background Overlay / Code Image -->
   <div 
     class="absolute inset-0 bg-no-repeat bg-cover bg-center opacity-20"
-    style="background-image: url('/images/code-background.jpg');"
+    style="background-image: url('/images/code-background.png');"
   ></div>
 
   <!-- Left Column: Text -->
@@ -786,6 +799,16 @@
 </div>
 
 <script>
+
+    const cursor = document.querySelector('.cursor-follower');
+
+  document.addEventListener('mousemove', (event) => {
+    // Update the circle’s position
+    cursor.style.left = event.pageX + 'px';
+    cursor.style.top = event.pageY + 'px';
+  });
+
+  
   document.getElementById('contactForm').addEventListener('submit', async function (e) {
     e.preventDefault();
 
@@ -841,7 +864,7 @@
 </div>
 
 
-
+<div class="cursor-follower"></div>
 
 
 <script src="./script.js"></script>
