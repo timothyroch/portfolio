@@ -379,6 +379,7 @@
 
 
 
+
 <!-- My Work Section -->
 <div id="my-work" class="text-white px-[12%] py-10 scroll-mt-20">
 
@@ -855,11 +856,25 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const cursor = document.querySelector('.cursor-follower');
+
+  // Move the custom cursor using clientX and clientY for consistent positioning.
   document.addEventListener('mousemove', (event) => {
-    cursor.style.left = event.pageX + 'px';
-    cursor.style.top = event.pageY + 'px';
+    cursor.style.left = event.clientX + 'px';
+    cursor.style.top = event.clientY + 'px';
+  });
+
+  // When hovering over interactive elements, add a pointer effect.
+  document.querySelectorAll('a, button').forEach(element => {
+    element.addEventListener('mouseenter', () => {
+      cursor.classList.add('cursor-pointer');
+    });
+    element.addEventListener('mouseleave', () => {
+      cursor.classList.remove('cursor-pointer');
+    });
   });
 });
+
+
 
 
   
