@@ -139,6 +139,32 @@
       padding: 15px;
       max-height: 500px;
     }
+    /* FAQ Styles */
+.faq-item {
+  margin: 15px 0;
+  /* Optional: Add a border or background if you want a distinct look */
+  /* border: 1px solid var(--border-color); 
+     border-radius: 4px; 
+     background-color: var(--dropdown-bg); */
+}
+
+.faq-question {
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px;
+  /* Optional: If you want a contrasting background for the question line
+     background-color: #333;
+     color: #fff; */
+}
+
+.faq-answer {
+  display: none; /* Hide answers by default */
+  padding: 10px;
+  /* Optional: If you want a slightly different background
+     background-color: #222;
+     color: #ccc; */
+}
+
 
     /* Table Styling */
     table {
@@ -171,6 +197,7 @@
       border-radius: 5px;
       text-decoration: none;
       font-weight: bold;
+      z-index: 999;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     }
 
@@ -275,7 +302,7 @@
     <section id="overview">
       <h2>Project Overview</h2>
       <p>
-        Luminex is a cutting-edge blockchain protocol designed to achieve high scalability and robust security.
+        Luminex is a simple blockchain protocol designed to achieve high scalability and robust security.
         It integrates advanced technologies such as sharding, Layer-2 rollups, and zero-knowledge proofs (ZKPs)
         to provide superior transaction throughput and reduced fees.
       </p>
