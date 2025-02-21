@@ -9,183 +9,215 @@
     /* CSS Variables for light and dark themes */
     :root {
       --bg-color: #f4f4f4;
-      --container-bg: #ffffff;
-      --text-color: #333333;
-      --header-bg: #333333;
-      --header-text: #ffffff;
-      --nav-link-color: #ffffff;
-      --nav-link-hover: #cccccc;
-      --dropdown-bg: #f9f9f9;
-      --dropdown-border: #cccccc;
+      --container-bg: #fff;
+      --text-color: #333;
+      --header-bg: #333;
+      --header-text: #fff;
+      --dropdown-header-bg: #f9f9f9;
+      --dropdown-border: #ccc;
       --highlight-bg: #e2e2e2;
-      --highlight-border: #333333;
+      --highlight-border: #333;
+      --nav-link-color: #fff;
+      --nav-link-hover: #ccc;
     }
+
     .dark-mode {
       --bg-color: #121212;
       --container-bg: #1e1e1e;
       --text-color: #e0e0e0;
-      --header-bg: #000000;
+      --header-bg: #000;
       --header-text: #e0e0e0;
-      --nav-link-color: #e0e0e0;
-      --nav-link-hover: #aaaaaa;
-      --dropdown-bg: #333333;
-      --dropdown-border: #555555;
-      --highlight-bg: #333333;
+      --dropdown-header-bg: #333;
+      --dropdown-border: #555;
+      --highlight-bg: #333;
       --highlight-border: #e0e0e0;
+      --nav-link-color: #e0e0e0;
+      --nav-link-hover: #aaa;
     }
 
     /* Global Styles */
     * {
       box-sizing: border-box;
     }
+
     html {
       scroll-behavior: smooth;
     }
+
     body {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
       margin: 0;
       padding: 0;
       background-color: var(--bg-color);
       color: var(--text-color);
-      line-height: 1.6;
     }
+
     .container {
-      max-width: 800px;
-      margin: 2rem auto;
+      width: 80%;
+      margin: 20px auto;
       background: var(--container-bg);
-      padding: 2rem;
+      padding: 20px;
       border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
-    header, footer {
+
+    header,
+    footer {
       background: var(--header-bg);
       color: var(--header-text);
-      padding: 1rem 0;
+      padding: 10px 0;
       text-align: center;
       position: relative;
     }
+
     header .home-link {
       position: absolute;
-      top: 1rem;
-      left: 1rem;
+      top: 10px;
+      left: 20px;
       color: var(--header-text);
       text-decoration: none;
-      font-size: 1.5rem;
+      font-size: 1.5em;
     }
-    /* Dark/Light Mode Toggle */
-    #theme-toggle {
+
+    /* Dark/Light Mode Toggle Button */
+    header #theme-toggle {
       position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: transparent;
+      top: 10px;
+      right: 20px;
+      background: none;
       border: 1px solid var(--header-text);
       color: var(--header-text);
-      padding: 0.3rem 0.7rem;
+      padding: 5px 10px;
       border-radius: 4px;
       cursor: pointer;
-      font-size: 0.9rem;
     }
-    #theme-toggle:hover {
+
+    header #theme-toggle:hover {
       background: var(--header-text);
       color: var(--header-bg);
     }
+
+    h1,
+    h2,
+    h3 {
+      color: var(--text-color);
+      margin-top: 0;
+    }
+
     nav ul {
       list-style: none;
       padding: 0;
-      margin: 1rem 0 0;
+      margin: 10px 0;
     }
+
     nav ul li {
       display: inline;
-      margin: 0 1rem;
+      margin-right: 20px;
     }
+
     nav ul li a {
       color: var(--nav-link-color);
       text-decoration: none;
     }
+
     nav ul li a:hover {
       color: var(--nav-link-hover);
     }
-    h1, h2, h3 {
-      margin-top: 0;
-    }
+
     section {
-      margin-bottom: 2rem;
+      margin-bottom: 20px;
     }
+
     .highlight {
       background: var(--highlight-bg);
-      padding: 1rem;
+      padding: 10px;
       border-left: 4px solid var(--highlight-border);
     }
+
     .footer-text {
-      font-size: 0.9rem;
+      font-size: 0.9em;
     }
+
     /* Dropdown Styles */
     .dropdown {
-      margin: 1rem 0;
+      margin: 10px 0;
       border: 1px solid var(--dropdown-border);
       border-radius: 4px;
     }
+
     .dropdown-header {
-      background: var(--dropdown-bg);
-      padding: 1rem;
+      background: var(--dropdown-header-bg);
+      padding: 10px;
       cursor: pointer;
       border-bottom: 1px solid var(--dropdown-border);
       position: relative;
     }
+
+    /* Arrow icon for dropdown header */
     .dropdown-header::after {
       content: "\25BC";
       position: absolute;
-      right: 1rem;
+      right: 10px;
       transition: transform 0.3s ease;
     }
+
     .dropdown-header.active::after {
       transform: rotate(180deg);
     }
+
     .dropdown-content {
       max-height: 0;
       opacity: 0;
       overflow: hidden;
       transition: max-height 0.4s ease, opacity 0.4s ease;
-      padding: 0 1rem;
+      padding: 0 10px;
     }
+
     .dropdown-content.active {
-      max-height: 500px;
+      max-height: 500px; /* Adjust this value if necessary */
       opacity: 1;
-      padding: 1rem;
+      padding: 10px;
     }
-    /* Table Styles */
+
+    /* Table Styling */
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 1rem;
+      margin-top: 10px;
     }
-    table, th, td {
+
+    table,
+    th,
+    td {
       border: 1px solid var(--dropdown-border);
     }
-    th, td {
-      padding: 0.75rem;
+
+    th,
+    td {
+      padding: 10px;
       text-align: left;
     }
+
     /* Responsive Adjustments */
     @media (max-width: 768px) {
       .container {
         width: 95%;
-        margin: 1rem auto;
       }
       nav ul li {
         display: block;
-        margin: 0.5rem 0;
+        margin: 5px 0;
       }
       header .home-link,
-      #theme-toggle {
+      header #theme-toggle {
         position: static;
-        margin: 0.5rem;
+        margin: 5px;
       }
     }
   </style>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      // Dropdown functionality for accessibility
+      // Enhance dropdown headers for accessibility
       document.querySelectorAll(".dropdown-header").forEach(function (header) {
         header.setAttribute("role", "button");
         header.setAttribute("tabindex", "0");
@@ -193,11 +225,15 @@
 
         header.addEventListener("click", function () {
           const content = this.nextElementSibling;
-          const isActive = content.classList.toggle("active");
+          content.classList.toggle("active");
           this.classList.toggle("active");
-          this.setAttribute("aria-expanded", isActive);
+
+          // Update aria-expanded attribute
+          const expanded = this.getAttribute("aria-expanded") === "true";
+          this.setAttribute("aria-expanded", !expanded);
         });
 
+        // Allow toggling with Enter or Space keys
         header.addEventListener("keypress", function (e) {
           if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();
@@ -210,41 +246,46 @@
       const themeToggle = document.getElementById("theme-toggle");
       themeToggle.addEventListener("click", function () {
         document.body.classList.toggle("dark-mode");
-        themeToggle.textContent = document.body.classList.contains("dark-mode")
-          ? "Light Mode"
-          : "Dark Mode";
+        if (document.body.classList.contains("dark-mode")) {
+          themeToggle.textContent = "Light Mode";
+        } else {
+          themeToggle.textContent = "Dark Mode";
+        }
       });
     });
   </script>
 </head>
 <body class="dark-mode">
+
+    
   <header>
-    <a href="index.html" class="home-link" title="Home">&#8592;</a>
-    <img src="Luminex_Logo.png" alt="Luminex Logo" style="max-height: 50px; vertical-align: middle;" />
+    <a href="index.html" class="home-link">&#8592;</a>
+    <img src="Luminex_Logo.png" alt="">
     <h1>Luminex: Adaptive Multi-Layer Cryptocurrency</h1>
     <button id="theme-toggle">Light Mode</button>
     <nav>
       <ul>
         <li><a href="#overview">Overview</a></li>
         <li><a href="#architecture">Architecture</a></li>
-        <li><a href="#features">Features</a></li>
+        <li><a href="#features">Key Features</a></li>
         <li><a href="#roadmap">Roadmap</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <main class="container">
+  <div class="container">
     <section id="overview">
       <h2>Project Overview</h2>
       <p>
-        Luminex is a next-generation blockchain protocol designed for high scalability and security.
-        By integrating <strong>sharding</strong>, <strong>Layer-2 rollups</strong>, and <strong>zero-knowledge proofs (ZKPs)</strong>,
-        Luminex achieves superior transaction throughput, reduced fees, and robust decentralization.
+        Luminex is simple blockchain protocol designed for high scalability and security.
+        By integrating <strong>sharding</strong>, <strong>Layer-2 rollups</strong>, and
+        <strong>zero-knowledge proofs (ZKPs)</strong>, Luminex achieves superior transaction throughput,
+        reduced fees, and robust decentralization.
       </p>
       <p>
-        Our Adaptive Multi-Layer (AML) architecture is crafted to support a wide range of applications,
-        from decentralized finance (DeFi) to enterprise solutions and gaming, while keeping the design simple and effective.
+        Our Adaptive Multi-Layer (AML) architecture ensures that the blockchain can handle diverse applications,
+        ranging from decentralized finance (DeFi) to enterprise solutions and gaming.
       </p>
     </section>
 
@@ -254,12 +295,13 @@
         <div class="dropdown-header">Adaptive Multi-Layer (AML) Approach</div>
         <div class="dropdown-content">
           <p>
-            Transactions are dynamically routed to the most suitable layer based on urgency and computational requirements.
+            The AML architecture dynamically routes transactions to the most suitable layer based on their urgency
+            and computational requirements.
           </p>
           <ul>
             <li><strong>Layer-1 (L1):</strong> Secure, sharded blockchain for critical operations.</li>
-            <li><strong>Layer-2 (L2):</strong> Off-chain solutions (zk-rollups, sidechains) for high throughput.</li>
-            <li><strong>Aggregator Module:</strong> Seamless coordination between L1 and L2.</li>
+            <li><strong>Layer-2 (L2):</strong> Off-chain solutions like zk-rollups and sidechains for high throughput.</li>
+            <li><strong>Aggregator Module:</strong> Ensures seamless coordination between L1 and L2.</li>
           </ul>
         </div>
       </div>
@@ -268,7 +310,7 @@
         <div class="dropdown-content">
           <p>
             Luminex employs a hybrid consensus model, primarily using <strong>Proof of Stake (PoS)</strong>
-            to balance energy efficiency with security, while also supporting alternative models as needed.
+            for energy efficiency and security, with potential integration of PoW and PoA for specific use cases.
           </p>
         </div>
       </div>
@@ -276,9 +318,9 @@
         <div class="dropdown-header">Layer-2 Solutions</div>
         <div class="dropdown-content">
           <ul>
-            <li><strong>ZK Rollups:</strong> Off-chain transaction bundling with ZKP validation.</li>
-            <li><strong>Sidechains:</strong> Customizable chains for targeted applications.</li>
-            <li><strong>State Channels:</strong> Enable efficient microtransactions with periodic settlements.</li>
+            <li><strong>ZK Rollups:</strong> Bundling transactions off-chain with ZKP validation.</li>
+            <li><strong>Sidechains:</strong> Customizable chains for specific applications like gaming or supply chain.</li>
+            <li><strong>State Channels:</strong> Enable microtransactions with periodic on-chain settlements.</li>
           </ul>
         </div>
       </div>
@@ -289,31 +331,41 @@
       <div class="dropdown">
         <div class="dropdown-header">Scalability</div>
         <div class="dropdown-content">
-          <p>Sharding and Layer-2 integrations enable handling of high transaction volumes seamlessly.</p>
+          <p>
+            Sharding and Layer-2 integrations ensure the system can handle high transaction volumes.
+          </p>
         </div>
       </div>
       <div class="dropdown">
         <div class="dropdown-header">Security</div>
         <div class="dropdown-content">
-          <p>Utilizing ZKPs and dynamic validator assignment to protect against fraud and maintain data integrity.</p>
+          <p>
+            Zero-Knowledge Proofs and dynamic validator assignment protect against fraud and ensure data integrity.
+          </p>
         </div>
       </div>
       <div class="dropdown">
         <div class="dropdown-header">Decentralization</div>
         <div class="dropdown-content">
-          <p>Community-driven governance through on-chain proposals and voting mechanisms.</p>
+          <p>
+            Community-driven governance with on-chain proposals and voting mechanisms.
+          </p>
         </div>
       </div>
       <div class="dropdown">
         <div class="dropdown-header">Privacy</div>
         <div class="dropdown-content">
-          <p>Confidential transactions powered by ZKPs without sacrificing transparency.</p>
+          <p>
+            ZKPs enable confidential transactions without compromising transparency.
+          </p>
         </div>
       </div>
       <div class="dropdown">
         <div class="dropdown-header">Robust Monitoring</div>
         <div class="dropdown-content">
-          <p>Real-time dashboards and alerts powered by integrations with Prometheus and Grafana.</p>
+          <p>
+            Real-time dashboards and alerts via Prometheus/Grafana integration.
+          </p>
         </div>
       </div>
     </section>
@@ -344,31 +396,33 @@
         <tr>
           <td>Q4</td>
           <td>Sidechain Framework</td>
-          <td>Provide developer toolkits for custom sidechain creation.</td>
+          <td>Toolkits for developers to create and customize sidechains.</td>
         </tr>
         <tr>
           <td>Q5+</td>
           <td>Ecosystem Growth</td>
-          <td>Expand partnerships in DeFi, NFTs, and enterprise solutions.</td>
+          <td>Expand DeFi, NFT, and enterprise partnerships.</td>
         </tr>
       </table>
       <section id="whitepaper">
-        <h3>White Paper</h3>
+        <h2>White Paper</h2>
         <iframe src="wp.pdf" width="100%" height="1100px" style="border: none;"></iframe>
         <p><a href="wp.pdf" download>Download White Paper</a></p>
-      </section>
+    </section>
     </section>
 
     <section id="contact">
       <h2>Contact &amp; Community</h2>
-      <p>Join our community to stay updated and help shape the future of Luminex:</p>
+      <p>
+        Join our community to stay updated and contribute to the growth of Luminex:
+      </p>
       <ul>
         <li><a href="https://github.com/timothyroch/luminex/tree/main">GitHub Repository</a></li>
         <li><a href="https://github.com/timothyroch/luminex/tree/main">Developer Documentation</a></li>
-        <li><a href="mailto:timothyroch@gmail.com">Get in Touch</a></li>
+        <li><a href="mailto:timothyroch@gmail.com">Contact Us</a></li>
       </ul>
     </section>
-  </main>
+  </div>
 
   <footer>
     <p class="footer-text">&copy; 2025 Luminex Project. All rights reserved.</p>
