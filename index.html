@@ -211,66 +211,86 @@
 
 </nav>
 
-<!-- Hero Section with Code Background -->
-<!-- Hero Section with Code Background -->
-<div class="relative min-h-screen flex flex-col-reverse md:flex-row items-center justify-center px-4 md:px-8 lg:px-16 overflow-hidden">
-  <!-- Background Overlay / Code Image -->
-  <div 
-    class="absolute inset-0 bg-no-repeat bg-cover bg-center opacity-20"
-    style="background-image: url('/images/code-background.png');"
-  ></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hero Section with Full Page Background</title>
+  <!-- Tailwind CSS (if not already included) -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .fade-in {
+      animation: fadeIn 1.5s ease-in-out forwards;
+    }
+  </style>
+</head>
+<body class="overflow-hidden">
 
-  <!-- Left Column: Text -->
-  <div class="relative z-10 mt-8 md:mt-0 md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
-    <h3 class="text-xl md:text-2xl mb-3 font-Ovo flex items-center gap-2">
-      <span class="typewriter">Hi! I'm Timothy Roch</span>
-      <img src="./images/hand-icon.png" alt="" class="w-6">
-    </h3>
-    <h1 class="text-3xl sm:text-6xl lg:text-[66px] font-Ovo">
-      Software engineer.
-    </h1>
-    <p class="max-w-md mt-4 font-Ovo">
-      I am a student in software engineering from Montreal, Canada.
-    </p>
-
-    <div class="flex flex-col sm:flex-row items-center gap-4 mt-8">
-      <a 
-        href="#contact"
-        class="px-10 py-3 border rounded-full bg-gradient-to-r from-[#1E3A8A] to-[#3B82F6]
-               text-white flex items-center gap-2 dark:border-transparent"
-      >
-        Contact me 
-        <img src="./images/right-arrow-white.png" class="w-4" alt="">
-      </a>
-      <a
-        href="portfolio.pdf"
-        target="_blank"
-        class="px-10 py-3 border rounded-full border-blue-500 flex items-center gap-2 bg-white dark:text-black
-               relative neon-border"
-      >
-        My resume 
-        <img src="./images/download-icon.png" class="w-4" alt="">
-      </a>
+  <!-- Hero Section with Full Page Background Profile Image & City Overlay -->
+  <div class="relative min-h-screen flex items-center justify-center px-4 md:px-8 lg:px-16 overflow-hidden">
+    <!-- Background Overlay: Code Background -->
+    <div 
+      class="absolute inset-0 bg-no-repeat bg-cover bg-center opacity-20"
+      style="background-image: url('/images/code-background.png');">
     </div>
-  </div>
-
-  <!-- Right Column: Image (with City Overlay) -->
-  <div class="relative z-10 md:w-1/2 flex justify-center md:justify-end">
-    <div class="relative w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 overflow-hidden rounded-full shadow-lg">
-      <!-- Main Portrait -->
+    
+    <!-- Background: Full-Page Profile Image with City Overlay (Fade In) -->
+    <div class="absolute inset-0 fade-in">
+      <!-- Profile Image (fills the section) -->
       <img
         src="./images/tim_dark_crossed_arm.JPG"
         alt="Timothy Roch"
-        class="object-cover w-full h-full z-10"
+        class="absolute inset-0 w-full h-full object-cover z-0"
       />
       <!-- City Overlay -->
       <div
-        class="absolute inset-0 bg-center bg-cover opacity-60 mix-blend-multiply"
-        style="background-image: url('images/city.avif');"
+        class="absolute inset-0 bg-center bg-cover opacity-60 mix-blend-multiply z-0"
+        style="background-image: url('path/to/city.jpg');"
       ></div>
     </div>
+    
+    <!-- Content Container: Hero Text -->
+    <div class="relative z-10 flex flex-col items-center text-center">
+      <h3 class="text-xl md:text-2xl mb-3 font-Ovo flex items-center gap-2">
+        <span class="typewriter">Hi! I'm Timothy Roch</span>
+        <img src="./images/hand-icon.png" alt="" class="w-6">
+      </h3>
+      <h1 class="text-3xl sm:text-6xl lg:text-[66px] font-Ovo">
+        Software engineer.
+      </h1>
+      <p class="max-w-md mt-4 font-Ovo">
+        I am a student in software engineering from Montreal, Canada.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center gap-4 mt-8">
+        <a 
+          href="#contact"
+          class="px-10 py-3 border rounded-full bg-gradient-to-r from-[#1E3A8A] to-[#3B82F6]
+                 text-white flex items-center gap-2 dark:border-transparent"
+        >
+          Contact me 
+          <img src="./images/right-arrow-white.png" class="w-4" alt="">
+        </a>
+        <a
+          href="portfolio.pdf"
+          target="_blank"
+          class="px-10 py-3 border rounded-full border-blue-500 flex items-center gap-2 bg-white dark:text-black
+                 relative neon-border"
+        >
+          My resume 
+          <img src="./images/city.avif" class="w-4" alt="">
+        </a>
+      </div>
+    </div>
   </div>
-</div>
+
+</body>
+</html>
+
 
 
 
@@ -643,7 +663,7 @@
 
 <!-- My Work Section -->
 <div id="my-work" class="px-[12%] py-10 scroll-mt-20">
-  <h2 class="text-center text-5xl font-Ovo mb-4 text-gray-800">My latest work</h2>
+  <h2 class="text-center text-5xl font-Ovo mb-4">My latest work</h2>
 
   <!-- Responsive grid: 1 col on small screens, 3 cols on md+; row-dense to fill spaces -->
   <div class="grid grid-cols-1 md:grid-cols-3 md:grid-flow-row-dense gap-6">
@@ -1129,7 +1149,7 @@
             2024 - Present
           </p>
           <!-- Position / Role -->
-          <h3 class="mt-2 text-xl font-semibold">
+          <h3 class="mt-2 text-xl font-semibold text-black dark:text-white">
             Co-Lead
           </h3>
           <!-- Organization -->
@@ -1155,7 +1175,7 @@
             2024 - Present
           </p>
           <!-- Position / Role -->
-          <h3 class="mt-2 text-xl font-semibold">
+          <h3 class="mt-2 text-xl font-semibold dark:text-white">
             Administrator
           </h3>
           <!-- Organization -->
@@ -1181,7 +1201,7 @@
             2024 - Present
           </p>
           <!-- Degree / Program -->
-          <h3 class="mt-2 text-xl font-semibold">
+          <h3 class="mt-2 text-xl font-semibold dark:text-white">
             Bachelor's Degree in Software Engineering
           </h3>
           <!-- Institution -->
