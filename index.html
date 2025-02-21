@@ -334,13 +334,13 @@
   <h4 class="text-center mb-2 text-lg font-Ovo">What I'm Proud Of</h4>
   <h2 class="text-center text-5xl font-Ovo mb-8">My Top Projects</h2>
 
-  <!-- Container for the Tesla-style project cards -->
+  <!-- Container for the "Tesla-style" project cards -->
   <div class="grid gap-8">
     <!-- Project 1: Luminex Cryptocurrency -->
     <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow relative">
       <!-- Number in top-left corner -->
       <div class="absolute top-6 left-6 text-gray-500 font-bold text-lg">1</div>
-
+      
       <!-- Card content laid out in columns -->
       <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
         <!-- Image column -->
@@ -354,10 +354,11 @@
 
         <!-- Text column -->
         <div class="md:col-span-3">
-          <!-- Award text -->
-          <div class="text-blue-600 text-sm font-semibold mb-1">
-            2025 Award for Technology Excellence
+          <!-- Technologies used -->
+          <div class="text-sm font-semibold mb-1 text-gray-700 dark:text-gray-300">
+            Technologies: Solidity, Node.js, Zero-Knowledge Proof Libraries
           </div>
+
           <!-- Title and rating row -->
           <div class="flex items-center justify-between mb-2">
             <h2 class="text-xl font-bold text-gray-900 dark:text-gray-100">
@@ -365,50 +366,75 @@
             </h2>
             <span class="text-green-600 font-bold">9/10</span>
           </div>
-          <!-- Small info line (like "Autonomie jusqu'à 576 km") -->
+
+          <!-- Small info line -->
           <div class="text-sm text-gray-500 dark:text-gray-400 mb-4">
-            Scalabilité jusqu’à 10 000 TPS
+            Scalability up to 10,000 TPS
           </div>
+
           <!-- Description -->
           <p class="text-gray-700 dark:text-gray-300 mb-4">
-            Luminex est une cryptomonnaie de nouvelle génération, construite sur une
-            blockchain sécurisée et évolutive. Elle tire parti du sharding, des rollups
-            de Layer-2 et des preuves à connaissance nulle pour offrir des transactions
-            rapides et des frais minimes.
+            Luminex is a next-generation cryptocurrency built on a secure,
+            scalable blockchain. It leverages sharding, Layer-2 rollups, and
+            zero-knowledge proofs to provide fast transactions and minimal fees.
           </p>
+
           <!-- Pros / Cons columns -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <div>
-              <h4 class="font-semibold text-gray-800 dark:text-gray-200">
-                Points forts
-              </h4>
+              <h4 class="font-semibold text-gray-800 dark:text-gray-200">Pros</h4>
               <ul class="list-disc list-inside text-gray-600 dark:text-gray-400">
-                <li>Transactions rapides</li>
-                <li>Frais réduits</li>
-                <li>Sécurité robuste</li>
+                <li>Fast transactions</li>
+                <li>Low fees</li>
+                <li>Robust security</li>
               </ul>
             </div>
             <div>
-              <h4 class="font-semibold text-gray-800 dark:text-gray-200">
-                Points faibles
-              </h4>
+              <h4 class="font-semibold text-gray-800 dark:text-gray-200">Cons</h4>
               <ul class="list-disc list-inside text-gray-600 dark:text-gray-400">
-                <li>Adoption limitée pour l’instant</li>
-                <li>Volatilité du marché crypto</li>
+                <li>Limited adoption so far</li>
+                <li>Crypto market volatility</li>
               </ul>
             </div>
           </div>
-          <!-- Bottom row: price / CTA -->
+
+          <!-- Bottom row: "price"/label + GitHub + CTA -->
           <div class="flex items-center justify-between">
             <div class="font-bold text-gray-800 dark:text-gray-200">
               Open Source
             </div>
-            <a
-              href="luminex.html"
-              class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
-            >
-              En savoir plus
-            </a>
+            <div class="flex items-center space-x-4">
+              <!-- GitHub Icon/Link -->
+              <a
+                href="https://github.com/YourGitHubAccount/Luminex"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gray-600 hover:text-gray-900 dark:hover:text-gray-100 transition"
+                aria-label="GitHub Repository"
+              >
+                <!-- GitHub Icon SVG -->
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16">
+                  <path
+                    d="M8 0C3.58 0 0 3.64 0 8.13c0 3.59 2.29 6.63 5.47 7.71.4.08.55-.18.55-.39
+                    0-.19-.01-.82-.01-1.49-2 .37-2.53-.5-2.69-.96-.09-.23-.48-.96-.82-1.15-.28-.15-.68-.52
+                    -.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.86 2.33.66.07-.52.28-.86.51-1.06-1.78
+                    -.2-3.64-.91-3.64-4.06 0-.9.31-1.64.82-2.22-.08-.2-.36-1.01.08-2.11 0 0 .67-.22
+                    2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44
+                    1.1.16 1.91.08 2.11.51.58.82 1.32.82 2.22 0 3.16-1.87 3.86-3.65 4.06.29.26.54.77
+                    .54 1.55 0 1.12-.01 2.02-.01 2.3 0 .21.15.47.55.39A8.02 8.02 0 0016 8.13C16
+                    3.64 12.42 0 8 0z"
+                  />
+                </svg>
+              </a>
+
+              <!-- Learn More Button -->
+              <a
+                href="luminex.html"
+                class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+              >
+                Learn more
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -426,56 +452,83 @@
             class="w-full max-w-[200px] object-contain"
           />
         </div>
+        
         <!-- Text column -->
         <div class="md:col-span-3">
-          <div class="text-blue-600 text-sm font-semibold mb-1">
-            2025 Award for Technology Excellence
+          <!-- Technologies used -->
+          <div class="text-sm font-semibold mb-1 text-gray-700 dark:text-gray-300">
+            Technologies: Python, TensorFlow, OpenCV
           </div>
+
           <div class="flex items-center justify-between mb-2">
             <h2 class="text-xl font-bold text-gray-900 dark:text-gray-100">
               AI Sign Language Interpreter
             </h2>
             <span class="text-green-600 font-bold">8.5/10</span>
           </div>
+
           <div class="text-sm text-gray-500 dark:text-gray-400 mb-4">
-            Traduction en temps réel des gestes
+            Real-time gesture translation
           </div>
+
           <p class="text-gray-700 dark:text-gray-300 mb-4">
-            Un outil basé sur l’IA qui reconnaît et traduit la langue des signes en
-            temps réel, réduisant les barrières de communication et promouvant
-            l’accessibilité.
+            An AI-based tool that recognizes and translates sign language in real
+            time, reducing communication barriers and promoting accessibility.
           </p>
+
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <div>
-              <h4 class="font-semibold text-gray-800 dark:text-gray-200">
-                Points forts
-              </h4>
+              <h4 class="font-semibold text-gray-800 dark:text-gray-200">Pros</h4>
               <ul class="list-disc list-inside text-gray-600 dark:text-gray-400">
-                <li>Accessibilité accrue</li>
-                <li>Reconnaissance IA performante</li>
-                <li>Facile à intégrer</li>
+                <li>Increased accessibility</li>
+                <li>High-performance AI recognition</li>
+                <li>Easy to integrate</li>
               </ul>
             </div>
             <div>
-              <h4 class="font-semibold text-gray-800 dark:text-gray-200">
-                Points faibles
-              </h4>
+              <h4 class="font-semibold text-gray-800 dark:text-gray-200">Cons</h4>
               <ul class="list-disc list-inside text-gray-600 dark:text-gray-400">
-                <li>Précision dépendante de la qualité vidéo</li>
-                <li>Nécessite un apprentissage constant</li>
+                <li>Accuracy depends on video quality</li>
+                <li>Requires ongoing model training</li>
               </ul>
             </div>
           </div>
+
           <div class="flex items-center justify-between">
             <div class="font-bold text-gray-800 dark:text-gray-200">
-              Disponible sur demande
+              Available on request
             </div>
-            <a
-              href="/aisign/aisign.html"
-              class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
-            >
-              En savoir plus
-            </a>
+            <div class="flex items-center space-x-4">
+              <!-- GitHub Icon/Link -->
+              <a
+                href="https://github.com/YourGitHubAccount/AI-Sign-Interpreter"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gray-600 hover:text-gray-900 dark:hover:text-gray-100 transition"
+                aria-label="GitHub Repository"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16">
+                  <path
+                    d="M8 0C3.58 0 0 3.64 0 8.13c0 3.59 2.29 6.63 5.47 7.71.4.08.55-.18.55-.39
+                    0-.19-.01-.82-.01-1.49-2 .37-2.53-.5-2.69-.96-.09-.23-.48-.96-.82-1.15-.28-.15-.68-.52
+                    -.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.86 2.33.66.07-.52.28-.86.51-1.06-1.78
+                    -.2-3.64-.91-3.64-4.06 0-.9.31-1.64.82-2.22-.08-.2-.36-1.01.08-2.11 0 0 .67-.22
+                    2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44
+                    1.1.16 1.91.08 2.11.51.58.82 1.32.82 2.22 0 3.16-1.87 3.86-3.65 4.06.29.26.54.77
+                    .54 1.55 0 1.12-.01 2.02-.01 2.3 0 .21.15.47.55.39A8.02 8.02 0 0016 8.13C16
+                    3.64 12.42 0 8 0z"
+                  />
+                </svg>
+              </a>
+
+              <!-- Learn More Button -->
+              <a
+                href="/aisign/aisign.html"
+                class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+              >
+                Learn more
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -493,63 +546,91 @@
             class="w-full max-w-[200px] object-contain"
           />
         </div>
+
         <!-- Text column -->
         <div class="md:col-span-3">
-          <div class="text-blue-600 text-sm font-semibold mb-1">
-            2025 Award for Technology Excellence
+          <!-- Technologies used -->
+          <div class="text-sm font-semibold mb-1 text-gray-700 dark:text-gray-300">
+            Technologies: React, Node.js, Hyperledger
           </div>
+
           <div class="flex items-center justify-between mb-2">
             <h2 class="text-xl font-bold text-gray-900 dark:text-gray-100">
               Decentralized Medical Records
             </h2>
             <span class="text-green-600 font-bold">9.5/10</span>
           </div>
+
           <div class="text-sm text-gray-500 dark:text-gray-400 mb-4">
-            Sécurité et confidentialité accrues
+            Enhanced security and privacy
           </div>
+
           <p class="text-gray-700 dark:text-gray-300 mb-4">
-            Une application décentralisée sur blockchain conçue pour stocker,
-            gérer et partager de manière sécurisée les dossiers médicaux. Elle
-            garantit la confidentialité des données, améliore l’accessibilité et
-            offre aux patients un contrôle total de leurs informations.
+            A blockchain-based dApp designed to securely store, manage, and share 
+            patient medical records. It ensures data privacy, improves accessibility, 
+            and gives patients full control of their healthcare information.
           </p>
+
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <div>
-              <h4 class="font-semibold text-gray-800 dark:text-gray-200">
-                Points forts
-              </h4>
+              <h4 class="font-semibold text-gray-800 dark:text-gray-200">Pros</h4>
               <ul class="list-disc list-inside text-gray-600 dark:text-gray-400">
-                <li>Protection avancée des données</li>
-                <li>Accessibilité et transparence</li>
-                <li>Contrôle total pour les patients</li>
+                <li>Advanced data protection</li>
+                <li>Transparency and accessibility</li>
+                <li>Full patient control</li>
               </ul>
             </div>
             <div>
-              <h4 class="font-semibold text-gray-800 dark:text-gray-200">
-                Points faibles
-              </h4>
+              <h4 class="font-semibold text-gray-800 dark:text-gray-200">Cons</h4>
               <ul class="list-disc list-inside text-gray-600 dark:text-gray-400">
-                <li>Dépend de l’adoption par les hôpitaux</li>
-                <li>Implémentation technique complexe</li>
+                <li>Relies on hospital adoption</li>
+                <li>Complex technical implementation</li>
               </ul>
             </div>
           </div>
+
           <div class="flex items-center justify-between">
             <div class="font-bold text-gray-800 dark:text-gray-200">
-              Modèle Freemium
+              Freemium Model
             </div>
-            <a
-              href="/medical_blockchain/HCB.html"
-              class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
-            >
-              En savoir plus
-            </a>
+            <div class="flex items-center space-x-4">
+              <!-- GitHub Icon/Link -->
+              <a
+                href="https://github.com/YourGitHubAccount/Decentralized-Medical-Records"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gray-600 hover:text-gray-900 dark:hover:text-gray-100 transition"
+                aria-label="GitHub Repository"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16">
+                  <path
+                    d="M8 0C3.58 0 0 3.64 0 8.13c0 3.59 2.29 6.63 5.47 7.71.4.08.55-.18.55-.39
+                    0-.19-.01-.82-.01-1.49-2 .37-2.53-.5-2.69-.96-.09-.23-.48-.96-.82-1.15-.28-.15-.68-.52
+                    -.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.86 2.33.66.07-.52.28-.86.51-1.06-1.78
+                    -.2-3.64-.91-3.64-4.06 0-.9.31-1.64.82-2.22-.08-.2-.36-1.01.08-2.11 0 0 .67-.22
+                    2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44
+                    1.1.16 1.91.08 2.11.51.58.82 1.32.82 2.22 0 3.16-1.87 3.86-3.65 4.06.29.26.54.77
+                    .54 1.55 0 1.12-.01 2.02-.01 2.3 0 .21.15.47.55.39A8.02 8.02 0 0016 8.13C16
+                    3.64 12.42 0 8 0z"
+                  />
+                </svg>
+              </a>
+
+              <!-- Learn More Button -->
+              <a
+                href="/medical_blockchain/HCB.html"
+                class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+              >
+                Learn more
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 
 
 
