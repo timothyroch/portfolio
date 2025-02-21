@@ -16,11 +16,9 @@
       --link-color: #bb86fc;
       --link-hover: #3700b3;
       --border-color: #333;
-      --highlight-bg: #333;
-      --highlight-border: #bb86fc;
-      --nav-link-color: #e0e0e0;
-      --nav-link-hover: #bb86fc;
       --dropdown-bg: #1e1e1e;
+      --button-bg: #bb86fc;
+      --button-hover: #3700b3;
     }
 
     /* Global Reset */
@@ -88,13 +86,13 @@
     }
 
     nav ul li a {
-      color: var(--nav-link-color);
+      color: var(--text-color);
       text-decoration: none;
       font-size: 1em;
     }
 
     nav ul li a:hover {
-      color: var(--nav-link-hover);
+      color: var(--link-hover);
     }
 
     /* Section Headings */
@@ -167,7 +165,7 @@
       position: fixed;
       bottom: 30px;
       right: 30px;
-      background: var(--link-color);
+      background: var(--button-bg);
       color: #fff;
       padding: 10px 15px;
       border-radius: 5px;
@@ -177,7 +175,65 @@
     }
 
     #back-to-top:hover {
-      background: var(--link-hover);
+      background: var(--button-hover);
+    }
+
+    /* GitHub Button */
+    .github-button {
+      display: inline-block;
+      background: var(--button-bg);
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 10px 0;
+      transition: background 0.3s ease;
+    }
+
+    .github-button:hover {
+      background: var(--button-hover);
+    }
+
+    /* Open Source Bloc */
+    .open-source {
+      border: 1px solid var(--border-color);
+      padding: 15px;
+      border-radius: 4px;
+      margin: 15px 0;
+      background: var(--dropdown-bg);
+    }
+
+    /* Contact Form Styles */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      background: var(--container-bg);
+      color: var(--text-color);
+    }
+
+    .contact-form button {
+      background: var(--button-bg);
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background: var(--button-hover);
     }
 
     /* Responsive Design */
@@ -193,42 +249,6 @@
         font-size: 1.5em;
       }
     }
-
-    /* Additional Sections for Interactivity */
-    .testimonial,
-    .team-member,
-    .faq-item {
-      margin: 15px 0;
-      padding: 15px;
-      border: 1px solid var(--border-color);
-      border-radius: 4px;
-    }
-
-    .testimonial p {
-      font-style: italic;
-    }
-
-    .team-member img {
-      width: 80px;
-      border-radius: 50%;
-      margin-right: 15px;
-    }
-
-    .team-member .member-info {
-      display: inline-block;
-      vertical-align: middle;
-    }
-
-    .faq-question {
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .faq-answer {
-      display: none;
-      margin-top: 10px;
-      padding-left: 15px;
-    }
   </style>
 </head>
 <body id="top">
@@ -243,8 +263,6 @@
         <li><a href="#architecture">Architecture</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="#roadmap">Roadmap</a></li>
-        <li><a href="#team">Team</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -262,8 +280,8 @@
         to provide superior transaction throughput and reduced fees.
       </p>
       <p>
-        Our Adaptive Multi-Layer (AML) architecture supports a wide range of applications, from decentralized finance (DeFi)
-        to enterprise solutions, ensuring that the blockchain can meet diverse needs.
+        Our Adaptive Multi-Layer (AML) architecture supports a wide range of applications, ensuring that the blockchain
+        can meet diverse needs in decentralized finance, enterprise solutions, and beyond.
       </p>
     </section>
 
@@ -297,7 +315,7 @@
         <div class="dropdown-content">
           <ul>
             <li><strong>ZK Rollups:</strong> Batch processing transactions off-chain with ZKP validation.</li>
-            <li><strong>Sidechains:</strong> Customizable chains for specific applications like gaming or supply chain.</li>
+            <li><strong>Sidechains:</strong> Customizable chains for specific applications.</li>
             <li><strong>State Channels:</strong> Facilitate microtransactions with periodic on-chain settlements.</li>
           </ul>
         </div>
@@ -392,49 +410,6 @@
       </section>
     </section>
 
-    <!-- Team Section -->
-    <section id="team">
-      <h2>Our Team</h2>
-      <div class="team-member">
-        <img src="team1.jpg" alt="Team Member 1">
-        <div class="member-info">
-          <h3>Alice Johnson</h3>
-          <p>Chief Technology Officer with over 15 years of experience in blockchain development.</p>
-        </div>
-      </div>
-      <div class="team-member">
-        <img src="team2.jpg" alt="Team Member 2">
-        <div class="member-info">
-          <h3>Bob Smith</h3>
-          <p>Lead Developer specializing in cryptographic protocols and distributed systems.</p>
-        </div>
-      </div>
-      <div class="team-member">
-        <img src="team3.jpg" alt="Team Member 3">
-        <div class="member-info">
-          <h3>Carol Williams</h3>
-          <p>Community Manager dedicated to fostering developer and user engagement.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials">
-      <h2>Testimonials</h2>
-      <div class="testimonial">
-        <p>"Luminex revolutionizes blockchain scalability while maintaining top-notch security. It's a game-changer!"</p>
-        <p>- Tech Innovator Magazine</p>
-      </div>
-      <div class="testimonial">
-        <p>"The adaptive multi-layer approach of Luminex sets a new benchmark in decentralized technology."</p>
-        <p>- Blockchain Review</p>
-      </div>
-      <div class="testimonial">
-        <p>"An impressive blend of cutting-edge tech and practical application. Luminex is paving the future."</p>
-        <p>- Crypto Analyst Weekly</p>
-      </div>
-    </section>
-
     <!-- FAQ Section -->
     <section id="faq">
       <h2>Frequently Asked Questions</h2>
@@ -456,15 +431,33 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-      <h2>Contact &amp; Community</h2>
-      <p>Join our community to stay updated and contribute to the growth of Luminex:</p>
-      <ul>
-        <li><a href="https://github.com/timothyroch/luminex/tree/main" style="color: var(--link-color);">GitHub Repository</a></li>
-        <li><a href="https://github.com/timothyroch/luminex/tree/main" style="color: var(--link-color);">Developer Documentation</a></li>
-        <li><a href="mailto:timothyroch@gmail.com" style="color: var(--link-color);">Contact Us</a></li>
-      </ul>
+    <!-- Contact & Community Section -->
+    <section id="contact" class="contact">
+      <h2>Contact Us</h2>
+      <p>
+        If you’re interested in learning more about our project or collaborating on innovative blockchain solutions, please reach out using the form below.
+      </p>
+      <!-- GitHub Button -->
+      <a href="https://github.com/timothyroch/luminex/tree/main" class="github-button" target="_blank">View on GitHub</a>
+      <!-- Open Source Bloc -->
+      <div class="open-source">
+        <p>This cryptocurrency is open source and I am ready to collaborate with anyone interested in advancing the technology.</p>
+      </div>
+      <!-- Contact Form -->
+      <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+        <!-- Your Web3Forms Access Key -->
+        <input type="hidden" name="access_key" value="c42e1e7b-2eba-4017-a674-4e5b99155445">
+        
+        <!-- Form Inputs -->
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        
+        <!-- Honeypot Spam Protection -->
+        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+        
+        <button type="submit">Send Message</button>
+      </form>
     </section>
   </div>
 
@@ -543,40 +536,11 @@
     });
   </script>
 
-  <!-- Additional JavaScript for Enhanced Interactivity -->
-  <script>
-    // Testimonials Slider - Auto cycle testimonials every 5 seconds
-    let testimonials = document.querySelectorAll('#testimonials .testimonial');
-    let currentTestimonial = 0;
-    function showTestimonial(index) {
-      testimonials.forEach((t, i) => {
-        t.style.display = (i === index) ? 'block' : 'none';
-      });
-    }
-    showTestimonial(currentTestimonial);
-    setInterval(function() {
-      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-      showTestimonial(currentTestimonial);
-    }, 5000);
-  </script>
-
   <!-- Extra Spacing and Comments to Meet Code Length Requirements -->
   <!-- 
        The following blank lines and comments are added intentionally 
        to ensure that the final code reaches roughly 450-550 lines.
   -->
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   
